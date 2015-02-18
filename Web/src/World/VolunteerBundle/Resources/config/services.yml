@@ -1,0 +1,7 @@
+parameters:
+#    world_volunteer.example.class: World\VolunteerBundle\Example
+
+services:
+#    world_volunteer.example:
+#        class: %world_volunteer.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

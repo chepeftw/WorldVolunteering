@@ -1,0 +1,12 @@
+world_user:
+    resource: "@WorldUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+world_tool:
+    resource: "@WorldToolBundle/Resources/config/routing.yml"
+    prefix:   /
+
+world_volunteer:
+    resource: "@WorldVolunteerBundle/Resources/config/routing.yml"
+    prefix:   /
+
