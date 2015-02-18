@@ -1,0 +1,3 @@
+world_dashboard_homepage:
+    path:     /
+    defaults: { _controller: WorldDashboardBundle:Dashboard:index }

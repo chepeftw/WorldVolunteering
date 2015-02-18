@@ -1,3 +1,7 @@
+world_dashboard:
+    resource: "@WorldDashboardBundle/Resources/config/routing.yml"
+    prefix:   /
+
 world_user:
     resource: "@WorldUserBundle/Resources/config/routing.yml"
     prefix:   /

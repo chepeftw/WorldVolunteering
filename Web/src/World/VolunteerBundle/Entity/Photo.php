@@ -3,14 +3,18 @@
 namespace World\VolunteerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use World\ToolBundle\Entity\BaseEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Photo
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="World\VolunteerBundle\Entity\Repositories\PhotoRepository")
+ * @Gedmo\Loggable
  */
-class Photo
+class Photo extends BaseEntity
 {
     /**
      * @var integer
@@ -25,22 +29,25 @@ class Photo
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Gedmo\Versioned
      */
-    private $name;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="picture", type="string", length=255)
-     */
-    private $picture;
+    protected $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     * @Gedmo\Versioned
      */
     private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="picture", type="string", length=255)
+     * @Gedmo\Versioned
+     */
+    private $picture;
 
     /**
      * @var integer
@@ -49,106 +56,55 @@ class Photo
      */
     private $orderNumber;
 
+    /**
+     * @var Association
+     *
+     * @ORM\ManyToOne(targetEntity="Association", inversedBy="photos")
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
+     * @Gedmo\Versioned
+     */
+    protected $association;
 
     /**
-     * Get id
+     * @var boolean
      *
-     * @return integer 
+     * @ORM\Column(name="enabled", type="boolean")
+     * @Gedmo\Versioned
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    protected $enabled;
 
     /**
-     * Set name
+     * @var datetime $created
      *
-     * @param string $name
-     * @return Photo
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
      */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
+    private $created;
 
     /**
-     * Get name
+     * @var datetime $updated
      *
-     * @return string 
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
      */
-    public function getName()
-    {
-        return $this->name;
-    }
+    private $updated;
 
     /**
-     * Set picture
+     * @var User $createdBy
      *
-     * @param string $picture
-     * @return Photo
+     * @Gedmo\Blameable(on="create")
+     * @ORM\ManyToOne(targetEntity="World\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="created_by", referencedColumnName="id")
      */
-    public function setPicture($picture)
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
+    private $createdBy;
 
     /**
-     * Get picture
+     * @var User $updatedBy
      *
-     * @return string 
+     * @Gedmo\Blameable(on="update")
+     * @ORM\ManyToOne(targetEntity="World\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
      */
-    public function getPicture()
-    {
-        return $this->picture;
-    }
+    private $updatedBy;
 
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Photo
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set orderNumber
-     *
-     * @param integer $orderNumber
-     * @return Photo
-     */
-    public function setOrderNumber($orderNumber)
-    {
-        $this->orderNumber = $orderNumber;
-
-        return $this;
-    }
-
-    /**
-     * Get orderNumber
-     *
-     * @return integer 
-     */
-    public function getOrderNumber()
-    {
-        return $this->orderNumber;
-    }
 }

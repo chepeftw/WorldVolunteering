@@ -1,0 +1,88 @@
+{% trans_default_domain 'DemiDashboardBundle' %}
+
+{% block form -%}
+    {{ form_start(form) }}
+    <div class="ui form segment">
+        {{- form_widget(form) -}}
+    </div>
+    {{ form_end(form) }}
+{%- endblock form %}
+
+{% block form_row %}
+{% spaceless %}
+    <div class="field">
+    	{{ form_errors(form) }}
+        {{ form_label(form) }}
+        {{ form_widget(form) }}
+    </div>
+{% endspaceless %}
+{% endblock form_row %}
+
+
+{% block button_row %}
+{% spaceless %}
+    <div class="field">
+        {{ form_widget(form) }}
+    </div>
+{% endspaceless %}
+{% endblock button_row %}
+
+
+{% block button_widget %}
+{% spaceless %}
+    {% if label is empty %}
+        {% set label = name|humanize %}
+    {% endif %}
+    <button class="ui green button" type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
+{% endspaceless %}
+{% endblock button_widget %}
+
+{% block form_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+    <ul>
+        {% for error in errors %}
+            <li style="color: red">{{ error.message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}
+
+{% block date_widget %}
+{% spaceless %}
+    {% if widget == 'single_text' %}
+        {{ block('form_widget_simple') }}
+    {% else %}
+        <div class="select_content" {{ block('widget_container_attributes') }}>
+            {{ date_pattern|replace({
+                '{{ year }}': form_widget(form.year),
+                '{{ month }}': form_widget(form.month),
+                '{{ day }}': form_widget(form.day),
+            })|raw }}
+        </div>
+    {% endif %}
+{% endspaceless %}
+{% endblock date_widget %}
+
+
+{% block choice_widget_collapsed %}
+{% spaceless %}
+    <select class="chosen-select" tabindex="2" {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
+        {% if empty_value is not none %}
+            <option {% if required %} disabled="disabled"{% if value is empty %} selected="selected"{% endif %}{% else %} value=""{% endif %}>{{ empty_value|trans({}, translation_domain) }}</option>
+        {% endif %}
+
+        {% if preferred_choices|length > 0 %}
+            {% set options = preferred_choices %}
+            {{ block('choice_widget_options') }}
+            {% if choices|length > 0 and separator is not none %}
+                <option disabled="disabled">{{ separator }}</option>
+            {% endif %}
+        {% endif %}
+
+        {% set options = choices %}
+        {{ block('choice_widget_options') }}
+    </select>
+{% endspaceless %}
+{% endblock choice_widget_collapsed %}

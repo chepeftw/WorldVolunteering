@@ -3,14 +3,18 @@
 namespace World\VolunteerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use World\ToolBundle\Entity\BaseEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Testimonial
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="World\VolunteerBundle\Entity\Repositories\TestimonialRepository")
+ * @Gedmo\Loggable
  */
-class Testimonial
+class Testimonial extends BaseEntity
 {
     /**
      * @var integer
@@ -25,100 +29,76 @@ class Testimonial
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Gedmo\Versioned
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     * @Gedmo\Versioned
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="pictures", type="string", length=255)
+     * @ORM\Column(name="picture", type="string", length=255)
+     * @Gedmo\Versioned
      */
-    private $pictures;
-
+    private $picture;
 
     /**
-     * Get id
+     * @var Association
      *
-     * @return integer 
+     * @ORM\ManyToOne(targetEntity="Association", inversedBy="testimonials")
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
+     * @Gedmo\Versioned
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    protected $association;
 
     /**
-     * Set name
+     * @var boolean
      *
-     * @param string $name
-     * @return Testimonial
+     * @ORM\Column(name="enabled", type="boolean")
+     * @Gedmo\Versioned
      */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
+    protected $enabled;
 
     /**
-     * Get name
+     * @var datetime $created
      *
-     * @return string 
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
      */
-    public function getName()
-    {
-        return $this->name;
-    }
+    private $created;
 
     /**
-     * Set description
+     * @var datetime $updated
      *
-     * @param string $description
-     * @return Testimonial
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
      */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
+    private $updated;
 
     /**
-     * Get description
+     * @var User $createdBy
      *
-     * @return string 
+     * @Gedmo\Blameable(on="create")
+     * @ORM\ManyToOne(targetEntity="World\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="created_by", referencedColumnName="id")
      */
-    public function getDescription()
-    {
-        return $this->description;
-    }
+    private $createdBy;
 
     /**
-     * Set pictures
+     * @var User $updatedBy
      *
-     * @param string $pictures
-     * @return Testimonial
+     * @Gedmo\Blameable(on="update")
+     * @ORM\ManyToOne(targetEntity="World\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
      */
-    public function setPictures($pictures)
-    {
-        $this->pictures = $pictures;
+    private $updatedBy;
 
-        return $this;
-    }
 
-    /**
-     * Get pictures
-     *
-     * @return string 
-     */
-    public function getPictures()
-    {
-        return $this->pictures;
-    }
 }

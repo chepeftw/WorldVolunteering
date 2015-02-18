@@ -3,14 +3,18 @@
 namespace World\VolunteerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use World\ToolBundle\Entity\BaseEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Video
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="World\VolunteerBundle\Entity\Repositories\VideoRepository")
+ * @Gedmo\Loggable
  */
-class Video
+class Video extends BaseEntity
 {
     /**
      * @var integer
@@ -25,100 +29,75 @@ class Video
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Gedmo\Versioned
      */
-    private $name;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="url", type="string", length=255)
-     */
-    private $url;
+    protected $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     * @Gedmo\Versioned
      */
     private $description;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="text")
+     * @Gedmo\Versioned
+     */
+    private $url;
 
     /**
-     * Get id
+     * @var Association
      *
-     * @return integer 
+     * @ORM\ManyToOne(targetEntity="Association", inversedBy="videos")
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
+     * @Gedmo\Versioned
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    protected $association;
 
     /**
-     * Set name
+     * @var boolean
      *
-     * @param string $name
-     * @return Video
+     * @ORM\Column(name="enabled", type="boolean")
+     * @Gedmo\Versioned
      */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
+    protected $enabled;
 
     /**
-     * Get name
+     * @var datetime $created
      *
-     * @return string 
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
      */
-    public function getName()
-    {
-        return $this->name;
-    }
+    private $created;
 
     /**
-     * Set url
+     * @var datetime $updated
      *
-     * @param string $url
-     * @return Video
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
      */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-
-        return $this;
-    }
+    private $updated;
 
     /**
-     * Get url
+     * @var User $createdBy
      *
-     * @return string 
+     * @Gedmo\Blameable(on="create")
+     * @ORM\ManyToOne(targetEntity="World\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="created_by", referencedColumnName="id")
      */
-    public function getUrl()
-    {
-        return $this->url;
-    }
+    private $createdBy;
 
     /**
-     * Set description
+     * @var User $updatedBy
      *
-     * @param string $description
-     * @return Video
+     * @Gedmo\Blameable(on="update")
+     * @ORM\ManyToOne(targetEntity="World\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
      */
-    public function setDescription($description)
-    {
-        $this->description = $description;
+    private $updatedBy;
 
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
 }

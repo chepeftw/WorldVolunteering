@@ -1,0 +1,12 @@
+{% trans_default_domain 'DemiDashboardBundle' %}
+
+{% block button_widget %}
+{% spaceless %}
+    {% if label is empty %}
+        {% set label = name|humanize %}
+    {% endif %}
+    <div class="ui red">
+    <button class="ui red button" type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
+    </div>
+{% endspaceless %}
+{% endblock button_widget %}

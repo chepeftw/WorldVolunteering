@@ -14,6 +14,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="World\VolunteerBundle\Entity\Repositories\AssociationRepository")
+ * @UniqueEntity(fields={"name"})
  * @Gedmo\Loggable
  */
 class Association extends BaseEntity
@@ -464,6 +465,30 @@ class Association extends BaseEntity
      */
     protected $activites;
 
+    /**
+     * @var Testimonial
+     *
+     * @ORM\OneToMany(targetEntity="Testimonial", mappedBy="association")
+     * @Gedmo\Versioned
+     */
+    protected $testimonials;
+
+    /**
+     * @var Photo
+     *
+     * @ORM\OneToMany(targetEntity="Photo", mappedBy="association")
+     * @Gedmo\Versioned
+     */
+    protected $photos;
+
+    /**
+     * @var Video
+     *
+     * @ORM\OneToMany(targetEntity="Video", mappedBy="association")
+     * @Gedmo\Versioned
+     */
+    protected $videos;
+
 
 
 
@@ -499,6 +524,40 @@ class Association extends BaseEntity
      * @Gedmo\Versioned
      */
     protected $enabled;
+
+    /**
+     * @var datetime $created
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
+
+    /**
+     * @var datetime $updated
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     */
+    private $updated;
+
+    /**
+     * @var User $createdBy
+     *
+     * @Gedmo\Blameable(on="create")
+     * @ORM\ManyToOne(targetEntity="World\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="created_by", referencedColumnName="id")
+     */
+    private $createdBy;
+
+    /**
+     * @var User $updatedBy
+     *
+     * @Gedmo\Blameable(on="update")
+     * @ORM\ManyToOne(targetEntity="World\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
+     */
+    private $updatedBy;
 
 
 }

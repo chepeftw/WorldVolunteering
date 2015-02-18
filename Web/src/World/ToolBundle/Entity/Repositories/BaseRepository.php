@@ -12,15 +12,6 @@ use Doctrine\ORM\EntityRepository;
  */
 class BaseRepository extends EntityRepository {
 
-	public function sumAll( $field = 'cost', $entity = null, $entityName = null ) {
-		$query = $this->createQueryBuilder('a')
-					->select( 'sum(a.' . $field . ')' );
-					
-		$this->addQueryParam( $query, $entity, $entityName);
-		
-		return $query->getQuery()->getSingleScalarResult();
-	}
-
 	public function addQueryParam( $query, $parameter, $name ) {
 		if( $parameter != null ) {
 			$query
