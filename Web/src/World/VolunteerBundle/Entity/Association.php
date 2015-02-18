@@ -3,14 +3,20 @@
 namespace World\VolunteerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use World\ToolBundle\Entity\BaseEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Association
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="World\VolunteerBundle\Entity\AssociationRepository")
+ * @ORM\Entity(repositoryClass="World\VolunteerBundle\Entity\Repositories\AssociationRepository")
+ * @Gedmo\Loggable
  */
-class Association
+class Association extends BaseEntity
 {
     /**
      * @var integer
@@ -25,13 +31,15 @@ class Association
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Gedmo\Versioned
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="address", type="text")
+     * @Gedmo\Versioned
      */
     private $address;
 
@@ -39,6 +47,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="country", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $country;
 
@@ -46,6 +55,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="state", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $state;
 
@@ -53,6 +63,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="city", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $city;
 
@@ -60,6 +71,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="phone", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $phone;
 
@@ -67,6 +79,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $email;
 
@@ -74,6 +87,7 @@ class Association
      * @var \DateTime
      *
      * @ORM\Column(name="founded", type="date")
+     * @Gedmo\Versioned
      */
     private $founded;
 
@@ -84,6 +98,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="mission", type="text")
+     * @Gedmo\Versioned
      */
     private $mission;
 
@@ -91,6 +106,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="vision", type="text")
+     * @Gedmo\Versioned
      */
     private $vision;
 
@@ -98,6 +114,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="philosophy", type="text")
+     * @Gedmo\Versioned
      */
     private $philosophy;
 
@@ -105,6 +122,7 @@ class Association
      * @var boolean
      *
      * @ORM\Column(name="legal", type="boolean")
+     * @Gedmo\Versioned
      */
     private $legal;
 
@@ -112,6 +130,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $type;
 
@@ -119,6 +138,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="denomination", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $denomination;
 
@@ -126,6 +146,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="coverage", type="text")
+     * @Gedmo\Versioned
      */
     private $coverage;
 
@@ -135,6 +156,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="aboutUs", type="text")
+     * @Gedmo\Versioned
      */
     private $aboutUs;
 
@@ -142,6 +164,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="whatWeDo", type="text")
+     * @Gedmo\Versioned
      */
     private $whatWeDo;
 
@@ -151,6 +174,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="legalPartner", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $legalPartner;
 
@@ -158,6 +182,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="legalPartnerPhone", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $legalPartnerPhone;
 
@@ -165,6 +190,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="legalPartnerEmail", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $legalPartnerEmail;
 
@@ -172,6 +198,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="executivePartner", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $executivePartner;
 
@@ -179,6 +206,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="executivePartnerPhone", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $executivePartnerPhone;
 
@@ -186,6 +214,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="executivePartnerEmail", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $executivePartnerEmail;
 
@@ -193,6 +222,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="communicationPartner", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $communicationPartner;
 
@@ -200,6 +230,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="communicationPartnerPhone", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $communicationPartnerPhone;
 
@@ -207,6 +238,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="communicationPartnerEmail", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $communicationPartnerEmail;
 
@@ -218,6 +250,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="website", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $website;
 
@@ -225,6 +258,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="facebook", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $facebook;
 
@@ -232,6 +266,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="twitter", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $twitter;
 
@@ -239,6 +274,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="instagram", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $instagram;
 
@@ -251,6 +287,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="director", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $director;
 
@@ -258,6 +295,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="directorPhone", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $directorPhone;
 
@@ -265,6 +303,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="directorEmail", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $directorEmail;
 
@@ -272,6 +311,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="directorBirthdate", type="date")
+     * @Gedmo\Versioned
      */
     private $directorBirthdate;
 
@@ -279,6 +319,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="directorTime", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $directorTime;
 
@@ -291,6 +332,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="history", type="text")
+     * @Gedmo\Versioned
      */
     private $history;
 
@@ -298,6 +340,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="volunteerRequirements", type="text")
+     * @Gedmo\Versioned
      */
     private $volunteerRequirements;
 
@@ -305,6 +348,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="volunteerAge", type="text")
+     * @Gedmo\Versioned
      */
     private $volunteerAge;
 
@@ -312,6 +356,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="commitment", type="text")
+     * @Gedmo\Versioned
      */
     private $commitment;
 
@@ -319,20 +364,23 @@ class Association
      * @var boolean
      *
      * @ORM\Column(name="donations", type="boolean")
+     * @Gedmo\Versioned
      */
     private $donations;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="donation_method", type="string", length=255)
+     * @ORM\Column(name="donationMethod", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $donationMethod;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="donation_purpose", type="text")
+     * @ORM\Column(name="donationPurpose", type="text")
+     * @Gedmo\Versioned
      */
     private $donationPurpose;
 
@@ -342,6 +390,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="axis", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $axis;
 
@@ -352,6 +401,7 @@ class Association
      * @var integer
      *
      * @ORM\Column(name="volunteerActive", type="integer")
+     * @Gedmo\Versioned
      */
     private $volunteerActive;
 
@@ -359,6 +409,7 @@ class Association
      * @var integer
      *
      * @ORM\Column(name="volunteerPermanent", type="integer")
+     * @Gedmo\Versioned
      */
     private $volunteerPermanent;
 
@@ -366,6 +417,7 @@ class Association
      * @var integer
      *
      * @ORM\Column(name="volunteerMan", type="integer")
+     * @Gedmo\Versioned
      */
     private $volunteerMan;
 
@@ -373,6 +425,7 @@ class Association
      * @var integer
      *
      * @ORM\Column(name="volunteerWoman", type="integer")
+     * @Gedmo\Versioned
      */
     private $volunteerWoman;
 
@@ -383,6 +436,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="frequency", type="text")
+     * @Gedmo\Versioned
      */
     private $frequency;
 
@@ -396,8 +450,19 @@ class Association
      * @var string
      *
      * @ORM\Column(name="logo", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $logo;
+
+
+
+    /**
+     * @var Activity
+     *
+     * @ORM\OneToMany(targetEntity="Activity", mappedBy="association")
+     * @Gedmo\Versioned
+     */
+    protected $activites;
 
 
 
@@ -415,6 +480,7 @@ class Association
      * @var string
      *
      * @ORM\Column(name="user", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $user;
 
@@ -422,15 +488,17 @@ class Association
      * @var boolean
      *
      * @ORM\Column(name="approved", type="boolean")
+     * @Gedmo\Versioned
      */
     private $approved;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="is_active", type="boolean")
+     * @ORM\Column(name="enabled", type="boolean")
+     * @Gedmo\Versioned
      */
-    private $isActive;
+    protected $enabled;
 
 
 }

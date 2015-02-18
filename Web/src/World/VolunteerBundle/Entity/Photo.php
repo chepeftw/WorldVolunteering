@@ -5,12 +5,12 @@ namespace World\VolunteerBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Country
+ * Photo
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="World\VolunteerBundle\Entity\CountryRepository")
+ * @ORM\Entity(repositoryClass="World\VolunteerBundle\Entity\Repositories\PhotoRepository")
  */
-class Country
+class Photo
 {
     /**
      * @var integer
@@ -31,9 +31,23 @@ class Country
     /**
      * @var string
      *
+     * @ORM\Column(name="picture", type="string", length=255)
+     */
+    private $picture;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="description", type="text")
      */
     private $description;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="orderNumber", type="integer")
+     */
+    private $orderNumber;
 
 
     /**
@@ -50,7 +64,7 @@ class Country
      * Set name
      *
      * @param string $name
-     * @return Country
+     * @return Photo
      */
     public function setName($name)
     {
@@ -70,10 +84,33 @@ class Country
     }
 
     /**
+     * Set picture
+     *
+     * @param string $picture
+     * @return Photo
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return string 
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    /**
      * Set description
      *
      * @param string $description
-     * @return Country
+     * @return Photo
      */
     public function setDescription($description)
     {
@@ -90,5 +127,28 @@ class Country
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set orderNumber
+     *
+     * @param integer $orderNumber
+     * @return Photo
+     */
+    public function setOrderNumber($orderNumber)
+    {
+        $this->orderNumber = $orderNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get orderNumber
+     *
+     * @return integer 
+     */
+    public function getOrderNumber()
+    {
+        return $this->orderNumber;
     }
 }

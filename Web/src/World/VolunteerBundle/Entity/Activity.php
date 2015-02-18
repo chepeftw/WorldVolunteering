@@ -4,19 +4,17 @@ namespace World\VolunteerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Demi\ToolBundle\Entity\BaseEntity;
+use World\ToolBundle\Entity\BaseEntity;
 use Symfony\Component\Validator\Constraints as Assert;
-
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Activity
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="World\VolunteerBundle\Entity\ActivityRepository")
+ * @ORM\Entity(repositoryClass="World\VolunteerBundle\Entity\Repositories\ActivityRepository")
  * @Gedmo\Loggable
  */
-class Activity
+class Activity extends BaseEntity
 {
     /**
      * @var integer
@@ -30,14 +28,16 @@ class Activity
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
+     * @Gedmo\Versioned
      */
-    private $title;
+    protected $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     * @Gedmo\Versioned
      */
     private $description;
 
@@ -45,13 +45,15 @@ class Activity
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="date")
+     * @Gedmo\Versioned
      */
     private $date;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="location", type="string", length=255)
+     * @ORM\Column(name="description", type="text")
+     * @Gedmo\Versioned
      */
     private $location;
 
@@ -59,6 +61,7 @@ class Activity
      * @var string
      *
      * @ORM\Column(name="picture", type="string", length=255)
+     * @Gedmo\Versioned
      */
     private $picture;
 
@@ -73,130 +76,4 @@ class Activity
     protected $association;
 
 
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set title
-     *
-     * @param string $title
-     * @return Activity
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string 
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Activity
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set date
-     *
-     * @param \DateTime $date
-     * @return Activity
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime 
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    /**
-     * Set location
-     *
-     * @param string $location
-     * @return Activity
-     */
-    public function setLocation($location)
-    {
-        $this->location = $location;
-
-        return $this;
-    }
-
-    /**
-     * Get location
-     *
-     * @return string 
-     */
-    public function getLocation()
-    {
-        return $this->location;
-    }
-
-    /**
-     * Set picture
-     *
-     * @param string $picture
-     * @return Activity
-     */
-    public function setPicture($picture)
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
-
-    /**
-     * Get picture
-     *
-     * @return string 
-     */
-    public function getPicture()
-    {
-        return $this->picture;
-    }
 }
