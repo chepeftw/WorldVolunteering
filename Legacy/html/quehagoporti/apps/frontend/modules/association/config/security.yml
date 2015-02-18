@@ -1,0 +1,5 @@
+indexmine:
+  is_secure: true
+  
+showmine:
+  is_secure: true

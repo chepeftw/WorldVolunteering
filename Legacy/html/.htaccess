@@ -1,0 +1,47 @@
+<Files .htaccess>
+	order allow,deny
+	deny from all
+</Files>
+
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{HTTP_HOST} ^guatevoluntaria.org$ [NC]
+RewriteRule ^(.*)$ http://www.guatevoluntaria.org/$1 [L,R=301]
+
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+<FilesMatch "\.(pdf|flv|jpg|jpeg|png|gif|swf|txt)">
+        RewriteEngine Off
+        # 31 days
+        Header set Cache-Control "max-age=2678400, public"
+</FilesMatch>
+
+<FilesMatch "\.(xml|ico|js|css)">
+        RewriteEngine Off
+        Header set Cache-Control "max-age=2678400, public"
+</FilesMatch>
+
+<IfModule pagespeed_module>
+	ModPagespeed on
+#	ModPagespeedEnableFilters extend_cache
+	ModPagespeedEnableFilters collapse_whitespace
+#	ModPagespeedEnableFilters combine_css
+	ModPagespeedEnableFilters move_css_to_head
+	ModPagespeedEnableFilters elide_attributes
+	ModPagespeedEnableFilters remove_comments
+</IfModule>
+
+<IfModule mod_deflate.c>
+	<FilesMatch "\.(js|css)$">
+		SetOutputFilter DEFLATE
+	</FilesMatch>
+</IfModule>
+
+<FilesMatch "backend.php">
+        RewriteEngine Off
+</FilesMatch>
+
+<FilesMatch "rotate.php">
+        RewriteEngine Off
+</FilesMatch>

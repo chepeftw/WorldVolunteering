@@ -1,0 +1,6 @@
+# canary
+MAILTO="josealfredo1515@gmail.com"
+# 1 Randomize Associations
+0 * * * * /usr/local/php5/bin/php $HOME/html/quehagoporti/symfony quehagoporti:randomize
+# 2 Clear Activities
+30 1 * * * /usr/local/php5/bin/php $HOME/html/quehagoporti/symfony quehagoporti:clear

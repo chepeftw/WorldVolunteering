@@ -1,0 +1,474 @@
+VolunteerSurvey:
+  actAs:
+    Timestampable: ~
+    SoftDelete: ~
+  columns:
+    name:       				{ type: string(255), notnull: true }
+    email:       				{ type: string(255), notnull: true, unique: true, email: true }
+    ## 1
+    age:		  				{ type: integer, notnull: true }
+    
+    ## 2
+    sex:						{ type: string(255), notnull: true }
+    
+    ## 3
+    status:						{ type: string(255), notnull: true }
+    status_other:				{ type: string(255) }
+    
+    ## 4
+    kids:		  				{ type: integer, notnull: true }
+    
+    ## 5
+    ethnic:						{ type: string(255), notnull: true }
+    ethnic_other:				{ type: string(255) }
+    
+    ## 6
+    schooling:					{ type: string(255), notnull: true }
+    schooling_discipline:		{ type: string(255) }
+    
+    ## 7
+    occupation:					{ type: string(255), notnull: true }
+    
+    ## 8
+    nationality:				{ type: string(255), notnull: true }
+    nationality_other:			{ type: string(255) }
+    
+    ## 8
+    religion:					{ type: string(255), notnull: true }
+    religion_other:				{ type: string(255) }
+    
+    ## 9
+    voluteering_time:			{ type: string(255), notnull: true }
+    
+    ip_address:		   			{ type: string(255), notnull: true }
+    is_active:					{ type: boolean, default: true }
+    
+ActivitySurvey:
+  actAs: 
+    Timestampable: ~
+  options:
+    orderBy:					created_at ASC
+  columns:
+    volunteer_survey_id:	{ type: integer, notnull: true }
+    association_survey_id:	{ type: integer, notnull: true }
+    field1:					{ type: integer, notnull: true, default: 0 }
+    field2:					{ type: integer, notnull: true, default: 0 }
+    field3:					{ type: integer, notnull: true, default: 0 }
+    field4:					{ type: integer, notnull: true, default: 0 }
+    field5:					{ type: integer, notnull: true, default: 0 }
+    field6:					{ type: integer, notnull: true, default: 0 }
+    field7:					{ type: integer, notnull: true, default: 0 }
+    field8:					{ type: integer, notnull: true, default: 0 }
+    field9:					{ type: integer, notnull: true, default: 0 }
+    field10:				{ type: integer, notnull: true, default: 0 }
+    field11:				{ type: integer, notnull: true, default: 0 }
+    field12:				{ type: integer, notnull: true, default: 0 }
+    field13:				{ type: integer, notnull: true, default: 0 }
+    field14:				{ type: integer, notnull: true, default: 0 }
+    field15:				{ type: integer, notnull: true, default: 0 }
+    field16:				{ type: integer, notnull: true, default: 0 }
+    field17:				{ type: text, notnull: true }
+  relations:
+    AssociationSurvey:		{ local: association_survey_id, foreign: id, foreignAlias: AssociationSurvey }
+    VolunteerSurvey:		{ local: volunteer_survey_id, foreign: id, foreignAlias: VolunteerSurvey }
+    
+    
+##########################################################################
+##########################################################################
+
+
+AssociationSurvey:
+  actAs:
+    Timestampable: ~
+    SoftDelete: ~
+  options:
+    orderBy:					random_value ASC
+  columns:
+    ## 1
+    name:		  				{ type: string(255), notnull: true, unique: true }
+    
+    ## 2
+    address:					{ type: text, notnull: true }
+    
+    country_id:    				{ type: integer, notnull: true }
+    department_id: 				{ type: integer, notnull: true }
+    town:	    				{ type: string(255), notnull: true }
+    ## 3
+    departments:   				{ type: text, notnull: true }
+    
+    ## 4
+    mision:						{ type: text, notnull: true }
+    vision:						{ type: text, notnull: true }
+    about_us:					{ type: text, notnull: true }
+    what_we_do:					{ type: text }
+    
+    ## 5
+    legal_person:				{ type: boolean, notnull: true }
+    legal_person_type:			{ type: string(255) }
+    legal_person_type_other:	{ type: string(255) }
+    
+    partner1_name: 				{ type: string(255), notnull: true }
+    partner1_email:				{ type: string(255), notnull: true, email: true }
+    partner1_mobile:			{ type: integer, notnull: true }
+    
+    partner2_name: 				{ type: string(255) }
+    partner2_email:				{ type: string(255), email: true }
+    partner2_mobile:			{ type: integer }
+    
+    ## 6
+    sat_registry:				{ type: boolean, notnull: true }
+    
+    ## 8
+    email:       				{ type: string(255), notnull: true, unique: true, email: true }
+    phone1:       				{ type: integer, notnull: true }
+    phone2:      				{ type: integer }
+    website:       				{ type: string(255), unique: true }
+    facebook_page:				{ type: text }
+    twitter_user:				{ type: text }
+    logo:						{ type: string(255), notnull: true }
+    
+    #9
+    founded:    				{ type: date, notnull: true }
+    history:					{ type: text }
+    
+    ## 10
+    quantity_perm_men:			{ type: integer, notnull: true }
+    quantity_perm_women:		{ type: integer, notnull: true }
+    quantity_temp_men:			{ type: integer, notnull: true }
+    quantity_temp_women:		{ type: integer, notnull: true }
+    
+    ## 11
+    requirements:				{ type: text, notnull: true }
+    ## 12
+    commitment_type:			{ type: string(255), notnull: true }
+    commitment_type_other:		{ type: string(255) }
+    commitment:					{ type: text, notnull: true }
+    ## 13
+    mechanism_commitment:		{ type: text, notnull: true }
+    ## 14
+    compensation:				{ type: string(255), notnull: true }
+    compensation_type:			{ type: string(255) }
+    compensation_type_other:	{ type: string(255) }
+    ## 15
+    training:					{ type: string(255), notnull: true }
+    training_type:				{ type: string(255) }
+    training_type_other:		{ type: string(255) }
+    
+    
+    donations:					{ type: boolean, default: false }
+    method:						{ type: text }
+    utilization:				{ type: text }
+    
+    ip_address:		   			{ type: string(255), notnull: true }
+    random_value:	   			{ type: double, default: 0 }
+    approved:					{ type: boolean, default: true }
+    is_active:					{ type: boolean, default: true }
+  relations:
+    Country:					{ local: country_id, foreign: id, foreignAlias: Country }
+    Department:					{ local: department_id, foreign: id, foreignAlias: Department }
+    Categories:			    	{ class: Category, refClass: AssociationSurveyCategory, foreignAlias: AssociationSurveyCategories }
+    Departments:		    	{ class: Department, refClass: AssociationSurveyDepartment, foreignAlias: AssociationSurveyDepartments }
+    
+    
+AssociationSurveyDepartment:
+  options:
+    symfony:
+      form:   false
+      filter: false
+  actAs: [Timestampable]
+  columns:
+    association_survey_id:	{ type: integer, primary: true }
+    department_id:			{ type: integer, primary: true }
+  relations:
+    AssociationSurvey:	{ local: association_survey_id, class: AssociationSurvey, onDelete: CASCADE }
+    Department:			{ local: department_id, class: Department, onDelete: CASCADE }
+    
+    
+AssociationSurveyCategory:
+  options:
+    symfony:
+      form:   false
+      filter: false
+  actAs: [Timestampable]
+  columns:
+    association_survey_id:	{ type: integer, primary: true }
+    category_id:			{ type: integer, primary: true }
+  relations:
+    AssociationSurvey:		{ local: association_survey_id, class: AssociationSurvey, onDelete: CASCADE }
+    Category:				{ local: category_id, class: Category, onDelete: CASCADE }
+    
+    
+AssociationDepartment:
+  options:
+    symfony:
+      form:   false
+      filter: false
+  actAs: [Timestampable]
+  columns:
+    association_id:	{ type: integer, primary: true }
+    department_id:			{ type: integer, primary: true }
+  relations:
+    Association:		{ local: association_id, class: Association, onDelete: CASCADE }
+    Department:			{ local: department_id, class: Department, onDelete: CASCADE }
+    
+    
+AssociationCategory:
+  options:
+    symfony:
+      form:   false
+      filter: false
+  actAs: [Timestampable]
+  columns:
+    association_id:	{ type: integer, primary: true }
+    category_id:			{ type: integer, primary: true }
+  relations:
+    Association:		{ local: association_id, class: Association, onDelete: CASCADE }
+    Category:			{ local: category_id, class: Category, onDelete: CASCADE }
+    
+    
+Category:
+  actAs: 
+    Timestampable: ~
+    NestedSet:
+      hasManyRoots: true
+      rootColumnName: root_id
+  options:
+    orderBy:					name ASC
+  columns:
+    name:				{ type: string(255), notnull: true }
+
+    
+    
+#########################################################################
+#########################################################################
+#########################################################################
+#########################################################################
+#########################################################################
+#########################################################################
+#########################################################################
+#########################################################################
+#########################################################################
+
+Association:
+  actAs:
+    Timestampable: ~
+  options:
+    orderBy:					random_value ASC
+  columns:
+    ## 1
+    name:		  				{ type: string(255), notnull: true, unique: true }
+    
+    ## 2
+    address:					{ type: text, notnull: true }
+    
+    country_id:    				{ type: integer, notnull: true }
+    department_id: 				{ type: integer, notnull: true }
+    town:	    				{ type: string(255), notnull: true }
+    ## 3
+    departments:   				{ type: text, notnull: true }
+    
+    ## 4
+    mision:						{ type: text, notnull: true }
+    vision:						{ type: text, notnull: true }
+    about_us:					{ type: text, notnull: true }
+    what_we_do:					{ type: text }
+    
+    ## 5
+    legal_person:				{ type: boolean, notnull: true }
+    legal_person_type:			{ type: string(255) }
+    legal_person_type_other:	{ type: string(255) }
+    
+    partner1_name: 				{ type: string(255), notnull: true }
+    partner1_email:				{ type: string(255), notnull: true, email: true }
+    partner1_mobile:			{ type: integer, notnull: true }
+    
+    partner2_name: 				{ type: string(255) }
+    partner2_email:				{ type: string(255), email: true }
+    partner2_mobile:			{ type: integer }
+    
+    ## 6
+    sat_registry:				{ type: boolean, notnull: true }
+    
+    ## 8
+    email:       				{ type: string(255), notnull: true, unique: true, email: true }
+    phone1:       				{ type: integer, notnull: true }
+    phone2:      				{ type: integer }
+    website:       				{ type: string(255) }
+    facebook_page:				{ type: text }
+    twitter_user:				{ type: text }
+    logo:						{ type: string(255), notnull: true }
+    
+    #9
+    founded:    				{ type: date, notnull: true }
+    history:					{ type: text }
+    
+    ## 10
+    quantity_perm_men:			{ type: integer, notnull: true }
+    quantity_perm_women:		{ type: integer, notnull: true }
+    quantity_temp_men:			{ type: integer, notnull: true }
+    quantity_temp_women:		{ type: integer, notnull: true }
+    
+    ## 11
+    requirements:				{ type: text, notnull: true }
+    ## 12
+    commitment_type:			{ type: string(255), notnull: true }
+    commitment_type_other:		{ type: string(255) }
+    commitment:					{ type: text, notnull: true }
+    ## 13
+    mechanism_commitment:		{ type: text, notnull: true }
+    ## 14
+    compensation:				{ type: string(255), notnull: true }
+    compensation_type:			{ type: string(255) }
+    compensation_type_other:	{ type: string(255) }
+    ## 15
+    training:					{ type: string(255), notnull: true }
+    training_type:				{ type: string(255) }
+    training_type_other:		{ type: string(255) }
+    
+    
+    donations:					{ type: boolean, default: false }
+    method:						{ type: text }
+    utilization:				{ type: text }
+    
+    ip_address:		   			{ type: string(255), notnull: true }
+    user_id:		   			{ type: integer }
+    random_value:	   			{ type: double, default: 0 }
+    approved:					{ type: boolean, default: false }
+    is_active:					{ type: boolean, default: true }
+  relations:
+    Country:					{ local: country_id, foreign: id, foreignAlias: Country }
+    Department:					{ local: department_id, foreign: id, foreignAlias: Department }
+    Categories:			    	{ class: Category, refClass: AssociationCategory, foreignAlias: AssociationCategories }
+    Departments:		    	{ class: Department, refClass: AssociationDepartment, foreignAlias: AssociationDepartments }
+    sfGuardUser:				{ local: user_id, foreign: id, foreignAlias: sfGuardUser }
+
+
+Country:
+  actAs:
+    Timestampable: ~
+  columns:
+    name:					{ type: string(255), notnull: true }
+
+
+Department:
+  actAs:
+    Timestampable: ~
+  columns:
+    name:					{ type: string(255), notnull: true }
+    country_id:				{ type: integer, notnull: true }
+  relations:
+    Country:				{ local: country_id, foreign: id, foreignAlias: Country }
+
+
+Photo:
+  actAs:
+    Timestampable: ~
+  columns:
+    location:				{ type: string(255), notnull: true }
+    order_number:			{ type: integer, default: 0 }
+    association_id:			{ type: integer, notnull: true }
+  relations:
+    Association:			{ local: association_id, foreign: id, foreignAlias: Association }
+
+
+Video:
+  actAs:
+    Timestampable: ~
+  columns:
+    url:					{ type: string(255), notnull: true }
+    association_id:			{ type: integer, notnull: true }
+  relations:
+    Association:			{ local: association_id, foreign: id, foreignAlias: Association }
+
+
+Activity:
+  actAs:
+    Timestampable: ~
+  options:
+    orderBy:				date ASC
+  columns:
+    title:	    			{ type: string(255), notnull: true }
+    date:					{ type: date, notnull: true }
+    description:			{ type: text, notnull: true }
+    place:					{ type: text, notnull: true }
+    picture:				{ type: string(255), notnull: true }
+    association_id:			{ type: integer, notnull: true }
+    is_active:				{ type: boolean, default: true }
+  relations:
+    Association:			{ local: association_id, foreign: id, foreignAlias: Association }
+
+
+Testimonial:
+  actAs:
+    Timestampable: ~
+  options:
+    orderBy:				created_at ASC
+  columns:
+    title:	    			{ type: string(255), notnull: true }
+    description:			{ type: text, notnull: true }
+    picture:				{ type: string(255), notnull: true }
+    association_id:			{ type: integer, notnull: true }
+    is_active:				{ type: boolean, default: true }
+  relations:
+    Association:			{ local: association_id, foreign: id, foreignAlias: Association }
+
+
+News:
+  actAs:
+    Timestampable: ~
+  options:
+    orderBy:				created_at ASC
+  columns:
+    title:	    			{ type: string(255), notnull: true }
+    description:			{ type: text, notnull: true }
+    picture:				{ type: string(255), notnull: true }
+    is_active:				{ type: boolean, default: true }
+
+
+Library:
+  actAs:
+    Timestampable: ~
+  columns:
+    title:	    			{ type: string(255), notnull: true }
+    description:			{ type: text, notnull: true }
+    picture:				{ type: string(255) }
+    media:					{ type: string(255), notnull: true }
+    type:					{ type: string(255), notnull: true }
+    is_active:				{ type: boolean, default: true }
+    rating:					{ type: integer, default: 0 }
+
+
+LibraryRating:
+  actAs:
+    Timestampable: ~
+  options:
+    symfony:
+      form:   false
+      filter: false	
+  columns:
+    ip:		    			{ type: string(255), notnull: true }
+    library_id:				{ type: integer, notnull: true }
+  relations:
+    Library:				{ local: library_id, foreign: id, foreignAlias: Library }
+
+
+LibraryComment:
+  actAs:
+    Timestampable: ~
+  columns:
+    name:			   		{ type: string(255), notnull: true }
+    comment:				{ type: text }
+    library_id:				{ type: integer, notnull: true }
+  relations:
+    Library:				{ local: library_id, foreign: id, foreignAlias: Library }
+
+
+TellUs:
+  actAs:
+    Timestampable: ~
+  columns:
+    name:                   { type: string(255), notnull: true }
+    last_name:              { type: string(255), notnull: true }
+    email:                  { type: string(255), notnull: true, email: true }
+    mobile:                 { type: string(255) }
+    comment:                { type: text, notnull: true }

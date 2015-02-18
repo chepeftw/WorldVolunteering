@@ -1,0 +1,38 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# default rules
+homepage:
+  url:   /
+  param: { module: association_survey, action: index }
+
+survey_association:
+  url:   /encuesta-de-organizaciones
+  param: { module: association_survey, action: new }
+
+survey_association2:
+  url:   /encuesta-de-organizaciones-gracias
+  param: { module: association_survey, action: thanks }
+
+survey_volunteer:
+  url:   /encuesta-de-voluntarios
+  param: { module: volunteer_survey, action: new }
+
+survey_volunteer2:
+  url:   /encuesta-de-voluntarios/:id/actividades
+  class:   sfDoctrineRoute
+  options:	{ model: VolunteerSurvey, type: object }
+  param:	{ module: activity_survey, action: new }
+
+survey_volunteer3:
+  url:   /encuesta-de-voluntarios-gracias
+  param: { module: volunteer_survey, action: thanks }
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

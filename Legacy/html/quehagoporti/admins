@@ -1,0 +1,8 @@
+./symfony generate:app --escaping-strategy=on --csrf-secret=UniqueSecret1 backend
+
+cp apps/frontend/config/settings.yml apps/backend/config/
+cp apps/frontend/config/filters.yml apps/backend/config/
+cp apps/frontend/lib/myUser.class.php apps/backend/lib/
+cp apps/frontend/config/security.yml apps/backend/config/
+
+./symfony propel:generate-admin backend sfGuardUserProfile --module=userProfile

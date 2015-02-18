@@ -1,0 +1,26 @@
+table th{
+	width: 180px;
+}
+
+legend, label{
+	font-weight: bold; 
+}
+
+#content {
+	width: 720px !important;
+}
+
+#save{
+	width: 720px;
+	text-align: center;
+}
+
+ul
+{
+list-style-type: none;
+padding: 0;
+}
+
+#header {
+	background: url(images/img06_2.gif) no-repeat left top !important;
+}

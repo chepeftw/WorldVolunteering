@@ -1,0 +1,7 @@
+show:
+  enabled:     true
+  lifetime:    1800
+  #lifetime = 30 min -> 1800 seg
+
+all:
+  with_layout: false

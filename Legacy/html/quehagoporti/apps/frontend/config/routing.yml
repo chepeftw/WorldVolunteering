@@ -1,0 +1,229 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# default rules
+homepage:
+  url:   /
+  param: { module: home, action: index }
+
+contactus:
+  url:   /contactanos
+  param: { module: tellus, action: new }
+
+news_show:
+  url:     /noticia/:id/:title_slug
+  class:   sfDoctrineRoute
+  options: { model: News, type: object }
+  param:   { module: home, action: shownews }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+
+
+
+
+
+
+sf_guard_signin:
+  url:   /ingresar
+  param: { module: sfGuardAuth, action: signin }
+ 
+sf_guard_signout:
+  url:   /salir
+  param: { module: sfGuardAuth, action: signout }
+ 
+sf_guard_forgot_password:
+  url:   /request_password
+  param: { module: sfGuardForgotPassword, action: index }
+ 
+sf_guard_register:
+  url:   /usuario_nuevo
+  param: { module: sfGuardRegister, action: index }
+
+
+
+
+
+
+
+
+association:
+  url:   /voluntariados
+  param: { module: association, action: index }
+
+my_association:
+  url:   /mis_asociaciones
+  param: { module: my_association, action: index }
+
+activity:
+  url:   /actividades
+  param: { module: activity, action: index }
+
+
+
+
+
+
+
+association_new:
+  url:   /voluntariado/nuevo
+  param: { module: association, action: new }
+
+association_user:
+  url:     /voluntariado/:town_slug/:id/:name_slug
+  class:   sfDoctrineRoute
+  options: { model: Association, type: object }
+  param:   { module: association, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+
+
+
+
+association_activities:
+  url:     /actividades/:town_slug/:id/:name_slug
+  class:   sfDoctrineRoute
+  options: { model: Association, type: object }
+  param:   { module: activity, action: showactivities }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+association_testimonials:
+  url:     /testimoniales/:town_slug/:id/:name_slug
+  class:   sfDoctrineRoute
+  options: { model: Association, type: object }
+  param:   { module: testimonial, action: showtestimonials }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+association_activities_history:
+  url:     /historico/:town_slug/:id/:name_slug
+  class:   sfDoctrineRoute
+  options: { model: Association, type: object }
+  param:   { module: activity, action: showactivitieshistory }
+  requirements:
+    id: \d+
+    sf_method: [get]
+    
+association_gallery:
+  url:     /galeria-imagenes/:id/:name_slug
+  class:   sfDoctrineRoute
+  options: { model: Association, type: object }
+  param:   { module: photo, action: new }
+  requirements:
+    id: \d+
+    sf_method: [get]
+    
+association_gallery_one:
+  url:     /imagen/:id/:name_slug
+  class:   sfDoctrineRoute
+  options: { model: Photo, type: object }
+  param:   { module: photo, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+
+association_video:
+  url:     /galeria-videos/:id/:name_slug
+  class:   sfDoctrineRoute
+  options: { model: Association, type: object }
+  param:   { module: video, action: new }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+
+
+
+
+activity_new:
+  url:     /actividad/nueva/:town_slug/:id/:name_slug
+  class:   sfDoctrineRoute
+  options: { model: Association, type: object }
+  param:   { module: activity, action: new }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+activity_user:
+  url:     /actividad/:title_slug/:id/:association_slug
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+activity_user2:
+  url:     /actividad/:title_slug/:id/:association_slug/:is_historic
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+
+
+
+
+testimonial_new:
+  url:     /testimonio/nuevo/:town_slug/:id/:name_slug
+  class:   sfDoctrineRoute
+  options: { model: Association, type: object }
+  param:   { module: testimonial, action: new }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+testimonial_user:
+  url:     /testimonio/:title_slug/:id/:association_slug
+  class:   sfDoctrineRoute
+  options: { model: Testimonial, type: object }
+  param:   { module: testimonial, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+
+
+
+
+libraries:
+  url:   /cultura-del-voluntario
+  param: { module: library, action: index }
+
+library_user:
+  url:     /cultura-del-voluntario/:id/:title_slug/
+  class:   sfDoctrineRoute
+  options: { model: Library, type: object }
+  param:   { module: library, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+library_download:
+  url:     /uploads/media/:media
+  class:   sfDoctrineRoute
+  options: { model: Library, type: object }
+  param:   { module: library, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

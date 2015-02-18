@@ -1,0 +1,9 @@
+all:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=instance36624.db.xeround.com;port=4891;dbname=guatevol'
+      port: 4891
+      username: guatevol
+      password: guatevol
+      encoding: utf8

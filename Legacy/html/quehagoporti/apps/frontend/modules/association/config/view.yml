@@ -1,0 +1,25 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+searchSuccess:
+  metas:
+    title:         Busqueda de Voluntariados - GuateVoluntaria.org
+
+indexSuccess:
+  metas:
+    title:         Voluntariados - GuateVoluntaria.org
+    keywords:      voluntarios, voluntariado, trabajo voluntario, voluntarios en guatemala, voluntariado en guatemala, guatemala que hago por ti, que hago por ti, guatemala
+    description:   Directorio de Voluntariado en Guatemala, contamos con listado de voluntariados y sus actividades futuras, necesitamos tu ayuda para construir una mejor Guatemala.
+
+indexmineSuccess:
+  metas:
+    title:         Mis Asociaciones - GuateVoluntaria.org
+
+editSuccess:
+  metas:
+    title:         Editar Voluntariado - GuateVoluntaria.org
+  stylesheets:    [base/ui.all.css]
+  javascripts:    [jquery.min.js, jquery-ui.custom.min.js, ajax.js]
+
+showSuccess:
+  javascripts:    [jquery.min.js]

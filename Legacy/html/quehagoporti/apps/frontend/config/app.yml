@@ -1,0 +1,17 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/11-App
+
+# default values
+all:
+  recaptcha:
+    public_key:				6LfX18QSAAAAAImPtFNBLUF13cccE6IdKSHCKmRd
+    private_key:			6LfX18QSAAAAANZRRRFnsjx7VRfYUN6qMk7t8rDP
+  max_activities: 10
+  max_associations: 10
+  email_to: coordinador@guatevoluntaria.org
+  upload_dir:	'/var/chroot/home/content/32/7923232/html/uploads'
+#  upload_dir:	'/var/www/quehagoporti/web/uploads'
+  sf_guard_plugin:
+    default_from_email:		no-reply@guatevoluntaria.org
+    success_signin_url:			home/index
+    success_signout_url:		home/index

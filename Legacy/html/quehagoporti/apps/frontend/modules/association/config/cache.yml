@@ -1,0 +1,25 @@
+show:
+  enabled:     false
+  lifetime:    3600
+  #lifetime = 60 min -> 3600 seg
+
+showactivities:
+  enabled:     false
+  lifetime:    3600
+  #lifetime = 60 min -> 3600 seg
+
+showactivitieshistory:
+  enabled:     false
+  lifetime:    3600
+  #lifetime = 60 min -> 3600 seg
+
+index:
+  enabled:     false
+  lifetime:    3600
+  #lifetime = 60 min -> 3600 seg
+  
+  #lifetime:    86400
+  #lifetime = 24 hrs -> 86400 seg
+
+all:
+  with_layout: false

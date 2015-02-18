@@ -1,0 +1,7 @@
+all:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=guatevoluntaria.db.7923232.hostedresource.com;dbname=guatevoluntaria'
+      username: guatevoluntaria
+      password: gu@T3.v0luNt@

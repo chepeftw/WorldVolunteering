@@ -1,0 +1,5 @@
+#all:
+#  enabled:     true
+#  with_layout: false
+#  lifetime:    43200
+  #lifetime = 12 hrs -> 43200 seg
