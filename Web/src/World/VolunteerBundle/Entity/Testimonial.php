@@ -44,10 +44,10 @@ class Testimonial extends BaseEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="picture", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255)
      * @Gedmo\Versioned
      */
-    private $picture;
+    private $image;
 
     /**
      * @var Association
@@ -101,4 +101,221 @@ class Testimonial extends BaseEntity
     private $updatedBy;
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Testimonial
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Testimonial
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Testimonial
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     * @return Testimonial
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean 
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Testimonial
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Testimonial
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set association
+     *
+     * @param \World\VolunteerBundle\Entity\Association $association
+     * @return Testimonial
+     */
+    public function setAssociation(\World\VolunteerBundle\Entity\Association $association)
+    {
+        $this->association = $association;
+
+        return $this;
+    }
+
+    /**
+     * Get association
+     *
+     * @return \World\VolunteerBundle\Entity\Association 
+     */
+    public function getAssociation()
+    {
+        return $this->association;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param \World\UserBundle\Entity\User $createdBy
+     * @return Testimonial
+     */
+    public function setCreatedBy(\World\UserBundle\Entity\User $createdBy = null)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return \World\UserBundle\Entity\User 
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set updatedBy
+     *
+     * @param \World\UserBundle\Entity\User $updatedBy
+     * @return Testimonial
+     */
+    public function setUpdatedBy(\World\UserBundle\Entity\User $updatedBy = null)
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedBy
+     *
+     * @return \World\UserBundle\Entity\User 
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updatedBy;
+    }
 }

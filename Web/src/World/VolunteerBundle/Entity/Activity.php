@@ -52,7 +52,7 @@ class Activity extends BaseEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="location", type="text")
      * @Gedmo\Versioned
      */
     private $location;
@@ -60,10 +60,10 @@ class Activity extends BaseEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="picture", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255)
      * @Gedmo\Versioned
      */
-    private $picture;
+    private $image;
 
 
     /**
@@ -118,4 +118,267 @@ class Activity extends BaseEntity
     private $updatedBy;
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Activity
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Activity
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Activity
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set location
+     *
+     * @param string $location
+     * @return Activity
+     */
+    public function setLocation($location)
+    {
+        $this->location = $location;
+
+        return $this;
+    }
+
+    /**
+     * Get location
+     *
+     * @return string 
+     */
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Activity
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     * @return Activity
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean 
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Activity
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Activity
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set association
+     *
+     * @param \World\VolunteerBundle\Entity\Association $association
+     * @return Activity
+     */
+    public function setAssociation(\World\VolunteerBundle\Entity\Association $association)
+    {
+        $this->association = $association;
+
+        return $this;
+    }
+
+    /**
+     * Get association
+     *
+     * @return \World\VolunteerBundle\Entity\Association 
+     */
+    public function getAssociation()
+    {
+        return $this->association;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param \World\UserBundle\Entity\User $createdBy
+     * @return Activity
+     */
+    public function setCreatedBy(\World\UserBundle\Entity\User $createdBy = null)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return \World\UserBundle\Entity\User 
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set updatedBy
+     *
+     * @param \World\UserBundle\Entity\User $updatedBy
+     * @return Activity
+     */
+    public function setUpdatedBy(\World\UserBundle\Entity\User $updatedBy = null)
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedBy
+     *
+     * @return \World\UserBundle\Entity\User 
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updatedBy;
+    }
 }
