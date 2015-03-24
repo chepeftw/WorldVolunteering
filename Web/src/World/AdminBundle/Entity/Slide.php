@@ -59,7 +59,7 @@ class Slide extends BaseEntity
      * @ORM\Column(name="enable", type="boolean")
      * @Gedmo\Versioned
      */
-    private $enable;
+    protected $enable;
 
     /**
      * @var \DateTime

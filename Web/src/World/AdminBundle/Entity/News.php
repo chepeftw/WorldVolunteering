@@ -59,7 +59,7 @@ class News extends BaseEntity
      * @ORM\Column(name="enabled", type="boolean")
      * @Gedmo\Versioned
      */
-    private $enabled;
+    protected $enabled;
 
     /**
      * @var \DateTime
