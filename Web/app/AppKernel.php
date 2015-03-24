@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new World\ToolBundle\WorldToolBundle(),
             new World\UserBundle\WorldUserBundle(),
             new World\DashboardBundle\WorldDashboardBundle(),
+            new World\AdminBundle\WorldAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
