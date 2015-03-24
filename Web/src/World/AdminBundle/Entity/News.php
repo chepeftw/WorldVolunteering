@@ -1,16 +1,23 @@
 <?php
 
-namespace World\DashboardBundle\Entity;
+namespace World\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use World\ToolBundle\Entity\BaseEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+
+use World\ToolBundle\Utility\ImageUtils;
 
 /**
  * News
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="World\DashboardBundle\Entity\Repositories\NewsRepository")
+ * @ORM\Entity(repositoryClass="World\AdminBundle\Entity\Repositories\NewsRepository")
+ * @Gedmo\Uploadable( pathMethod="getPath", filenameGenerator="SHA1", allowOverwrite=true, appendNumber=true )
+ * @Gedmo\Loggable
  */
-class News
+class News extends BaseEntity
 {
     /**
      * @var integer
@@ -25,20 +32,24 @@ class News
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Gedmo\Versioned
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     * @Gedmo\Versioned
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     * @Gedmo\UploadableFilePath
+     * @Assert\File(maxSize="100M")
      */
     private $image;
 
@@ -46,6 +57,7 @@ class News
      * @var boolean
      *
      * @ORM\Column(name="enabled", type="boolean")
+     * @Gedmo\Versioned
      */
     private $enabled;
 
@@ -53,6 +65,7 @@ class News
      * @var \DateTime
      *
      * @ORM\Column(name="startDate", type="date")
+     * @Gedmo\Versioned
      */
     private $startDate;
 
@@ -60,8 +73,24 @@ class News
      * @var \DateTime
      *
      * @ORM\Column(name="endDate", type="date")
+     * @Gedmo\Versioned
      */
     private $endDate;
+
+    protected static $IMG_PATH = "uploads/news";
+
+    public function getImageWebPath() {
+        return ImageUtils::getGenericPath( self::$IMG_PATH, '', $this->getImage() );
+    }
+
+    public function getPath() {
+        return realpath('.') . '/' . self::$IMG_PATH;
+    }
+
+
+
+
+
 
 
     /**

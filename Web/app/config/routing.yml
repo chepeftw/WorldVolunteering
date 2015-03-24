@@ -1,6 +1,6 @@
 world_admin:
     resource: "@WorldAdminBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin
 
 world_dashboard:
     resource: "@WorldDashboardBundle/Resources/config/routing.yml"

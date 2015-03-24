@@ -1,16 +1,23 @@
 <?php
 
-namespace World\DashboardBundle\Entity;
+namespace World\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use World\ToolBundle\Entity\BaseEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+
+use World\ToolBundle\Utility\ImageUtils;
 
 /**
  * Slide
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="World\ToolBundle\Entity\Repositories\SlideRepository")
+ * @ORM\Entity(repositoryClass="World\AdminBundle\Entity\Repositories\SlideRepository")
+ * @Gedmo\Uploadable( pathMethod="getPath", filenameGenerator="SHA1", allowOverwrite=true, appendNumber=true )
+ * @Gedmo\Loggable
  */
-class Slide
+class Slide extends BaseEntity
 {
     /**
      * @var integer
@@ -25,20 +32,24 @@ class Slide
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Gedmo\Versioned
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     * @Gedmo\Versioned
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     * @Gedmo\UploadableFilePath
+     * @Assert\File(maxSize="100M")
      */
     private $image;
 
@@ -46,6 +57,7 @@ class Slide
      * @var boolean
      *
      * @ORM\Column(name="enable", type="boolean")
+     * @Gedmo\Versioned
      */
     private $enable;
 
@@ -53,6 +65,7 @@ class Slide
      * @var \DateTime
      *
      * @ORM\Column(name="startDate", type="date", nullable=true)
+     * @Gedmo\Versioned
      */
     private $startDate;
 
@@ -60,8 +73,24 @@ class Slide
      * @var \DateTime
      *
      * @ORM\Column(name="endDate", type="date", nullable=true)
+     * @Gedmo\Versioned
      */
     private $endDate;
+
+    protected static $IMG_PATH = "uploads/slide";
+
+    public function getImageWebPath() {
+        return ImageUtils::getGenericPath( self::$IMG_PATH, '', $this->getImage() );
+    }
+
+    public function getPath() {
+        return realpath('.') . '/' . self::$IMG_PATH;
+    }
+
+
+
+
+
 
 
 

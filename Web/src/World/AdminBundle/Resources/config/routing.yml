@@ -1,3 +1,4 @@
-world_admin_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: WorldAdminBundle:Default:index }
+world_admin_slide:
+    resource: "@WorldAdminBundle/Resources/config/routing/slide.yml"
+    prefix:   /slide
+
