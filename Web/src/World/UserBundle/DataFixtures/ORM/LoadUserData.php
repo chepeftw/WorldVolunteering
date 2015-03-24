@@ -32,6 +32,9 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
         $user->setUsername('admin');
         $user->setEmail('admin@admin.com');
         $user->addRole( "ROLE_SUPER_ADMIN" );
+        $user->setEnabled( true );
+        $user->setCreated( new \DateTime() );
+        $user->setUpdated( new \DateTime() );
 //        $user->setSalt(md5(uniqid()));
 
         $encoder = $this->container
