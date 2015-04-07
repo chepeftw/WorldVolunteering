@@ -44,7 +44,14 @@ class NewsController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
             $em->persist($entity);
+
+            if( $entity->getImage() != null ) {
+                $uploadableManager = $this->get('stof_doctrine_extensions.uploadable.manager');
+                $uploadableManager->markEntityToUpload( $entity, $entity->getImage() );
+            }
+
             $em->flush();
 
             return $this->redirect($this->generateUrl('news_show', array('id' => $entity->getId())));
@@ -70,7 +77,7 @@ class NewsController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'form.new', 'translation_domain' => 'WorldDashboardBundle'));
 
         return $form;
     }
@@ -150,7 +157,7 @@ class NewsController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'form.update', 'translation_domain' => 'WorldDashboardBundle'));
 
         return $form;
     }
@@ -168,14 +175,26 @@ class NewsController extends Controller
             throw $this->createNotFoundException('Unable to find News entity.');
         }
 
+        $image = $entity->getImage();
+
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+
+            $entityImage = $entity->getImage();
+            if( !isset( $entityImage ) || ( trim( $entityImage ) === '' ) ) {
+                $entity->setImage( $image );
+            } else {
+                $uploadableManager = $this->get('stof_doctrine_extensions.uploadable.manager');
+                $uploadableManager->markEntityToUpload( $entity, $entity->getImage() );
+            }
+
+            $em->persist( $entity );
             $em->flush();
 
-            return $this->redirect($this->generateUrl('news_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('news_show', array('id' => $id)));
         }
 
         return $this->render('WorldAdminBundle:News:edit.html.twig', array(
@@ -220,7 +239,7 @@ class NewsController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('news_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', array('label' => 'form.delete', 'translation_domain' => 'WorldDashboardBundle'))
             ->getForm()
         ;
     }

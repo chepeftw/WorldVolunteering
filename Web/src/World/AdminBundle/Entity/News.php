@@ -128,6 +128,15 @@ class News extends BaseEntity
         return realpath('.') . '/' . self::$IMG_PATH;
     }
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->enabled = true; // Default value for column enable
+        $this->sortOrder = 0; // Default value for column sortOrder
+    }
+
 
 
 

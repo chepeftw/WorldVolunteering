@@ -11,9 +11,11 @@ class DashboardController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $slides = $em->getRepository('WorldAdminBundle:Slide')->findAllCustom( true );
+        $news = $em->getRepository('WorldAdminBundle:News')->findAllCustom( true );
 
         return $this->render('WorldDashboardBundle:Dashboard:index.html.twig', array(
             'slides' => $slides,
+            'news' => $news,
         ));
     }
 

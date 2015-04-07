@@ -9,40 +9,8 @@
 {% endblock %}
 
 {% block body -%}
-    <br>
-    <br>
-    <br>
 
-    <h1 class="ui centered header">News</h1>
-
-
-    <div class="ui vertical segment">
-        <div class="ui page grid">
-            <div class="column">
-                <h2 class="ui header">Full Width Background</h2>
-                <img class="ui small left floated image" src="/images/wireframe/image.png">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dignissim tellus quis enim mollis ornare. Pellentesque pellentesque purus non nulla tempus faucibus. Donec tellus mauris, accumsan sed magna id, viverra luctus sem. Cras nisi est, rhoncus eu malesuada vel, ultricies ut nisi. Sed ipsum ex, accumsan id lectus non, placerat malesuada felis. In luctus tincidunt leo, quis lacinia turpis faucibus in. Nullam arcu libero, pretium sed mi ac, venenatis tincidunt tellus.
-
-                    Quisque id bibendum eros. Aliquam tristique nunc ante. Integer cursus a est vitae faucibus. Nunc nec vulputate eros. Vestibulum non nunc sed diam luctus lacinia ac in mi. In luctus non diam eu cursus. Nam tristique urna ac porttitor ultrices. Proin a diam leo. Nullam suscipit eros vitae nulla ultrices, sit amet pellentesque diam lacinia. Nullam maximus augue vitae velit consectetur, sed fermentum ligula ullamcorper. Maecenas cursus sapien eu sodales interdum.
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="ui vertical segment">
-        <div class="ui page grid">
-            <div class="column">
-                <h2 class="ui header">Full Width Heading</h2>
-                <img class="ui small right floated image" src="/images/wireframe/image.png">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dignissim tellus quis enim mollis ornare. Pellentesque pellentesque purus non nulla tempus faucibus. Donec tellus mauris, accumsan sed magna id, viverra luctus sem. Cras nisi est, rhoncus eu malesuada vel, ultricies ut nisi. Sed ipsum ex, accumsan id lectus non, placerat malesuada felis. In luctus tincidunt leo, quis lacinia turpis faucibus in. Nullam arcu libero, pretium sed mi ac, venenatis tincidunt tellus.
-
-                    Quisque id bibendum eros. Aliquam tristique nunc ante. Integer cursus a est vitae faucibus. Nunc nec vulputate eros. Vestibulum non nunc sed diam luctus lacinia ac in mi. In luctus non diam eu cursus. Nam tristique urna ac porttitor ultrices. Proin a diam leo. Nullam suscipit eros vitae nulla ultrices, sit amet pellentesque diam lacinia. Nullam maximus augue vitae velit consectetur, sed fermentum ligula ullamcorper. Maecenas cursus sapien eu sodales interdum.
-                </p>
-            </div>
-        </div>
-    </div>
-
+    {% embed "WorldDashboardBundle:Dashboard:news.html.twig" with { 'entities': news } %} {% endembed %}
 
     <br>
     <br>

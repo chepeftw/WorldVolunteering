@@ -109,6 +109,10 @@ liip_imagine:
             quality: 75
             filters:
                 thumbnail: { size: [300, 300], mode: outbound }
+        thumb_news:
+              quality: 75
+              filters:
+                  thumbnail: { size: [150, 150], mode: outbound }
 
 
 stof_doctrine_extensions:
