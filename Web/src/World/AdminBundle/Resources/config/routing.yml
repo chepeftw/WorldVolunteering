@@ -6,3 +6,6 @@ world_admin_slide:
     resource: "@WorldAdminBundle/Resources/config/routing/slide.yml"
     prefix:   /slide
 
+world_admin_association:
+    resource: "@WorldAdminBundle/Resources/config/routing/association.yml"
+    prefix:   /association

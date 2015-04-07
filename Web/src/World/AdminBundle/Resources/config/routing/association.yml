@@ -1,0 +1,30 @@
+association:
+    path:     /
+    defaults: { _controller: "WorldAdminBundle:Association:index" }
+
+association_show:
+    path:     /{id}/show
+    defaults: { _controller: "WorldAdminBundle:Association:show" }
+
+association_new:
+    path:     /new
+    defaults: { _controller: "WorldAdminBundle:Association:new" }
+
+association_create:
+    path:     /create
+    defaults: { _controller: "WorldAdminBundle:Association:create" }
+    methods:  POST
+
+association_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WorldAdminBundle:Association:edit" }
+
+association_update:
+    path:     /{id}/update
+    defaults: { _controller: "WorldAdminBundle:Association:update" }
+    methods:  [POST, PUT]
+
+association_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WorldAdminBundle:Association:delete" }
+    methods:  [POST, DELETE]
