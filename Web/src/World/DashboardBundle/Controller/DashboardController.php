@@ -8,6 +8,22 @@ class DashboardController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('WorldDashboardBundle:Dashboard:index.html.twig', array());
+        $em = $this->getDoctrine()->getManager();
+
+        $slides = $em->getRepository('WorldAdminBundle:Slide')->findAllCustom( true );
+
+        return $this->render('WorldDashboardBundle:Dashboard:index.html.twig', array(
+            'slides' => $slides,
+        ));
+    }
+
+    public function sliderAction() {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('WorldAdminBundle:Slide')->findAllCustom( true );
+
+        return $this->render('WorldDashboardBundle:Dashboard:slider.html.twig', array(
+            'entities' => $entities,
+        ));
     }
 }

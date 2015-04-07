@@ -1,16 +1,18 @@
-{% extends '::base.html.twig' %}
+{% extends 'WorldDashboardBundle::admin.html.twig' %}
+
+{% trans_default_domain 'WorldDashboardBundle' %}
+
+{% form_theme edit_form 'WorldDashboardBundle::themes/theme.html.twig'  %}
+{% form_theme delete_form 'WorldDashboardBundle::themes/delete_theme.html.twig'  %}
+
+{% block breadcrumb %}{% endblock %}
 
 {% block body -%}
-    <h1>Slide edit</h1>
+
+    {% embed "WorldToolBundle:Base:title.html.twig" with { 'title': 'slide.edit' } %} {% endembed %}
 
     {{ form(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('slide') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    {% embed "WorldToolBundle:Base:edit.back.html.twig" with { 'entity': entity, 'delete_form': delete_form } %} {% endembed %}
+
 {% endblock %}

@@ -17,10 +17,11 @@ class SlideType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            ->add('image')
-            ->add('enable')
+            ->add('image', null, array( 'data_class' => null ) )
             ->add('startDate')
             ->add('endDate')
+            ->add('sortOrder')
+            ->add('enabled')
         ;
     }
     

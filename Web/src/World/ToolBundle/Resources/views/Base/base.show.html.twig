@@ -1,0 +1,53 @@
+{% trans_default_domain 'DemiDashboardBundle' %}
+
+  <div class="row">
+
+    <div class="column">
+      <div class="ui vertical fluid menu">
+        <div class="header item">
+          {{ 'general.created'|trans }}
+        </div>
+        <div class="item">
+          {{ entity.createdBy }} &nbsp;&nbsp; - &nbsp;&nbsp; {{ entity.created|date('Y-m-d H:i:s') }}
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="ui vertical fluid menu">
+        <div class="header item">
+          {{ 'general.updated'|trans }}
+        </div>
+        <div class="item">
+          {{ entity.updatedBy }} &nbsp;&nbsp; - &nbsp;&nbsp; {{ entity.updated|date('Y-m-d H:i:s') }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  {#<div class="row">#}
+
+    {#<div class="column">#}
+      {#<div class="ui vertical fluid menu">#}
+        {#<div class="header item">#}
+          {#{{ 'general.createdby'|trans }}#}
+        {#</div>#}
+        {#<div class="item">#}
+          {#{{ entity.createdBy }}#}
+        {#</div>#}
+      {#</div>#}
+    {#</div>#}
+
+    {#<div class="column">#}
+      {#<div class="ui vertical fluid menu">#}
+        {#<div class="header item">#}
+          {#{{ 'general.updatedby'|trans }}#}
+        {#</div>#}
+        {#<div class="item">#}
+          {#{{ entity.updatedBy }}#}
+        {#</div>#}
+      {#</div>#}
+    {#</div>#}
+
+  {#</div>#}

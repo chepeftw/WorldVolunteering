@@ -12,6 +12,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class BaseRepository extends EntityRepository {
 
+    public function findAllQueryBuilder( $enabled = null ) {
+        $queryBuilder = $this->createQueryBuilder('a');
+
+        $this->addQueryParam( $queryBuilder, $enabled, 'enabled' );
+
+        return $queryBuilder;
+    }
+
 	public function addQueryParam( $query, $parameter, $name ) {
 		if( $parameter != null ) {
 			$query

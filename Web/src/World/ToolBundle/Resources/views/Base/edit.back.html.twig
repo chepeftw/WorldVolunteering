@@ -1,0 +1,31 @@
+{% trans_default_domain 'DemiDashboardBundle' %}
+
+<div class="ui center aligned one column grid">
+
+    <div class="row">
+
+        <div class="column">
+          <div class="ui vertical fluid menu">
+            <div class="item">
+              
+                <div class="ui blue button">
+                    <a href="{{ path( entity.routeName ) }}">
+                        {{ 'general.backlist'|trans }}
+                    </a>
+                </div>
+
+                {% if is_granted('ROLE_ADMIN') %}
+                {% if not entity.enabled %}
+                <div class="ui">
+                    {{ form(delete_form , { 'attr': {'class': 'delete_form'} } ) }}
+                </div>
+                {% endif %}
+                {% endif %}
+
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+</div>

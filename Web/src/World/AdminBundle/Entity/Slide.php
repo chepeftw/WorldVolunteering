@@ -56,10 +56,10 @@ class Slide extends BaseEntity
     /**
      * @var boolean
      *
-     * @ORM\Column(name="enable", type="boolean")
+     * @ORM\Column(name="enabled", type="boolean", nullable=true)
      * @Gedmo\Versioned
      */
-    protected $enable;
+    protected $enabled;
 
     /**
      * @var \DateTime
@@ -77,6 +77,13 @@ class Slide extends BaseEntity
      */
     private $endDate;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sortOrder", type="integer", nullable=true)
+     */
+    protected $sortOrder;
+
     protected static $IMG_PATH = "uploads/slide";
 
     public function getImageWebPath() {
@@ -85,6 +92,15 @@ class Slide extends BaseEntity
 
     public function getPath() {
         return realpath('.') . '/' . self::$IMG_PATH;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->enabled = true; // Default value for column enable
+        $this->sortOrder = 0; // Default value for column sortOrder
     }
 
 
@@ -176,29 +192,6 @@ class Slide extends BaseEntity
     }
 
     /**
-     * Set enable
-     *
-     * @param boolean $enable
-     * @return Slide
-     */
-    public function setEnable($enable)
-    {
-        $this->enable = $enable;
-
-        return $this;
-    }
-
-    /**
-     * Get enable
-     *
-     * @return boolean 
-     */
-    public function getEnable()
-    {
-        return $this->enable;
-    }
-
-    /**
      * Set startDate
      *
      * @param \DateTime $startDate
@@ -242,5 +235,43 @@ class Slide extends BaseEntity
     public function getEndDate()
     {
         return $this->endDate;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     *
+     * @return Slide
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Set sortOrder
+     *
+     * @param integer $sortOrder
+     *
+     * @return Slide
+     */
+    public function setSortOrder($sortOrder)
+    {
+        $this->sortOrder = $sortOrder;
+
+        return $this;
+    }
+
+    /**
+     * Get sortOrder
+     *
+     * @return integer
+     */
+    public function getSortOrder()
+    {
+        return $this->sortOrder;
     }
 }

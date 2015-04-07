@@ -1,0 +1,11 @@
+{% trans_default_domain 'DemiDashboardBundle' %}
+
+{% if entity is not empty %}
+	<a href="{{ path( entity.routeName ~ '_show', { 'id': entity.id }) }}">
+
+	    <i class="large {{ entity.iconName }} icon"></i>
+
+	    {{ entity|trans }}
+	    
+	</a>
+{% endif %}

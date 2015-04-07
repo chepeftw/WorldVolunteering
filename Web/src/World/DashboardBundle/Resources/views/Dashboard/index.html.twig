@@ -4,6 +4,10 @@
 
 {% block breadcrumb %}{% endblock %}
 
+{% block slider %}
+    {% embed "WorldDashboardBundle:Dashboard:slider.html.twig" with { 'entities': slides } %} {% endembed %}
+{% endblock %}
+
 {% block body -%}
     <br>
     <br>

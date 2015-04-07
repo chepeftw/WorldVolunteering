@@ -1,0 +1,33 @@
+{% trans_default_domain 'DemiDashboardBundle' %}
+              
+<div class="ui blue button">
+    <a href="{{ path( entity.routeName ) }}">
+        {{ 'general.backlist'|trans }}
+    </a>
+</div>
+
+{% if is_granted('ROLE_ADMIN') %}
+    {% if not entity.enabled %}
+        <div class="ui blue button">
+            <a href="{{ path( entity.routeName ~ '_edit', { 'id': entity.id }) }}">
+                {{ 'general.edit'|trans }}
+            </a>
+        </div>
+    {% endif %}
+
+    {% if entity.child is not empty %}
+        {% if not entity.enabled %}
+            <div class="ui blue button">
+                <a href="{{ path( entity.child.routeName ~ '_new_withparentid', { 'parent_id': entity.id }) }}">
+                    {{- (entity.child.routeName ~ '.addchild')|trans -}}
+                </a>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    {% if not entity.enabled %}
+        <div class="ui">
+            {{ form(delete_form , { 'attr': {'class': 'delete_form'} } ) }}
+        </div>
+    {% endif %}
+{% endif %}

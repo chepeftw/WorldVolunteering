@@ -1,51 +1,15 @@
-{% extends '::base.html.twig' %}
+{% extends 'WorldDashboardBundle::admin.html.twig' %}
+
+{% trans_default_domain 'WorldDashboardBundle' %}
+
+{% block breadcrumb %}{% endblock %}
 
 {% block body -%}
-    <h1>Slide list</h1>
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Image</th>
-                <th>Enable</th>
-                <th>Startdate</th>
-                <th>Enddate</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('slide_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.name }}</td>
-                <td>{{ entity.description }}</td>
-                <td>{{ entity.image }}</td>
-                <td>{{ entity.enable }}</td>
-                <td>{% if entity.startDate %}{{ entity.startDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if entity.endDate %}{{ entity.endDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('slide_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('slide_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    {% embed "WorldToolBundle:Base:title.html.twig" with { 'title': 'slide.list' } %} {% endembed %}
 
-        <ul>
-        <li>
-            <a href="{{ path('slide_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+    {% embed "WorldAdminBundle:Slide:list.html.twig" with { 'entities': entities } %} {% endembed %}
+
+    {% embed "WorldToolBundle:Base:new.html.twig" with { 'entity_name' : 'slide' } %} {% endembed %}
+
+{% endblock %}

@@ -1,0 +1,7 @@
+{% trans_default_domain 'DemiDashboardBundle' %}
+
+{% if is_granted('ROLE_ADMIN') %}
+<div class="ui blue labeled icon button">
+    <i class="add sign icon"></i> <a href="{{ path( entity_name ~ '_new' ) }}">{{ 'general.new'|trans }}</a>
+</div>
+{% endif %}

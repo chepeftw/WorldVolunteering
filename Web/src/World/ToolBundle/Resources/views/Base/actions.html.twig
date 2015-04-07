@@ -1,0 +1,13 @@
+{% trans_default_domain 'DemiDashboardBundle' %}
+
+<a class="ui green button" href="{{ path( entity.routeName ~ '_show', { 'id': entity.id }) }}">
+    <i class="expand icon"></i>
+    {{ 'general.show'|trans }}
+</a>
+
+{% if is_granted('ROLE_ADMIN') %}
+    <a class="ui green button" href="{{ path( entity.routeName ~ '_edit', { 'id': entity.id }) }}">
+        <i class="edit icon"></i>
+        {{ 'general.edit'|trans }}
+    </a>
+{% endif %}

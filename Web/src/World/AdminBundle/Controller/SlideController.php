@@ -41,7 +41,14 @@ class SlideController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
             $em->persist($entity);
+
+            if( $entity->getImage() != null ) {
+                $uploadableManager = $this->get('stof_doctrine_extensions.uploadable.manager');
+                $uploadableManager->markEntityToUpload( $entity, $entity->getImage() );
+            }
+
             $em->flush();
 
             return $this->redirect($this->generateUrl('slide_show', array('id' => $entity->getId())));
@@ -67,7 +74,7 @@ class SlideController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'form.new', 'translation_domain' => 'WorldDashboardBundle'));
 
         return $form;
     }
@@ -147,7 +154,7 @@ class SlideController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'form.update', 'translation_domain' => 'WorldDashboardBundle'));
 
         return $form;
     }
@@ -165,14 +172,26 @@ class SlideController extends Controller
             throw $this->createNotFoundException('Unable to find Slide entity.');
         }
 
+        $image = $entity->getImage();
+
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+
+            $entityImage = $entity->getImage();
+            if( !isset( $entityImage ) || ( trim( $entityImage ) === '' ) ) {
+                $entity->setImage( $image );
+            } else {
+                $uploadableManager = $this->get('stof_doctrine_extensions.uploadable.manager');
+                $uploadableManager->markEntityToUpload( $entity, $entity->getImage() );
+            }
+
+            $em->persist( $entity );
             $em->flush();
 
-            return $this->redirect($this->generateUrl('slide_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('slide_show', array('id' => $id)));
         }
 
         return $this->render('WorldAdminBundle:Slide:edit.html.twig', array(
@@ -217,7 +236,7 @@ class SlideController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('slide_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', array('label' => 'form.delete', 'translation_domain' => 'WorldDashboardBundle'))
             ->getForm()
         ;
     }
