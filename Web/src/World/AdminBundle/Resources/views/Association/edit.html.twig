@@ -1,16 +1,18 @@
-{% extends '::base.html.twig' %}
+{% extends 'WorldDashboardBundle::admin.html.twig' %}
+
+{% trans_default_domain 'WorldDashboardBundle' %}
+
+{% form_theme edit_form 'WorldDashboardBundle::themes/theme.html.twig'  %}
+{% form_theme delete_form 'WorldDashboardBundle::themes/delete_theme.html.twig'  %}
+
+{% block breadcrumb %}{% endblock %}
 
 {% block body -%}
-    <h1>Association edit</h1>
+
+    {% embed "WorldToolBundle:Base:title.html.twig" with { 'title': entity.routeName ~ '.edit' } %} {% endembed %}
 
     {{ form(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('association') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    {% embed "WorldToolBundle:Base:edit2.back.html.twig" with { 'path': 'admin_association', 'delete_form': delete_form } %} {% endembed %}
+
 {% endblock %}

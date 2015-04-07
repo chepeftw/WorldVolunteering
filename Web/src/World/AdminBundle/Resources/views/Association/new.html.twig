@@ -1,15 +1,17 @@
-{% extends '::base.html.twig' %}
+{% extends 'WorldDashboardBundle::admin.html.twig' %}
+
+{% trans_default_domain 'WorldDashboardBundle' %}
+
+{% form_theme form 'WorldDashboardBundle::themes/theme.html.twig'  %}
+
+{% block breadcrumb %}{% endblock %}
 
 {% block body -%}
-    <h1>Association creation</h1>
+
+    {% embed "WorldToolBundle:Base:title.html.twig" with { 'title': entity.routeName ~ '.new' } %} {% endembed %}
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('association') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+    {% embed "WorldToolBundle:Base:new.back.html.twig" with { 'path': 'admin_association' } %} {% endembed %}
+
 {% endblock %}

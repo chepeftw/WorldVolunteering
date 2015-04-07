@@ -71,10 +71,6 @@ class AssociationType extends AbstractType
             ->add('user')
             ->add('approved')
             ->add('enabled')
-            ->add('created')
-            ->add('updated')
-            ->add('createdBy')
-            ->add('updatedBy')
         ;
     }
     
@@ -84,7 +80,7 @@ class AssociationType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'World\AdminBundle\Entity\Association'
+            'data_class' => 'World\VolunteerBundle\Entity\Association'
         ));
     }
 

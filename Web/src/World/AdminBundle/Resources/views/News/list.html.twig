@@ -5,7 +5,7 @@
         <tr>
             <th>{{ 'general.image'|trans }}</th>
             <th>{{ 'general.name'|trans }}</th>
-            <th>{{ 'general.description'|trans }}</th>
+            {#<th>{{ 'general.description'|trans }}</th>#}
             <th>{{ 'general.startdate'|trans }}</th>
             <th>{{ 'general.enddate'|trans }}</th>
             <th>{{ 'general.enabled'|trans }}</th>
@@ -21,7 +21,7 @@
                 <img src="{{ entity.imageWebPath | imagine_filter('thumb') }}">
             </td>
             <td>{{ entity.name }}</td>
-            <td>{% embed "WorldToolBundle:Base:description.html.twig" with { 'description': entity.description } %} {% endembed %}</td>
+            {#<td>{% embed "WorldToolBundle:Base:description.html.twig" with { 'description': entity.description } %} {% endembed %}</td>#}
             <td>{% if entity.startDate %}{{ entity.startDate|date('Y-m-d') }}{% endif %}</td>
             <td>{% if entity.endDate %}{{ entity.endDate|date('Y-m-d') }}{% endif %}</td>
             <td>{{ entity.enabledStr }}</td>
