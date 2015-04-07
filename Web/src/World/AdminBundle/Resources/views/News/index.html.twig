@@ -8,7 +8,7 @@
 
     {% embed "WorldToolBundle:Base:title.html.twig" with { 'title': entity.routeName ~ '.list' } %} {% endembed %}
 
-    {% embed "WorldAdminBundle:Slide:list.html.twig" with { 'entities': entities } %} {% endembed %}
+    {% embed "WorldAdminBundle:News:list.html.twig" with { 'entities': entities } %} {% endembed %}
 
     {% embed "WorldToolBundle:Base:new.html.twig" with { 'entity_name' : entity.routeName } %} {% endembed %}
 

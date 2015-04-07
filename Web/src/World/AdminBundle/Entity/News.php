@@ -56,7 +56,7 @@ class News extends BaseEntity
     /**
      * @var boolean
      *
-     * @ORM\Column(name="enabled", type="boolean")
+     * @ORM\Column(name="enabled", type="boolean", nullable=true)
      * @Gedmo\Versioned
      */
     protected $enabled;
@@ -64,7 +64,7 @@ class News extends BaseEntity
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="startDate", type="date")
+     * @ORM\Column(name="startDate", type="date", nullable=true)
      * @Gedmo\Versioned
      */
     private $startDate;
@@ -72,10 +72,51 @@ class News extends BaseEntity
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="endDate", type="date")
+     * @ORM\Column(name="endDate", type="date", nullable=true)
      * @Gedmo\Versioned
      */
     private $endDate;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sortOrder", type="integer", nullable=true)
+     */
+    protected $sortOrder;
+
+    /**
+     * @var datetime $created
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
+
+    /**
+     * @var datetime $updated
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     */
+    private $updated;
+
+    /**
+     * @var User $createdBy
+     *
+     * @Gedmo\Blameable(on="create")
+     * @ORM\ManyToOne(targetEntity="World\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="created_by", referencedColumnName="id")
+     */
+    private $createdBy;
+
+    /**
+     * @var User $updatedBy
+     *
+     * @Gedmo\Blameable(on="update")
+     * @ORM\ManyToOne(targetEntity="World\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
+     */
+    private $updatedBy;
 
     protected static $IMG_PATH = "uploads/news";
 
@@ -239,5 +280,126 @@ class News extends BaseEntity
     public function getEndDate()
     {
         return $this->endDate;
+    }
+
+
+    /**
+     * Set sortOrder
+     *
+     * @param integer $sortOrder
+     *
+     * @return News
+     */
+    public function setSortOrder($sortOrder)
+    {
+        $this->sortOrder = $sortOrder;
+
+        return $this;
+    }
+
+    /**
+     * Get sortOrder
+     *
+     * @return integer
+     */
+    public function getSortOrder()
+    {
+        return $this->sortOrder;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     *
+     * @return News
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return News
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param \World\UserBundle\Entity\User $createdBy
+     *
+     * @return News
+     */
+    public function setCreatedBy(\World\UserBundle\Entity\User $createdBy = null)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return \World\UserBundle\Entity\User
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set updatedBy
+     *
+     * @param \World\UserBundle\Entity\User $updatedBy
+     *
+     * @return News
+     */
+    public function setUpdatedBy(\World\UserBundle\Entity\User $updatedBy = null)
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedBy
+     *
+     * @return \World\UserBundle\Entity\User
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updatedBy;
     }
 }

@@ -117,13 +117,13 @@
 
     </div>
 
-    {#<br>#}
+    <br>
 
-    {#<div class="ui center aligned two column grid">#}
+    <div class="ui center aligned two column grid">
 
-        {#{% embed "WorldToolBundle:Base:base.show.html.twig" with { 'entity': entity } %} {% endembed %}#}
+        {% embed "WorldToolBundle:Base:base.show.html.twig" with { 'entity': entity } %} {% endembed %}
 
-    {#</div>#}
+    </div>
 
     {% embed "WorldToolBundle:Base:show.back.html.twig" with { 'entity': entity, 'delete_form': delete_form } %} {% endembed %}
 

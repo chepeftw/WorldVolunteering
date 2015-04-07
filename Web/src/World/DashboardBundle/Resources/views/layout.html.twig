@@ -14,9 +14,11 @@
             <i class="home icon"></i> Home
         </a>
 
-        <a class="item" href="{# path('demi_dashboard_homepage') #}">
-            <i class="mail icon"></i> Messages
-        </a>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a class="item" href="{{ path('slide') }}">
+                <i class="mail icon"></i> Admin
+            </a>
+        {% endif %}
 
         <div class="right menu">
         </div>
@@ -29,7 +31,7 @@
 
 {% block footer %}
     <div class="ui tertiary center aligned segment footer">
-        <div><p><small>Trademark and Copyright Notice. Defensoria de la Mujer Indigena and its related entities. All rights reserved
+        <div><p><small>Trademark and Copyright Notice. WorldVolunteering and its related entities. All rights reserved
                     El uso de este sitio (incluso cualquier parte y componente) constituye su aceptación de estos Términos de Uso y Políticas de Privacidad.</small></p>
         </div>
         <div class="menuLine"></div>

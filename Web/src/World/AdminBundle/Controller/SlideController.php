@@ -25,8 +25,11 @@ class SlideController extends Controller
 
         $entities = $em->getRepository('WorldAdminBundle:Slide')->findAll();
 
+        $entity = new Slide();
+
         return $this->render('WorldAdminBundle:Slide:index.html.twig', array(
             'entities' => $entities,
+            'entity' => $entity,
         ));
     }
     /**
