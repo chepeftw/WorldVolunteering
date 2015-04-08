@@ -1,0 +1,10 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+{% block field %}
+    <div>
+        {% if object.image is not empty %}
+            <img src="{{ object.imageWebPath | imagine_filter('thumb') }}">
+        {% else %}
+            <span>No picture</span>
+        {% endif %}
+    </div>
+{% endblock %}

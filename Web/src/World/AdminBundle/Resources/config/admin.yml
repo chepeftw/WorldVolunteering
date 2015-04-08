@@ -1,0 +1,22 @@
+# Acme/DemoBundle/Resources/config/admin.yml
+services:
+    sonata.admin.slide:
+        class: World\AdminBundle\Admin\SlideAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Admin", label: "Slide" }
+        arguments:
+            - ~
+            - World\AdminBundle\Entity\Slide
+            - ~
+        calls:
+            - [ setTranslationDomain, [AcmeDemoBundle]]
+    sonata.admin.news:
+        class: World\AdminBundle\Admin\NewsAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Admin", label: "News" }
+        arguments:
+            - ~
+            - World\AdminBundle\Entity\News
+            - ~
+        calls:
+            - [ setTranslationDomain, [AcmeDemoBundle]]
