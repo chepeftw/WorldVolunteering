@@ -23,7 +23,9 @@
         "stof/doctrine-extensions-bundle": "~1.1@dev",
         "knplabs/knp-paginator-bundle": "~2.4",
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
-        "liip/imagine-bundle": "dev-master"
+        "liip/imagine-bundle": "dev-master",
+        "sonata-project/admin-bundle": "~2.3",
+        "sonata-project/doctrine-orm-admin-bundle": "~2.3"
     },
     "scripts": {
         "post-install-cmd": [
