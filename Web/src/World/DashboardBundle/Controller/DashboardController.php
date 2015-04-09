@@ -12,20 +12,14 @@ class DashboardController extends Controller
 
         $slides = $em->getRepository('WorldAdminBundle:Slide')->findAllCustom( true );
         $news = $em->getRepository('WorldAdminBundle:News')->findAllCustom( true );
+        $activities = $em->getRepository('WorldVolunteerBundle:Activity')->findAllCustom( true );
+        $associations = $em->getRepository('WorldVolunteerBundle:Association')->findAllCustom( true );
 
         return $this->render('WorldDashboardBundle:Dashboard:index.html.twig', array(
             'slides' => $slides,
             'news' => $news,
-        ));
-    }
-
-    public function sliderAction() {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('WorldAdminBundle:Slide')->findAllCustom( true );
-
-        return $this->render('WorldDashboardBundle:Dashboard:slider.html.twig', array(
-            'entities' => $entities,
+            'activities' => $activities,
+            'associations' => $associations,
         ));
     }
 }

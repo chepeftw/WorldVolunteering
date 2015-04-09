@@ -149,7 +149,7 @@ class Association extends BaseEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="typeOther", type="string", length=255)
+     * @ORM\Column(name="typeOther", type="string", length=255, nullable=true)
      * @Gedmo\Versioned
      */
     private $typeOther;
@@ -165,7 +165,7 @@ class Association extends BaseEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="denominationOther", type="string", length=255)
+     * @ORM\Column(name="denominationOther", type="string", length=255, nullable=true)
      * @Gedmo\Versioned
      */
     private $denominationOther;
@@ -183,7 +183,7 @@ class Association extends BaseEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="aboutUs", type="text")
+     * @ORM\Column(name="aboutUs", type="text", nullable=true)
      * @Gedmo\Versioned
      */
     private $aboutUs;
@@ -191,7 +191,7 @@ class Association extends BaseEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="whatWeDo", type="text")
+     * @ORM\Column(name="whatWeDo", type="text", nullable=true)
      * @Gedmo\Versioned
      */
     private $whatWeDo;
@@ -338,7 +338,7 @@ class Association extends BaseEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="directorBirthdate", type="date")
+     * @ORM\Column(name="directorBirthdate", type="date", nullable=true)
      * @Gedmo\Versioned
      */
     private $directorBirthdate;
@@ -346,7 +346,7 @@ class Association extends BaseEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="directorTime", type="string", length=255)
+     * @ORM\Column(name="directorTime", type="string", length=255, nullable=true)
      * @Gedmo\Versioned
      */
     private $directorTime;

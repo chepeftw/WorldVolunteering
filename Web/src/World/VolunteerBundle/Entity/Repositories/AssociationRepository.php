@@ -12,4 +12,15 @@ use World\ToolBundle\Entity\Repositories\BaseRepository;
  */
 class AssociationRepository extends BaseRepository
 {
+
+    public function findAllQuery( $enabled = null ) {
+        $queryBuilder = $this->findAllQueryBuilder( $enabled )->orderBy('a.randomValue', 'ASC');
+
+        return $queryBuilder->getQuery();
+    }
+
+    public function findAllCustom( $enabled = null ) {
+        return $this->findAllQuery( $enabled )->execute();
+    }
+
 }

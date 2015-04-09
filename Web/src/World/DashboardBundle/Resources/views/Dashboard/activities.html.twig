@@ -1,0 +1,23 @@
+{% if entities is not empty %}
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h1 class="ui centered header">Activities</h1>
+
+    <div class="ui stackable padded grid">
+        <div class="three column row">
+            {% for entity in entities %}
+                <div class="column center aligned">
+                    <h2 class="ui header">{{ entity.name }}</h2>
+                    <img class="ui centered small image" src="{{ entity.imageWebPath | imagine_filter('thumb_news') }}">
+                    <p>
+                        {% embed "WorldToolBundle:Base:description.html.twig" with { 'description': entity.description } %} {% endembed %}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endif %}

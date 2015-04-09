@@ -1,0 +1,155 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Association list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Country</th>
+                <th>State</th>
+                <th>City</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Founded</th>
+                <th>Operationtime</th>
+                <th>Mission</th>
+                <th>Vision</th>
+                <th>Philosophy</th>
+                <th>Legal</th>
+                <th>Type</th>
+                <th>Typeother</th>
+                <th>Denomination</th>
+                <th>Denominationother</th>
+                <th>Coverage</th>
+                <th>Aboutus</th>
+                <th>Whatwedo</th>
+                <th>Legalpartner</th>
+                <th>Legalpartnerphone</th>
+                <th>Legalpartneremail</th>
+                <th>Executivepartner</th>
+                <th>Executivepartnerphone</th>
+                <th>Executivepartneremail</th>
+                <th>Communicationpartner</th>
+                <th>Communicationpartnerphone</th>
+                <th>Communicationpartneremail</th>
+                <th>Website</th>
+                <th>Facebook</th>
+                <th>Twitter</th>
+                <th>Instagram</th>
+                <th>Director</th>
+                <th>Directorphone</th>
+                <th>Directoremail</th>
+                <th>Directorbirthdate</th>
+                <th>Directortime</th>
+                <th>History</th>
+                <th>Volunteerrequirements</th>
+                <th>Volunteerage</th>
+                <th>Commitment</th>
+                <th>Donations</th>
+                <th>Donationmethod</th>
+                <th>Donationpurpose</th>
+                <th>Axis</th>
+                <th>Volunteeractive</th>
+                <th>Volunteerpermanent</th>
+                <th>Volunteerman</th>
+                <th>Volunteerwoman</th>
+                <th>Frequency</th>
+                <th>Logo</th>
+                <th>Randomvalue</th>
+                <th>User</th>
+                <th>Approved</th>
+                <th>Enabled</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('association_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.address }}</td>
+                <td>{{ entity.country }}</td>
+                <td>{{ entity.state }}</td>
+                <td>{{ entity.city }}</td>
+                <td>{{ entity.phone }}</td>
+                <td>{{ entity.email }}</td>
+                <td>{% if entity.founded %}{{ entity.founded|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.operationTime }}</td>
+                <td>{{ entity.mission }}</td>
+                <td>{{ entity.vision }}</td>
+                <td>{{ entity.philosophy }}</td>
+                <td>{{ entity.legal }}</td>
+                <td>{{ entity.type }}</td>
+                <td>{{ entity.typeOther }}</td>
+                <td>{{ entity.denomination }}</td>
+                <td>{{ entity.denominationOther }}</td>
+                <td>{{ entity.coverage }}</td>
+                <td>{{ entity.aboutUs }}</td>
+                <td>{{ entity.whatWeDo }}</td>
+                <td>{{ entity.legalPartner }}</td>
+                <td>{{ entity.legalPartnerPhone }}</td>
+                <td>{{ entity.legalPartnerEmail }}</td>
+                <td>{{ entity.executivePartner }}</td>
+                <td>{{ entity.executivePartnerPhone }}</td>
+                <td>{{ entity.executivePartnerEmail }}</td>
+                <td>{{ entity.communicationPartner }}</td>
+                <td>{{ entity.communicationPartnerPhone }}</td>
+                <td>{{ entity.communicationPartnerEmail }}</td>
+                <td>{{ entity.website }}</td>
+                <td>{{ entity.facebook }}</td>
+                <td>{{ entity.twitter }}</td>
+                <td>{{ entity.instagram }}</td>
+                <td>{{ entity.director }}</td>
+                <td>{{ entity.directorPhone }}</td>
+                <td>{{ entity.directorEmail }}</td>
+                <td>{% if entity.directorBirthdate %}{{ entity.directorBirthdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.directorTime }}</td>
+                <td>{{ entity.history }}</td>
+                <td>{{ entity.volunteerRequirements }}</td>
+                <td>{{ entity.volunteerAge }}</td>
+                <td>{{ entity.commitment }}</td>
+                <td>{{ entity.donations }}</td>
+                <td>{{ entity.donationMethod }}</td>
+                <td>{{ entity.donationPurpose }}</td>
+                <td>{{ entity.axis }}</td>
+                <td>{{ entity.volunteerActive }}</td>
+                <td>{{ entity.volunteerPermanent }}</td>
+                <td>{{ entity.volunteerMan }}</td>
+                <td>{{ entity.volunteerWoman }}</td>
+                <td>{{ entity.frequency }}</td>
+                <td>{{ entity.logo }}</td>
+                <td>{{ entity.randomValue }}</td>
+                <td>{{ entity.user }}</td>
+                <td>{{ entity.approved }}</td>
+                <td>{{ entity.enabled }}</td>
+                <td>{% if entity.created %}{{ entity.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.updated %}{{ entity.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('association_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('association_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('association_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

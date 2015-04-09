@@ -1,0 +1,20 @@
+{% if entities is not empty %}
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h1 class="ui centered header">Volunteers</h1>
+
+    <div class="ui stackable four column grid">
+        {% for entity in entities %}
+            <div class="column">
+                <div class="ui segment">
+                    <img src="{{ entity.imageWebPath | imagine_filter('thumb_news') }}" class="ui fluid image">
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endif %}

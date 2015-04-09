@@ -12,4 +12,23 @@ use World\ToolBundle\Entity\Repositories\BaseRepository;
  */
 class ActivityRepository extends BaseRepository
 {
+
+    public function findAllQuery( $enabled = null ) {
+
+        $today = new \DateTime();
+
+        $queryBuilder = $this->findAllQueryBuilder( $enabled )->orderBy('a.date', 'ASC');
+
+        $queryBuilder
+            ->andWhere('a.date >= :today')
+            ->setParameter('today', $today->format('Y-m-d'))
+        ;
+
+        return $queryBuilder->getQuery();
+    }
+
+    public function findAllCustom( $enabled = null ) {
+        return $this->findAllQuery( $enabled )->execute();
+    }
+
 }
