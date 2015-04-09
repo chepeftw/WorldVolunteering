@@ -104,7 +104,7 @@ class Testimonial extends BaseEntity
      */
     private $updatedBy;
 
-    protected static $IMG_PATH = "uploads/testimonials";
+    protected static $IMG_PATH = "uploads/testimonial";
 
     public function getImageWebPath() {
         return ImageUtils::getGenericPath( self::$IMG_PATH, '', $this->getImage() );

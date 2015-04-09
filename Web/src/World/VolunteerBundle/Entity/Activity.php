@@ -121,7 +121,7 @@ class Activity extends BaseEntity
      */
     private $updatedBy;
 
-    protected static $IMG_PATH = "uploads/activities";
+    protected static $IMG_PATH = "uploads/activity";
 
     public function getImageWebPath() {
         return ImageUtils::getGenericPath( self::$IMG_PATH, '', $this->getImage() );

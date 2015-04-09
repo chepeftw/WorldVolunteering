@@ -11,7 +11,7 @@
             {% for entity in entities %}
                 <div class="column center aligned">
                     <h2 class="ui header">{{ entity.name }}</h2>
-                    <img class="ui centered small image" src="{{ entity.imageWebPath | imagine_filter('thumb_news') }}">
+                    <img class="ui centered small image" src="{{ entity.imageWebPath | imagine_filter('thumb') }}">
                     <p>
                         {% embed "WorldToolBundle:Base:description.html.twig" with { 'description': entity.description } %} {% endembed %}
                     </p>

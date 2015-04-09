@@ -111,7 +111,7 @@ class Photo extends BaseEntity
      */
     private $updatedBy;
 
-    protected static $IMG_PATH = "uploads/photos";
+    protected static $IMG_PATH = "uploads/photo";
 
     public function getImageWebPath() {
         return ImageUtils::getGenericPath( self::$IMG_PATH, '', $this->getImage() );

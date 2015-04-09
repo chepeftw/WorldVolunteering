@@ -603,7 +603,7 @@ class Association extends BaseEntity
         return $this->getLogo();
     }
 
-    protected static $IMG_PATH = "uploads/associations";
+    protected static $IMG_PATH = "uploads/association";
 
     public function getImageWebPath() {
         return ImageUtils::getGenericPath( self::$IMG_PATH, '', $this->getImage() );

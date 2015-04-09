@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83c507a1-f40b-4666-bc7d-8d9a76abcd19" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/activities.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/associations.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/.gitignore" afterPath="$PROJECT_DIR$/Web/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Repositories/ActivityRepository.php" afterPath="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Repositories/ActivityRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Activity.php" afterPath="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Activity.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Association.php" afterPath="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Association.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Repositories/AssociationRepository.php" afterPath="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Repositories/AssociationRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Controller/DashboardController.php" afterPath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Controller/DashboardController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/index.html.twig" afterPath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Photo.php" afterPath="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Photo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Testimonial.php" afterPath="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Testimonial.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/activities.html.twig" afterPath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/activities.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/associations.html.twig" afterPath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/associations.html.twig" />
     </list>
     <ignored path="worldvolunteering.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,11 +42,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/index.html.twig">
+      <file leaf-file-name="Activity.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Activity.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="360">
-              <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+            <state vertical-scroll-proportion="-20.0" vertical-offset="1290" max-vertical-offset="6135">
+              <caret line="123" column="50" selection-start-line="123" selection-start-column="50" selection-end-line="123" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Association.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Association.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-27.083334" vertical-offset="8320" max-vertical-offset="32130">
+              <caret line="605" column="53" selection-start-line="605" selection-start-column="53" selection-end-line="605" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Photo.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Photo.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.5" vertical-offset="1320" max-vertical-offset="5535">
+              <caret line="113" column="47" selection-start-line="113" selection-start-column="47" selection-end-line="113" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Testimonial.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Testimonial.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.0" vertical-offset="1035" max-vertical-offset="5175">
+              <caret line="106" column="53" selection-start-line="106" selection-start-column="53" selection-end-line="106" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Web/app/config/routing.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.03322259" vertical-offset="0" max-vertical-offset="903">
+              <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -60,9 +95,11 @@
       <file leaf-file-name="activities.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/activities.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="420">
-              <caret line="0" column="30" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
-              <folding />
+            <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="420">
+              <caret line="13" column="108" selection-start-line="13" selection-start-column="108" selection-end-line="13" selection-end-column="108" />
+              <folding>
+                <marker date="1428560039000" expanded="true" signature="0:750" placeholder="{% if entities is not empty ...%}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -70,9 +107,11 @@
       <file leaf-file-name="associations.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/associations.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="375">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="375">
+              <caret line="13" column="76" selection-start-line="13" selection-start-column="76" selection-end-line="13" selection-end-column="76" />
+              <folding>
+                <marker date="1428560036000" expanded="true" signature="0:473" placeholder="{% if entities is not empty ...%}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,16 +121,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="435">
               <caret line="14" column="171" selection-start-line="14" selection-start-column="171" selection-end-line="14" selection-end-column="171" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActivityRepository.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Repositories/ActivityRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20477815" vertical-offset="0" max-vertical-offset="879">
-              <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -131,19 +160,15 @@
         <option value="$PROJECT_DIR$/Web/src/World/AdminBundle/DependencyInjection/WorldAdminExtension.php" />
         <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/DependencyInjection/WorldVolunteerExtension.php" />
         <option value="$PROJECT_DIR$/Web/app/config/security.yml" />
-        <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Activity.php" />
         <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Admin/ActivityAdmin.php" />
         <option value="$PROJECT_DIR$/Web/src/World/AdminBundle/Admin/SlideAdmin.php" />
         <option value="$PROJECT_DIR$/Web/src/World/AdminBundle/Admin/NewsAdmin.php" />
         <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Admin/TestimonialAdmin.php" />
-        <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Photo.php" />
-        <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Testimonial.php" />
         <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Admin/PhotoAdmin.php" />
         <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Admin/VideoAdmin.php" />
         <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Resources/config/admin.yml" />
         <option value="$PROJECT_DIR$/Web/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/layout.html.twig" />
-        <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Association.php" />
         <option value="$PROJECT_DIR$/Web/src/World/UserBundle/Resources/config/admin.yml" />
         <option value="$PROJECT_DIR$/Web/src/World/UserBundle/DependencyInjection/WorldUserExtension.php" />
         <option value="$PROJECT_DIR$/Web/app/config/config.yml" />
@@ -153,9 +178,13 @@
         <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Repositories/ActivityRepository.php" />
         <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Repositories/AssociationRepository.php" />
         <option value="$PROJECT_DIR$/Web/src/World/DashboardBundle/Controller/DashboardController.php" />
-        <option value="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/activities.html.twig" />
-        <option value="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/associations.html.twig" />
         <option value="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/index.html.twig" />
+        <option value="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/associations.html.twig" />
+        <option value="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/activities.html.twig" />
+        <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Activity.php" />
+        <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Association.php" />
+        <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Photo.php" />
+        <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Testimonial.php" />
       </list>
     </option>
   </component>
@@ -602,6 +631,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="worldvolunteering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="worldvolunteering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="worldvolunteering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="worldvolunteering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -822,13 +891,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/World/AdminBundle/Entity/Slide.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.25" vertical-offset="1335" max-vertical-offset="6135">
-          <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="128" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Web/app/config/security.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
@@ -843,13 +905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/World/AdminBundle/Entity/News.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-28.75" vertical-offset="1365" max-vertical-offset="6300">
-          <caret line="137" column="5" selection-start-line="120" selection-start-column="4" selection-end-line="137" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Web/src/World/AdminBundle/Admin/SlideAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.75" vertical-offset="237" max-vertical-offset="1140">
@@ -861,20 +916,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-21.25" vertical-offset="45" max-vertical-offset="1140">
           <caret line="37" column="10" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Testimonial.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="5250">
-          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Photo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.875" vertical-offset="465" max-vertical-offset="5610">
-          <caret line="58" column="36" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -897,13 +938,6 @@
         <state vertical-scroll-proportion="0.30201343" vertical-offset="0" max-vertical-offset="720">
           <caret line="12" column="37" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="38" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05033557" vertical-offset="0" max-vertical-offset="630">
-          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -946,24 +980,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="5055">
           <caret line="95" column="27" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Activity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1095" max-vertical-offset="6210">
-          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="87" selection-end-column="23" />
-          <folding>
-            <element signature="e#48#80#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2325">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1023,16 +1039,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Association.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17064847" vertical-offset="7725" max-vertical-offset="32235">
-          <caret line="525" column="25" selection-start-line="525" selection-start-column="25" selection-end-line="525" selection-end-column="25" />
-          <folding>
-            <element signature="e#48#80#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Web/src/World/AdminBundle/Entity/Repositories/NewsRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25597268" vertical-offset="0" max-vertical-offset="879">
@@ -1041,43 +1047,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/World/DashboardBundle/Controller/DashboardController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.375" vertical-offset="0" max-vertical-offset="465">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/news.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="435">
-          <caret line="14" column="171" selection-start-line="14" selection-start-column="171" selection-end-line="14" selection-end-column="171" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/activities.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="879">
-          <caret line="0" column="30" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/associations.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="375">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="360">
           <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
-          <folding />
+          <folding>
+            <marker date="1428558758000" expanded="true" signature="-1:-1" placeholder="{% block body ...%}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1091,8 +1067,110 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Repositories/ActivityRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20477815" vertical-offset="0" max-vertical-offset="879">
+        <state vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="600">
           <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/news.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="435">
+          <caret line="14" column="171" selection-start-line="14" selection-start-column="171" selection-end-line="14" selection-end-column="171" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25249168" vertical-offset="1422" max-vertical-offset="2325">
+          <caret line="110" column="13" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/World/DashboardBundle/Controller/DashboardController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.375" vertical-offset="0" max-vertical-offset="465">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/associations.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="375">
+          <caret line="13" column="76" selection-start-line="13" selection-start-column="76" selection-end-line="13" selection-end-column="76" />
+          <folding>
+            <marker date="1428560036000" expanded="true" signature="0:473" placeholder="{% if entities is not empty ...%}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/activities.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="420">
+          <caret line="13" column="108" selection-start-line="13" selection-start-column="108" selection-end-line="13" selection-end-column="108" />
+          <folding>
+            <marker date="1428560039000" expanded="true" signature="0:750" placeholder="{% if entities is not empty ...%}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Activity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.0" vertical-offset="1290" max-vertical-offset="6135">
+          <caret line="123" column="50" selection-start-line="123" selection-start-column="50" selection-end-line="123" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Association.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-27.083334" vertical-offset="8320" max-vertical-offset="32130">
+          <caret line="605" column="53" selection-start-line="605" selection-start-column="53" selection-end-line="605" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Photo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.5" vertical-offset="1320" max-vertical-offset="5535">
+          <caret line="113" column="47" selection-start-line="113" selection-start-column="47" selection-end-line="113" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/World/AdminBundle/Entity/News.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2055" max-vertical-offset="6300">
+          <caret line="137" column="5" selection-start-line="120" selection-start-column="4" selection-end-line="137" selection-end-column="5" />
+          <folding>
+            <element signature="e#44#76#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/World/AdminBundle/Entity/Slide.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.443686" vertical-offset="1335" max-vertical-offset="6135">
+          <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="128" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/World/VolunteerBundle/Entity/Testimonial.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.0" vertical-offset="1035" max-vertical-offset="5175">
+          <caret line="106" column="53" selection-start-line="106" selection-start-column="53" selection-end-line="106" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03322259" vertical-offset="0" max-vertical-offset="903">
+          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
           <folding />
         </state>
       </provider>
