@@ -7,11 +7,14 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use World\ToolBundle\Entity\BaseEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
+use World\ToolBundle\Utility\ImageUtils;
+
 /**
  * Photo
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="World\VolunteerBundle\Entity\Repositories\PhotoRepository")
+ * @Gedmo\Uploadable( pathMethod="getPath", filenameGenerator="SHA1", allowOverwrite=true, appendNumber=true )
  * @Gedmo\Loggable
  */
 class Photo extends BaseEntity
@@ -44,8 +47,9 @@ class Photo extends BaseEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=255)
-     * @Gedmo\Versioned
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     * @Gedmo\UploadableFilePath
+     * @Assert\File(maxSize="100M")
      */
     private $image;
 
@@ -106,6 +110,20 @@ class Photo extends BaseEntity
      * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
      */
     private $updatedBy;
+
+    protected static $IMG_PATH = "uploads/photos";
+
+    public function getImageWebPath() {
+        return ImageUtils::getGenericPath( self::$IMG_PATH, '', $this->getImage() );
+    }
+
+    public function getPath() {
+        return realpath('.') . '/' . self::$IMG_PATH;
+    }
+
+
+
+
 
 
     /**

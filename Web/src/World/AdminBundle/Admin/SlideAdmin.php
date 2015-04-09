@@ -32,7 +32,6 @@ class SlideAdmin extends Admin
         $datagridMapper
             ->add('name')
             ->add('description')
-            ->add('image')
             ->add('startDate')
             ->add('endDate')
             ->add('sortOrder')

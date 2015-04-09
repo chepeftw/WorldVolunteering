@@ -7,11 +7,14 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use World\ToolBundle\Entity\BaseEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
+use World\ToolBundle\Utility\ImageUtils;
+
 /**
  * Activity
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="World\VolunteerBundle\Entity\Repositories\ActivityRepository")
+ * @Gedmo\Uploadable( pathMethod="getPath", filenameGenerator="SHA1", allowOverwrite=true, appendNumber=true )
  * @Gedmo\Loggable
  */
 class Activity extends BaseEntity
@@ -60,8 +63,9 @@ class Activity extends BaseEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=255)
-     * @Gedmo\Versioned
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     * @Gedmo\UploadableFilePath
+     * @Assert\File(maxSize="100M")
      */
     private $image;
 
@@ -116,6 +120,26 @@ class Activity extends BaseEntity
      * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
      */
     private $updatedBy;
+
+    protected static $IMG_PATH = "uploads/activities";
+
+    public function getImageWebPath() {
+        return ImageUtils::getGenericPath( self::$IMG_PATH, '', $this->getImage() );
+    }
+
+    public function getPath() {
+        return realpath('.') . '/' . self::$IMG_PATH;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->enabled = true; // Default value for column enable
+    }
+
+
 
 
 

@@ -1,0 +1,52 @@
+# Acme/DemoBundle/Resources/config/admin.yml
+services:
+    sonata.admin.association:
+        class: World\VolunteerBundle\Admin\AssociationAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Volunteer", label: "Association" }
+        arguments:
+            - ~
+            - World\VolunteerBundle\Entity\Association
+            - ~
+        calls:
+            - [ setTranslationDomain, [AcmeDemoBundle]]
+    sonata.admin.activity:
+        class: World\VolunteerBundle\Admin\ActivityAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Volunteer", label: "Activity" }
+        arguments:
+            - ~
+            - World\VolunteerBundle\Entity\Activity
+            - ~
+        calls:
+            - [ setTranslationDomain, [AcmeDemoBundle]]
+    sonata.admin.photo:
+        class: World\VolunteerBundle\Admin\PhotoAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Volunteer", label: "Photo" }
+        arguments:
+            - ~
+            - World\VolunteerBundle\Entity\Photo
+            - ~
+        calls:
+            - [ setTranslationDomain, [AcmeDemoBundle]]
+    sonata.admin.testimonial:
+        class: World\VolunteerBundle\Admin\TestimonialAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Volunteer", label: "Testimonial" }
+        arguments:
+            - ~
+            - World\VolunteerBundle\Entity\Testimonial
+            - ~
+        calls:
+            - [ setTranslationDomain, [AcmeDemoBundle]]
+    sonata.admin.video:
+        class: World\VolunteerBundle\Admin\VideoAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Volunteer", label: "Video" }
+        arguments:
+            - ~
+            - World\VolunteerBundle\Entity\Video
+            - ~
+        calls:
+            - [ setTranslationDomain, [AcmeDemoBundle]]

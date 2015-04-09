@@ -9,11 +9,14 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
+use World\ToolBundle\Utility\ImageUtils;
+
 /**
  * Association
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="World\VolunteerBundle\Entity\Repositories\AssociationRepository")
+ * @Gedmo\Uploadable( pathMethod="getPath", filenameGenerator="SHA1", allowOverwrite=true, appendNumber=true )
  * @UniqueEntity(fields={"name"})
  * @Gedmo\Loggable
  */
@@ -474,8 +477,9 @@ class Association extends BaseEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="logo", type="string", length=255)
-     * @Gedmo\Versioned
+     * @ORM\Column(name="logo", type="string", length=255, nullable=true)
+     * @Gedmo\UploadableFilePath
+     * @Assert\File(maxSize="100M")
      */
     private $logo;
 
@@ -522,12 +526,13 @@ class Association extends BaseEntity
     private $randomValue;
 
     /**
-     * @var string
+     * @var User
      *
-     * @ORM\Column(name="user", type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="World\UserBundle\Entity\User", inversedBy="associations")
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      * @Gedmo\Versioned
      */
-    private $user;
+    protected $user;
 
     /**
      * @var boolean
@@ -589,7 +594,29 @@ class Association extends BaseEntity
         $this->testimonials = new \Doctrine\Common\Collections\ArrayCollection();
         $this->photos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->videos = new \Doctrine\Common\Collections\ArrayCollection();
+
+        $this->enabled = true;
+        $this->approved = false;
     }
+
+    public function getImage() {
+        return $this->getLogo();
+    }
+
+    protected static $IMG_PATH = "uploads/associations";
+
+    public function getImageWebPath() {
+        return ImageUtils::getGenericPath( self::$IMG_PATH, '', $this->getImage() );
+    }
+
+    public function getPath() {
+        return realpath('.') . '/' . self::$IMG_PATH;
+    }
+
+
+
+
+
 
     /**
      * Get id
@@ -1821,29 +1848,6 @@ class Association extends BaseEntity
     }
 
     /**
-     * Set user
-     *
-     * @param string $user
-     * @return Association
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return string 
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-    /**
      * Set approved
      *
      * @param boolean $approved
@@ -2111,5 +2115,29 @@ class Association extends BaseEntity
     public function getUpdatedBy()
     {
         return $this->updatedBy;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \World\UserBundle\Entity\User $user
+     *
+     * @return Association
+     */
+    public function setUser(\World\UserBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \World\UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

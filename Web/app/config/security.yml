@@ -28,4 +28,14 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
 
+        # Just in case
+        - { path: ^/slide/, role: ROLE_ADMIN }
+        - { path: ^/news/, role: ROLE_ADMIN }
+        - { path: ^/user/, role: ROLE_ADMIN }
+        - { path: ^/association/, role: ROLE_ADMIN }
+        - { path: ^/activity/, role: ROLE_ADMIN }
+        - { path: ^/testimonial/, role: ROLE_ADMIN }
+        - { path: ^/photo/, role: ROLE_ADMIN }
+        - { path: ^/video/, role: ROLE_ADMIN }
+
         - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }

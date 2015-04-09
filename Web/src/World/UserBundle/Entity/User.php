@@ -88,6 +88,13 @@ class User extends BaseUser
      */
     private $updatedBy;
 
+    /**
+     * @var Association
+     *
+     * @ORM\OneToMany(targetEntity="World\VolunteerBundle\Entity\Association", mappedBy="user")
+     */
+    protected $associations;
+
 
 
 
@@ -289,5 +296,39 @@ class User extends BaseUser
     public function getUpdatedBy()
     {
         return $this->updatedBy;
+    }
+
+    /**
+     * Add association
+     *
+     * @param \World\VolunteerBundle\Entity\Association $association
+     *
+     * @return User
+     */
+    public function addAssociation(\World\VolunteerBundle\Entity\Association $association)
+    {
+        $this->associations[] = $association;
+
+        return $this;
+    }
+
+    /**
+     * Remove association
+     *
+     * @param \World\VolunteerBundle\Entity\Association $association
+     */
+    public function removeAssociation(\World\VolunteerBundle\Entity\Association $association)
+    {
+        $this->associations->removeElement($association);
+    }
+
+    /**
+     * Get associations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAssociations()
+    {
+        return $this->associations;
     }
 }

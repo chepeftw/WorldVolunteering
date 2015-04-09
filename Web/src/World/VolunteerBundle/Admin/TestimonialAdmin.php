@@ -1,14 +1,14 @@
 <?php
 // src/Acme/DemoBundle/Admin/PostAdmin.php
 
-namespace World\AdminBundle\Admin;
+namespace World\VolunteerBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class NewsAdmin extends Admin
+class TestimonialAdmin extends Admin
 {
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
@@ -16,12 +16,10 @@ class NewsAdmin extends Admin
         $formMapper
 //            ->add('title', 'text', array('label' => 'Post Title'))
 //            ->add('author', 'entity', array('class' => 'Acme\DemoBundle\Entity\User'))
-            ->add('name') //if no type is specified, SonataAdminBundle tries to guess it
+            ->add('name')
             ->add('description')
             ->add('image', 'file', array('required' => false, 'data_class' => null, 'mapped' => true))
-            ->add('startDate')
-            ->add('endDate')
-            ->add('sortOrder')
+            ->add('association')
             ->add('enabled')
         ;
     }
@@ -32,9 +30,7 @@ class NewsAdmin extends Admin
         $datagridMapper
             ->add('name')
             ->add('description')
-            ->add('startDate')
-            ->add('endDate')
-            ->add('sortOrder')
+            ->add('association')
             ->add('enabled')
         ;
     }
@@ -48,9 +44,7 @@ class NewsAdmin extends Admin
             ->add('image', null, array(
                 'template' => 'WorldToolBundle:Admin:image.html.twig'
             ))
-            ->add('startDate')
-            ->add('endDate')
-            ->add('sortOrder')
+            ->add('association')
             ->add('enabled')
         ;
     }
