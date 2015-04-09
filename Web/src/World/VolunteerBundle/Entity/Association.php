@@ -490,7 +490,7 @@ class Association extends BaseEntity
      *
      * @ORM\OneToMany(targetEntity="Activity", mappedBy="association")
      */
-    protected $activites;
+    protected $activities;
 
     /**
      * @var Testimonial
@@ -1938,39 +1938,7 @@ class Association extends BaseEntity
     {
         return $this->updated;
     }
-
-    /**
-     * Add activites
-     *
-     * @param \World\VolunteerBundle\Entity\Activity $activites
-     * @return Association
-     */
-    public function addActivite(\World\VolunteerBundle\Entity\Activity $activites)
-    {
-        $this->activites[] = $activites;
-
-        return $this;
-    }
-
-    /**
-     * Remove activites
-     *
-     * @param \World\VolunteerBundle\Entity\Activity $activites
-     */
-    public function removeActivite(\World\VolunteerBundle\Entity\Activity $activites)
-    {
-        $this->activites->removeElement($activites);
-    }
-
-    /**
-     * Get activites
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getActivites()
-    {
-        return $this->activites;
-    }
+    
 
     /**
      * Add testimonials
@@ -2139,5 +2107,39 @@ class Association extends BaseEntity
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Add activity
+     *
+     * @param \World\VolunteerBundle\Entity\Activity $activity
+     *
+     * @return Association
+     */
+    public function addActivity(\World\VolunteerBundle\Entity\Activity $activity)
+    {
+        $this->activities[] = $activity;
+
+        return $this;
+    }
+
+    /**
+     * Remove activity
+     *
+     * @param \World\VolunteerBundle\Entity\Activity $activity
+     */
+    public function removeActivity(\World\VolunteerBundle\Entity\Activity $activity)
+    {
+        $this->activities->removeElement($activity);
+    }
+
+    /**
+     * Get activities
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getActivities()
+    {
+        return $this->activities;
     }
 }
