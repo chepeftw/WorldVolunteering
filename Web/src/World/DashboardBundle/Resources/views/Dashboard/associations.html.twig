@@ -11,7 +11,9 @@
         {% for entity in entities %}
             <div class="column">
                 <div class="ui segment">
-                    <img src="{{ entity.imageWebPath | imagine_filter('thumb') }}" class="ui fluid image">
+                    <a href="{{ path('association_show', { 'id': entity.id }) }}">
+                        <img src="{{ entity.imageWebPath | imagine_filter('thumb') }}" class="ui fluid image">
+                    </a>
                 </div>
             </div>
         {% endfor %}

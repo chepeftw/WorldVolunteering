@@ -3,46 +3,56 @@
 {% block body -%}
     <h1 class="ui center aligned header">{{ entity.name }}</h1>
 
-    <div class="ui center aligned one column grid">
+    <div class="ui center aligned two column grid">
 
-        <div class="column">{{ entity.address }}</div>
-
-        <div class="three column row">
-            <div class="column">{{ entity.country }}</div>
-            <div class="column">{{ entity.state }}</div>
-            <div class="column">{{ entity.city }}</div>
+        <div class="four wide column">
+            <img class="ui centered image" src="{{ asset( entity.imageWebPath ) }}">
         </div>
 
-        <div class="four column row">
-            <div class="column">{{ entity.phone }}</div>
-            <div class="column">{{ entity.email }}</div>
-            <div class="column">{{ entity.founded|date('Y-m-d H:i:s') }}</div>
-            <div class="column">{{ entity.operationTime }}</div>
+        <div class="column">
+            <div class="ui stackable center aligned one column grid">
+
+                <div class="column">{{ entity.address }}</div>
+
+                <div class="three column row">
+                    <div class="column">{{ entity.country }}</div>
+                    <div class="column">{{ entity.state }}</div>
+                    <div class="column">{{ entity.city }}</div>
+                </div>
+
+                <div class="four column row">
+                    <div class="column">{{ entity.phone }}</div>
+                    <div class="column">{{ entity.email }}</div>
+                    <div class="column">{{ entity.founded|date('d-m-Y') }}</div>
+                    <div class="column">{{ entity.operationTime }}</div>
+                </div>
+
+                <div class="four column row">
+
+                    {% if entity.website is not empty %}
+                        <div class="column">{{ entity.website }}</div>
+                    {% endif %}
+
+                    {% if entity.facebook is not empty %}
+                        <div class="column">{{ entity.facebook }}</div>
+                    {% endif %}
+
+                    {% if entity.twitter is not empty %}
+                        <div class="column">{{ entity.twitter }}</div>
+                    {% endif %}
+
+                    {% if entity.instagram is not empty %}
+                        <div class="column">{{ entity.instagram }}</div>
+                    {% endif %}
+
+                </div>
+
+            </div>
         </div>
 
     </div>
 
-    <div class="ui center aligned four column grid">
-        <div class="row">
 
-            {% if entity.website is not empty %}
-                <div class="column">{{ entity.website }}</div>
-            {% endif %}
-
-            {% if entity.facebook is not empty %}
-                <div class="column">{{ entity.facebook }}</div>
-            {% endif %}
-
-            {% if entity.twitter is not empty %}
-                <div class="column">{{ entity.twitter }}</div>
-            {% endif %}
-
-            {% if entity.instagram is not empty %}
-                <div class="column">{{ entity.instagram }}</div>
-            {% endif %}
-
-        </div>
-    </div>
 
     {% if entity.aboutUs is not empty %}
         <h2 class="ui center aligned header">About Us</h2>
@@ -151,7 +161,7 @@
     <br>
     <br>
 
-    <img class="ui centered image" src="{{ asset( entity.imageWebPath ) }}">
+    {#<img class="ui centered image" src="{{ asset( entity.imageWebPath ) }}">#}
 
     {#<table class="record_properties">#}
         {#<tbody>#}
