@@ -1,0 +1,17 @@
+general:
+    country: Country
+    state: State
+    city: City
+    phone: Phone
+    email: E-Mail
+    aboutus: About Us
+    whatwedo: What We Do
+
+menu:
+    home: Home
+
+form:
+    new: Create
+    update: Update
+    delete: Delete
+    filter: Filter

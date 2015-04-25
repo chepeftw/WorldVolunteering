@@ -1,0 +1,11 @@
+general:
+    aboutus: Sobre Nosotros
+
+menu:
+    home: Home
+
+form:
+    new: Create
+    update: Update
+    delete: Delete
+    filter: Filter

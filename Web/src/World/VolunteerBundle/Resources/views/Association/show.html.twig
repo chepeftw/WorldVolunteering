@@ -1,5 +1,7 @@
 {% extends 'WorldDashboardBundle::layout.html.twig' %}
 
+{% trans_default_domain 'WorldDashboardBundle' %}
+
 {% block body -%}
     <h1 class="ui center aligned header">{{ entity.name }}</h1>
 
@@ -15,16 +17,39 @@
                 <div class="column">{{ entity.address }}</div>
 
                 <div class="three column row">
-                    <div class="column">{{ entity.country }}</div>
-                    <div class="column">{{ entity.state }}</div>
-                    <div class="column">{{ entity.city }}</div>
+                    <div class="column">
+                        <b>{{ 'general.country'|trans }}:</b> {{ entity.country -}}
+                    </div>
+                    <div class="column">
+                        <b>{{ 'general.state'|trans }}:</b> {{ entity.state }}
+                    </div>
+                    <div class="column">
+                        <b>{{ 'general.city'|trans }}:</b> {{ entity.city }}
+                    </div>
+                </div>
+
+                <div class="two column row">
+                    <div class="column">
+                        <b>{{ 'general.phone'|trans }}:</b> {{ entity.phone }}+502 56336506 / +1 (245) 456 7894
+                    </div>
+                    <div class="column">
+                        <b>{{ 'general.email'|trans }}:</b> {{ entity.email }}
+                    </div>
                 </div>
 
                 <div class="four column row">
-                    <div class="column">{{ entity.phone }}</div>
-                    <div class="column">{{ entity.email }}</div>
-                    <div class="column">{{ entity.founded|date('d-m-Y') }}</div>
-                    <div class="column">{{ entity.operationTime }}</div>
+                    <div class="column">
+                        <b>{{ 'general.phone'|trans }}:</b> {{ entity.phone }}
+                    </div>
+                    <div class="column">
+                        <b>{{ 'general.email'|trans }}:</b> {{ entity.email }}
+                    </div>
+                    <div class="column">
+                        <b>{{ 'general.founded'|trans }}:</b> {{ entity.founded|date('d-m-Y') }}
+                    </div>
+                    <div class="column">
+                        <b>{{ 'general.operationtime'|trans }}:</b> {{ entity.operationTime }}
+                    </div>
                 </div>
 
                 <div class="four column row">
@@ -55,7 +80,7 @@
 
 
     {% if entity.aboutUs is not empty %}
-        <h2 class="ui center aligned header">About Us</h2>
+        <h2 class="ui center aligned header">{{ 'general.aboutus'|trans }}</h2>
 
         <div class="ui center aligned one column grid">
             <div class="column">{{ entity.aboutUs }}</div>
@@ -64,7 +89,7 @@
 
 
     {% if entity.whatWeDo is not empty %}
-        <h2 class="ui center aligned header">What We Do</h2>
+        <h2 class="ui center aligned header">{{ 'general.whatwedo'|trans }}</h2>
 
         <div class="ui center aligned one column grid">
             <div class="column">{{ entity.whatWeDo }}</div>
