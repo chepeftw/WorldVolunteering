@@ -1,0 +1,15 @@
+.menu.yellow.line {
+    background-color: #f0b64f;
+    height: 12px;
+    width: auto;
+    margin-bottom: 10px;
+}
+
+.ui.menu {
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+.ui.inverted.blue.menu, .ui.inverted.blue.pointing.menu .active.item::after {
+    background-color: #002864;
+}

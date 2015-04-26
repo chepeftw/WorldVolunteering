@@ -8,7 +8,7 @@
 
 {% block menu %}
 
-    <div class="ui menu">
+    <div class="ui blue inverted menu">
 
         <a class="item" href="{{ path('world_dashboard_homepage') }}">
             <i class="home icon"></i> {{ 'menu.home'|trans }}
@@ -21,6 +21,20 @@
         {% endif %}
 
         <div class="right menu">
+
+            <div class="item">
+                Siguenos en: &nbsp;&nbsp;&nbsp;
+                <a href="https://www.facebook.com/CVGuate">
+                    <img height="20" width="20" src="{{ asset('bundles/worlddashboard/images/logos-and-badges_f-logo_online/png/FB-f-Logo__blue_29.png') }}">
+                </a>
+
+                &nbsp;&nbsp;&nbsp;
+
+                <a href="https://www.twitter.com/CVGuate">
+                    <img height="20" width="25" src="{{ asset('bundles/worlddashboard/images/rsz_3twitter_logo_blue.png') }}">
+                </a>
+            </div>
+
             <div class="item">
                 <div class="ui icon input">
                     <input placeholder="{{ 'menu.search'|trans }}..." type="text">
@@ -42,6 +56,8 @@
         </div>
 
     </div>
+
+    <div class="menu yellow line">&nbsp;</div>
 
 {% endblock %}
 
