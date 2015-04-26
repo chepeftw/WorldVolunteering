@@ -11,16 +11,34 @@
     <div class="ui menu">
 
         <a class="item" href="{{ path('world_dashboard_homepage') }}">
-            <i class="home icon"></i> Home
+            <i class="home icon"></i> {{ 'menu.home'|trans }}
         </a>
 
         {% if is_granted('ROLE_ADMIN') %}
             <a class="item" href="{{ path('sonata_admin_dashboard') }}">
-                <i class="mail icon"></i> Admin
+                <i class="mail icon"></i> {{ 'menu.admin'|trans }}
             </a>
         {% endif %}
 
         <div class="right menu">
+            <div class="item">
+                <div class="ui icon input">
+                    <input placeholder="{{ 'menu.search'|trans }}..." type="text">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <div class="ui dropdown item">
+                    {{ 'menu.user'|trans }}
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a class="item" href="{{ path('fos_user_security_logout') }}">
+                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
         </div>
 
     </div>

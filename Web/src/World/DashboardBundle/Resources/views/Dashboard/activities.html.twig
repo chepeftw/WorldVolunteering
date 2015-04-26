@@ -1,10 +1,8 @@
-{% if entities is not empty %}
-    <br>
-    <br>
-    <br>
-    <br>
+{% trans_default_domain 'WorldDashboardBundle' %}
 
-    <h1 class="ui centered header">Activities</h1>
+{% if entities is not empty %}
+
+    <h1 class="ui centered header">{{ 'general.activities'|trans }}</h1>
 
     <div class="ui stackable padded grid">
         <div class="three column row">
@@ -14,6 +12,10 @@
                     <img class="ui centered small image" src="{{ entity.imageWebPath | imagine_filter('thumb') }}">
                     <p>
                         {% embed "WorldToolBundle:Base:description.html.twig" with { 'description': entity.description } %} {% endembed %}
+                        <br><br>
+                        <b>{{ 'general.date'|trans }}:</b> {{ entity.date|date('d - m - Y') }}
+                        <br>
+                        <b>{{ 'general.location'|trans }}:</b> {{ entity.location }}
                     </p>
                 </div>
             {% endfor %}

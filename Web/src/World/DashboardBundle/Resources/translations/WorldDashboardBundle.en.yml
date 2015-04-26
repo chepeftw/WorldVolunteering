@@ -4,11 +4,35 @@ general:
     city: City
     phone: Phone
     email: E-Mail
+    founded: Founded
+    operationtime: Operation Time
+    website: Website
+    facebook: Facebook
+    twitter: Twitter
+    instragram: Instagram
+    generalinformation: General Information
+    mission: Mission
+    vision: Vision
+    philosophy: Philosophy
+    volunteer: Volunteer
+    requirements: Requirements
+    age: Age
+    commitment: Commitment
+    donations: Donations
+    method: Method
+    purpose: Purpose
+    activities: Activities
     aboutus: About Us
     whatwedo: What We Do
+    date: Date
+    location: Location
+
 
 menu:
     home: Home
+    admin: Admin
+    user: User
+    search: Search
 
 form:
     new: Create

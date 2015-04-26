@@ -30,20 +30,14 @@
 
                 <div class="two column row">
                     <div class="column">
-                        <b>{{ 'general.phone'|trans }}:</b> {{ entity.phone }}+502 56336506 / +1 (245) 456 7894
+                        <b>{{ 'general.phone'|trans }}:</b> {{ entity.phone }}
                     </div>
                     <div class="column">
                         <b>{{ 'general.email'|trans }}:</b> {{ entity.email }}
                     </div>
                 </div>
 
-                <div class="four column row">
-                    <div class="column">
-                        <b>{{ 'general.phone'|trans }}:</b> {{ entity.phone }}
-                    </div>
-                    <div class="column">
-                        <b>{{ 'general.email'|trans }}:</b> {{ entity.email }}
-                    </div>
+                <div class="two column row">
                     <div class="column">
                         <b>{{ 'general.founded'|trans }}:</b> {{ entity.founded|date('d-m-Y') }}
                     </div>
@@ -52,25 +46,29 @@
                     </div>
                 </div>
 
-                <div class="four column row">
 
-                    {% if entity.website is not empty %}
-                        <div class="column">{{ entity.website }}</div>
-                    {% endif %}
+                {% if entity.website is not empty
+                        or entity.facebook is not empty
+                        or entity.twitter is not empty
+                        or entity.instagram is not empty %}
 
-                    {% if entity.facebook is not empty %}
-                        <div class="column">{{ entity.facebook }}</div>
-                    {% endif %}
+                    <div class="two column row">
 
-                    {% if entity.twitter is not empty %}
-                        <div class="column">{{ entity.twitter }}</div>
-                    {% endif %}
+                        {% embed "WorldVolunteerBundle:Association:socialLink.html.twig" with { 'title': 'general.facebook', 'url': entity.facebookUrl, 'name': entity.facebook } %} {% endembed %}
 
-                    {% if entity.instagram is not empty %}
-                        <div class="column">{{ entity.instagram }}</div>
-                    {% endif %}
+                        {% embed "WorldVolunteerBundle:Association:socialLink.html.twig" with { 'title': 'general.twitter', 'url': entity.twitterUrl, 'name': entity.twitter } %} {% endembed %}
 
-                </div>
+                    </div>
+
+                    <div class="two column row">
+
+                        {% embed "WorldVolunteerBundle:Association:socialLink.html.twig" with { 'title': 'general.website', 'url': entity.website, 'name': entity.website } %} {% endembed %}
+
+                        {% embed "WorldVolunteerBundle:Association:socialLink.html.twig" with { 'title': 'general.instagram', 'url': entity.instagramUrl, 'name': entity.instagram } %} {% endembed %}
+
+                    </div>
+
+                {% endif %}
 
             </div>
         </div>
@@ -97,28 +95,31 @@
     {% endif %}
 
 
+    <br>
+    <div class="ui divider"></div>
 
-    <h2 class="ui center aligned header">General Information</h2>
+
+    <h2 class="ui center aligned header">{{ 'general.generalinformation'|trans }}</h2>
 
     <div class="ui center aligned one column grid">
 
         {% if entity.mission is not empty %}
             <div class="row">
-                <h3 class="ui center aligned header">Mission</h3>
+                <h3 class="ui center aligned header">{{ 'general.mission'|trans }}</h3>
                 <div class="column">{{ entity.mission }}</div>
             </div>
         {% endif %}
 
         {% if entity.vision is not empty %}
             <div class="row">
-                <h3 class="ui center aligned header">Vision</h3>
+                <h3 class="ui center aligned header">{{ 'general.vision'|trans }}</h3>
                 <div class="column">{{ entity.vision }}</div>
             </div>
         {% endif %}
 
         {% if entity.philosophy is not empty %}
             <div class="row">
-                <h3 class="ui center aligned header">Philosophy</h3>
+                <h3 class="ui center aligned header">{{ 'general.philosophy'|trans }}</h3>
                 <div class="column">{{ entity.philosophy }}</div>
             </div>
         {% endif %}
@@ -126,28 +127,31 @@
     </div>
 
 
+    <br>
+    <div class="ui divider"></div>
 
-    <h2 class="ui center aligned header">Volunteer</h2>
+
+    <h2 class="ui center aligned header">{{ 'general.volunteer'|trans }}</h2>
 
     <div class="ui center aligned one column grid">
 
         {% if entity.volunteerRequirements is not empty %}
             <div class="row">
-                <h3 class="ui center aligned header">Requirements</h3>
+                <h3 class="ui center aligned header">{{ 'general.requirements'|trans }}</h3>
                 <div class="column">{{ entity.volunteerRequirements }}</div>
             </div>
         {% endif %}
 
         {% if entity.volunteerAge is not empty %}
             <div class="row">
-                <h3 class="ui center aligned header">Age</h3>
+                <h3 class="ui center aligned header">{{ 'general.age'|trans }}</h3>
                 <div class="column">{{ entity.volunteerAge }}</div>
             </div>
         {% endif %}
 
         {% if entity.commitment is not empty %}
             <div class="row">
-                <h3 class="ui center aligned header">Commitment</h3>
+                <h3 class="ui center aligned header">{{ 'general.commitment'|trans }}</h3>
                 <div class="column">{{ entity.commitment }}</div>
             </div>
         {% endif %}
@@ -155,293 +159,35 @@
     </div>
 
 
+    <br>
+    <div class="ui divider"></div>
 
-    <h2 class="ui center aligned header">Donations</h2>
+    {% if entity.donations == 1 %}
 
-    <div class="ui center aligned one column grid">
+        <h2 class="ui center aligned header">{{ 'general.donations'|trans }}</h2>
 
-        {% if entity.donations is not empty %}
-            <div class="row">
-                <h3 class="ui center aligned header">Donations</h3>
-                <div class="column">{{ entity.donations }}</div>
-            </div>
-        {% endif %}
+        <div class="ui center aligned one column grid">
 
-        {% if entity.donationMethod is not empty %}
-            <div class="row">
-                <h3 class="ui center aligned header">Method</h3>
-                <div class="column">{{ entity.donationMethod }}</div>
-            </div>
-        {% endif %}
+            {% if entity.donationMethod is not empty %}
+                <div class="row">
+                    <h3 class="ui center aligned header">{{ 'general.method'|trans }}</h3>
+                    <div class="column">{{ entity.donationMethod }}</div>
+                </div>
+            {% endif %}
 
-        {% if entity.donationPurpose is not empty %}
-            <div class="row">
-                <h3 class="ui center aligned header">Purpose</h3>
-                <div class="column">{{ entity.donationPurpose }}</div>
-            </div>
-        {% endif %}
+            {% if entity.donationPurpose is not empty %}
+                <div class="row">
+                    <h3 class="ui center aligned header">{{ 'general.purpose'|trans }}</h3>
+                    <div class="column">{{ entity.donationPurpose }}</div>
+                </div>
+            {% endif %}
 
-    </div>
+        </div>
+
+    {% endif %}
 
     <br>
-    <br>
-
-    {#<img class="ui centered image" src="{{ asset( entity.imageWebPath ) }}">#}
-
-    {#<table class="record_properties">#}
-        {#<tbody>#}
-            {#<tr>#}
-                {#<th>Id</th>#}
-                {#<td>{{ entity.id }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Name</th>#}
-                {#<td>{{ entity.name }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Address</th>#}
-                {#<td>{{ entity.address }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Country</th>#}
-                {#<td>{{ entity.country }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>State</th>#}
-                {#<td>{{ entity.state }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>City</th>#}
-                {#<td>{{ entity.city }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Phone</th>#}
-                {#<td>{{ entity.phone }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Email</th>#}
-                {#<td>{{ entity.email }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Founded</th>#}
-                {#<td>{{ entity.founded|date('Y-m-d H:i:s') }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Operationtime</th>#}
-                {#<td>{{ entity.operationTime }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Mission</th>#}
-                {#<td>{{ entity.mission }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Vision</th>#}
-                {#<td>{{ entity.vision }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Philosophy</th>#}
-                {#<td>{{ entity.philosophy }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Legal</th>#}
-                {#<td>{{ entity.legal }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Type</th>#}
-                {#<td>{{ entity.type }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Typeother</th>#}
-                {#<td>{{ entity.typeOther }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Denomination</th>#}
-                {#<td>{{ entity.denomination }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Denominationother</th>#}
-                {#<td>{{ entity.denominationOther }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Coverage</th>#}
-                {#<td>{{ entity.coverage }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Aboutus</th>#}
-                {#<td>{{ entity.aboutUs }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Whatwedo</th>#}
-                {#<td>{{ entity.whatWeDo }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Legalpartner</th>#}
-                {#<td>{{ entity.legalPartner }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Legalpartnerphone</th>#}
-                {#<td>{{ entity.legalPartnerPhone }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Legalpartneremail</th>#}
-                {#<td>{{ entity.legalPartnerEmail }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Executivepartner</th>#}
-                {#<td>{{ entity.executivePartner }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Executivepartnerphone</th>#}
-                {#<td>{{ entity.executivePartnerPhone }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Executivepartneremail</th>#}
-                {#<td>{{ entity.executivePartnerEmail }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Communicationpartner</th>#}
-                {#<td>{{ entity.communicationPartner }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Communicationpartnerphone</th>#}
-                {#<td>{{ entity.communicationPartnerPhone }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Communicationpartneremail</th>#}
-                {#<td>{{ entity.communicationPartnerEmail }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Website</th>#}
-                {#<td>{{ entity.website }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Facebook</th>#}
-                {#<td>{{ entity.facebook }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Twitter</th>#}
-                {#<td>{{ entity.twitter }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Instagram</th>#}
-                {#<td>{{ entity.instagram }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Director</th>#}
-                {#<td>{{ entity.director }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Directorphone</th>#}
-                {#<td>{{ entity.directorPhone }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Directoremail</th>#}
-                {#<td>{{ entity.directorEmail }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Directorbirthdate</th>#}
-                {#<td>{{ entity.directorBirthdate|date('Y-m-d H:i:s') }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Directortime</th>#}
-                {#<td>{{ entity.directorTime }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>History</th>#}
-                {#<td>{{ entity.history }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Volunteerrequirements</th>#}
-                {#<td>{{ entity.volunteerRequirements }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Volunteerage</th>#}
-                {#<td>{{ entity.volunteerAge }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Commitment</th>#}
-                {#<td>{{ entity.commitment }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Donations</th>#}
-                {#<td>{{ entity.donations }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Donationmethod</th>#}
-                {#<td>{{ entity.donationMethod }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Donationpurpose</th>#}
-                {#<td>{{ entity.donationPurpose }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Axis</th>#}
-                {#<td>{{ entity.axis }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Volunteeractive</th>#}
-                {#<td>{{ entity.volunteerActive }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Volunteerpermanent</th>#}
-                {#<td>{{ entity.volunteerPermanent }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Volunteerman</th>#}
-                {#<td>{{ entity.volunteerMan }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Volunteerwoman</th>#}
-                {#<td>{{ entity.volunteerWoman }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Frequency</th>#}
-                {#<td>{{ entity.frequency }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Logo</th>#}
-                {#<td>{{ entity.logo }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Randomvalue</th>#}
-                {#<td>{{ entity.randomValue }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>User</th>#}
-                {#<td>{{ entity.user }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Approved</th>#}
-                {#<td>{{ entity.approved }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Enabled</th>#}
-                {#<td>{{ entity.enabled }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Created</th>#}
-                {#<td>{{ entity.created|date('Y-m-d H:i:s') }}</td>#}
-            {#</tr>#}
-            {#<tr>#}
-                {#<th>Updated</th>#}
-                {#<td>{{ entity.updated|date('Y-m-d H:i:s') }}</td>#}
-            {#</tr>#}
-        {#</tbody>#}
-    {#</table>#}
-
-{#<ul class="record_actions">#}
-    {#<li>#}
-        {#<a href="{{ path('association') }}">#}
-            {#Back to the list#}
-        {#</a>#}
-    {#</li>#}
-    {#<li>#}
-        {#<a href="{{ path('association_edit', { 'id': entity.id }) }}">#}
-            {#Edit#}
-        {#</a>#}
-    {#</li>#}
-    {#<li>{{ form(delete_form) }}</li>#}
-{#</ul>#}
+    <div class="ui divider"></div>
 
     {% embed "WorldDashboardBundle:Dashboard:activities.html.twig" with { 'entities': entity.activities } %} {% endembed %}
 

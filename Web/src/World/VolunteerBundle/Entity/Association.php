@@ -293,6 +293,14 @@ class Association extends BaseEntity
     /**
      * @var string
      *
+     * @ORM\Column(name="facebookUrl", type="string", length=255, nullable=true)
+     * @Gedmo\Versioned
+     */
+    private $facebookUrl;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="twitter", type="string", length=255, nullable=true)
      * @Gedmo\Versioned
      */
@@ -301,10 +309,26 @@ class Association extends BaseEntity
     /**
      * @var string
      *
+     * @ORM\Column(name="twitterUrl", type="string", length=255, nullable=true)
+     * @Gedmo\Versioned
+     */
+    private $twitterUrl;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="instagram", type="string", length=255, nullable=true)
      * @Gedmo\Versioned
      */
     private $instagram;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="instagramUrl", type="string", length=255, nullable=true)
+     * @Gedmo\Versioned
+     */
+    private $instagramUrl;
 
 
 
@@ -2141,5 +2165,77 @@ class Association extends BaseEntity
     public function getActivities()
     {
         return $this->activities;
+    }
+
+    /**
+     * Set facebookUrl
+     *
+     * @param string $facebookUrl
+     *
+     * @return Association
+     */
+    public function setFacebookUrl($facebookUrl)
+    {
+        $this->facebookUrl = $facebookUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get facebookUrl
+     *
+     * @return string
+     */
+    public function getFacebookUrl()
+    {
+        return $this->facebookUrl;
+    }
+
+    /**
+     * Set twitterUrl
+     *
+     * @param string $twitterUrl
+     *
+     * @return Association
+     */
+    public function setTwitterUrl($twitterUrl)
+    {
+        $this->twitterUrl = $twitterUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get twitterUrl
+     *
+     * @return string
+     */
+    public function getTwitterUrl()
+    {
+        return $this->twitterUrl;
+    }
+
+    /**
+     * Set instagramUrl
+     *
+     * @param string $instagramUrl
+     *
+     * @return Association
+     */
+    public function setInstagramUrl($instagramUrl)
+    {
+        $this->instagramUrl = $instagramUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get instagramUrl
+     *
+     * @return string
+     */
+    public function getInstagramUrl()
+    {
+        return $this->instagramUrl;
     }
 }
