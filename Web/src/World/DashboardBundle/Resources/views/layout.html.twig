@@ -22,17 +22,22 @@
 
         <div class="right menu">
 
+            {% set imageSize = 18 %}
+
             <div class="item">
-                Siguenos en: &nbsp;&nbsp;&nbsp;
+                <span class="ui follow text">{{ 'menu.followus'|trans }}&nbsp;&nbsp;&nbsp;</span>
                 <a href="https://www.facebook.com/CVGuate">
-                    <img height="20" width="20" src="{{ asset('bundles/worlddashboard/images/logos-and-badges_f-logo_online/png/FB-f-Logo__blue_29.png') }}">
+                    <img height="{{ imageSize }}" width="{{ imageSize }}" src="{{ asset('bundles/worlddashboard/images/logos-and-badges_f-logo_online/png/FB-f-Logo__blue_29.png') }}">
                 </a>
 
                 &nbsp;&nbsp;&nbsp;
 
                 <a href="https://www.twitter.com/CVGuate">
-                    <img height="20" width="25" src="{{ asset('bundles/worlddashboard/images/rsz_3twitter_logo_blue.png') }}">
+                    <img height="{{ imageSize }}" width="24" src="{{ asset('bundles/worlddashboard/images/rsz_3twitter_logo_blue.png') }}">
                 </a>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
 
             <div class="item">
@@ -43,15 +48,9 @@
             </div>
 
             {% if is_granted('ROLE_ADMIN') %}
-                <div class="ui dropdown item">
-                    {{ 'menu.user'|trans }}
-                    <i class="dropdown icon"></i>
-                    <div class="menu">
-                        <a class="item" href="{{ path('fos_user_security_logout') }}">
-                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                        </a>
-                    </div>
-                </div>
+                <a class="item" href="{{ path('fos_user_security_logout') }}">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a>
             {% endif %}
         </div>
 
@@ -64,11 +63,18 @@
 {% block slider %}{% endblock %}
 
 {% block footer %}
-    <div class="ui tertiary center aligned segment footer">
-        <div><p><small>Trademark and Copyright Notice. WorldVolunteering and its related entities. All rights reserved
-                    El uso de este sitio (incluso cualquier parte y componente) constituye su aceptación de estos Términos de Uso y Políticas de Privacidad.</small></p>
-        </div>
-        <div class="menuLine"></div>
-        <div class="mint3logo"><img src="{{ asset('bundles/demidashboard/images/mint3logo.jpg') }}"><p><small>powered by:</small></p></div>
+    {#<div class="ui tertiary center aligned segment footer">#}
+        {#<div><p><small>Trademark and Copyright Notice. WorldVolunteering and its related entities. All rights reserved#}
+                    {#El uso de este sitio (incluso cualquier parte y componente) constituye su aceptación de estos Términos de Uso y Políticas de Privacidad.</small></p>#}
+        {#</div>#}
+        {#<div class="menuLine"></div>#}
+        {#<div class="mint3logo"><img src="{{ asset('bundles/demidashboard/images/mint3logo.jpg') }}"><p><small>powered by:</small></p></div>#}
+    {#</div>#}
+
+    <div class="menu yellow line">&nbsp;</div>
+    <div class="ui footer">
+        <p>
+            <strong>Copyright 2015 &copy; www.guatevoluntaria.org. Derechos Reservados. JAAA.</strong>
+        </p>
     </div>
 {% endblock %}

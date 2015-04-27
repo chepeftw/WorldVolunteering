@@ -33,6 +33,7 @@ menu:
     admin: Admin
     user: User
     search: Search
+    followus: Follow us:
 
 form:
     new: Create
