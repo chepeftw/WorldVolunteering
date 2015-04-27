@@ -14,6 +14,18 @@
             <i class="home icon"></i> {{ 'menu.home'|trans }}
         </a>
 
+        <a class="item" href="{{ path('world_dashboard_associations') }}">
+            <i class="home icon"></i> {{ 'menu.associations'|trans }}
+        </a>
+
+        <a class="item" href="{{ path('world_dashboard_about') }}">
+            <i class="home icon"></i> {{ 'menu.about'|trans }}
+        </a>
+
+        <a class="item" href="{{ path('world_dashboard_contact') }}">
+            <i class="home icon"></i> {{ 'menu.contact'|trans }}
+        </a>
+
         {% if is_granted('ROLE_ADMIN') %}
             <a class="item" href="{{ path('sonata_admin_dashboard') }}">
                 <i class="mail icon"></i> {{ 'menu.admin'|trans }}
@@ -26,13 +38,13 @@
 
             <div class="item">
                 <span class="ui follow text">{{ 'menu.followus'|trans }}&nbsp;&nbsp;&nbsp;</span>
-                <a href="https://www.facebook.com/CVGuate">
+                <a href="https://www.facebook.com/CVGuate" target="_blank">
                     <img height="{{ imageSize }}" width="{{ imageSize }}" src="{{ asset('bundles/worlddashboard/images/logos-and-badges_f-logo_online/png/FB-f-Logo__blue_29.png') }}">
                 </a>
 
                 &nbsp;&nbsp;&nbsp;
 
-                <a href="https://www.twitter.com/CVGuate">
+                <a href="https://www.twitter.com/cvg_guate" target="_blank">
                     <img height="{{ imageSize }}" width="24" src="{{ asset('bundles/worlddashboard/images/rsz_3twitter_logo_blue.png') }}">
                 </a>
 
@@ -74,7 +86,12 @@
     <div class="menu yellow line">&nbsp;</div>
     <div class="ui footer">
         <p>
-            <strong>Copyright 2015 &copy; www.guatevoluntaria.org. Derechos Reservados. JAAA.</strong>
+            <b>Contactanos al email: coordinador@guatevoluntaria.org</b>
+            <br>
+            <br>
+            <b>Trademark and Copyright Notice. WorldVolunteering and its related entities. All rights reserved &copy; www.guatevoluntaria.org. Derechos Reservados.</b>
+            <br>
+            Programacion: Jose Alfredo Alvarez Aldana, Diseno: Dulce Maria Lopez De Gonzales. Infraestructura: Mint3 Inc
         </p>
     </div>
 {% endblock %}

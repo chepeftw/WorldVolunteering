@@ -26,6 +26,8 @@ general:
     whatwedo: What We Do
     date: Date
     location: Location
+    news: News
+    volunteers: Volunteers
 
 
 menu:
@@ -34,6 +36,9 @@ menu:
     user: User
     search: Search
     followus: Follow us:
+    associations: Associations
+    about: About Us
+    contact: Contact Us
 
 form:
     new: Create

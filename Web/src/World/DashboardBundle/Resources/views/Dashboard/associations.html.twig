@@ -1,22 +1,28 @@
-{% if entities is not empty %}
+{% extends 'WorldDashboardBundle::layout.html.twig' %}
+
+{% trans_default_domain 'WorldDashboardBundle' %}
+
+{% block breadcrumb %}{% endblock %}
+
+{% block slider %}
+    {% embed "WorldDashboardBundle:Dashboard:slider.html.twig" with { 'entities': slides } %} {% endembed %}
+{% endblock %}
+
+{% block body -%}
 
     <br>
-    <br>
-    <br>
-    <br>
 
-    <h1 class="ui centered header">Volunteers</h1>
-
-    <div class="ui stackable four column grid">
-        {% for entity in entities %}
-            <div class="column">
-                <div class="ui segment">
-                    <a href="{{ path('association_show', { 'id': entity.id }) }}">
-                        <img src="{{ entity.imageWebPath | imagine_filter('thumb') }}" class="ui fluid image">
-                    </a>
-                </div>
-            </div>
-        {% endfor %}
+    <div class="ui stackable center aligned one column grid">
+        <div class="one column row column">
+            {% embed "WorldToolBundle:Base:share.html.twig" %} {% endembed %}
+        </div>
     </div>
 
-{% endif %}
+    {% embed "WorldDashboardBundle:Dashboard:associations.list.html.twig" with { 'entities': associations } %} {% endembed %}
+
+    <br>
+    <div class="ui divider"></div>
+
+    {% embed "WorldDashboardBundle:Dashboard:activities.list.html.twig" with { 'entities': activities } %} {% endembed %}
+
+{%- endblock %}

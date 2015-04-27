@@ -1,6 +1,8 @@
+{% trans_default_domain 'WorldDashboardBundle' %}
+
 {% if entities is not empty %}
 
-    <h1 class="ui centered header">News</h1>
+    <h1 class="ui centered header">{{ 'general.news'|trans }}</h1>
 
 
     {% for entity in entities %}

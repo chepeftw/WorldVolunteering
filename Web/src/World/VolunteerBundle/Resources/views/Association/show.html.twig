@@ -2,6 +2,37 @@
 
 {% trans_default_domain 'WorldDashboardBundle' %}
 
+{% block metas %}
+    {% set title = entity.name ~ ' | GuateVoluntaria.org' %}
+    {% set keywords = entity.name ~ ', actividades voluntariado, voluntarios, voluntariado, trabajo voluntario, voluntarios en guatemala, voluntariado en guatemala, guatemala' %}
+    {% set description = entity.aboutUs %}
+    {% set image = 'http://guatevoluntaria.org/images/logo.png' %}
+    {% set currentPath = path( app.request.attributes.get('_route'), app.request.attributes.get('_route_params') ) %}
+
+    <title>{% block title %}{{ title }}{% endblock %}</title>
+
+    <!-- for Google -->
+    <meta name="description" content="{{ description }}" />
+    <meta name="keywords" content="{{ keywords }}" />
+
+    <meta name="author" content="{{ title }}" />
+    <meta name="copyright" content="" />
+    <meta name="application-name" content="" />
+
+    <!-- for Facebook -->
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="{{ image }}" />
+    <meta property="og:url" content="{{ currentPath }}" />
+    <meta property="og:description" content="{{ description }}" />
+
+    <!-- for Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="{{ title }}" />
+    <meta name="twitter:description" content="{{ description }}" />
+    <meta name="twitter:image" content="{{ image }}" />
+{% endblock %}
+
 {% block body -%}
     <h1 class="ui center aligned header">{{ entity.name }}</h1>
 
@@ -69,6 +100,13 @@
                     </div>
 
                 {% endif %}
+
+                <div class="one column row">
+                    <div class="column">
+                        {% embed "WorldToolBundle:Base:share.html.twig" %} {% endembed %}
+                    </div>
+                </div>
+
 
             </div>
         </div>
@@ -189,6 +227,6 @@
     <br>
     <div class="ui divider"></div>
 
-    {% embed "WorldDashboardBundle:Dashboard:activities.html.twig" with { 'entities': entity.activities } %} {% endembed %}
+    {% embed "WorldDashboardBundle:Dashboard:activities.list.html.twig" with { 'entities': entity.activities } %} {% endembed %}
 
 {% endblock %}

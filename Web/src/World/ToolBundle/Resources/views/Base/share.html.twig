@@ -1,0 +1,29 @@
+<div class="functions-show">
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    {% set currentPath = path( app.request.attributes.get('_route'), app.request.attributes.get('_route_params') ) %}
+
+    <fb:like href="{{ currentPath }}" send="false" layout="box_count" width="50" show_faces="true"></fb:like>
+    &nbsp;&nbsp;&nbsp;
+    <g:plusone size="tall"></g:plusone>
+    &nbsp;&nbsp;&nbsp;
+    <a href="https://twitter.com/share" class="twitter-share-button" data-count="vertical">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+
+    <!-- Place this render call where appropriate -->
+    <script type="text/javascript">
+        (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+    </script>
+
+</div>
