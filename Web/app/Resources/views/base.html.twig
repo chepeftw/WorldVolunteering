@@ -4,12 +4,43 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>{% block title %}World Volunteering{% endblock %}</title>
+
+    {% block metas %}
+        {% set title = 'GuateVoluntaria.org' %}
+        {% set keywords = 'actividades voluntariado, voluntarios, voluntariado, trabajo voluntario, voluntarios en guatemala, voluntariado en guatemala, guatemala' %}
+        {% set description = 'Directorio de voluntariado en Guatemala, contamos con listado de asociaciones y sus actividades futuras, necesitamos tu ayuda para construir una mejor Guatemala.' %}
+        {% set image = 'http://guatevoluntaria.org/images/logo.png' %}
+        {% set currentPath = path( app.request.attributes.get('_route'), app.request.attributes.get('_route_params') ) %}
+
+        <title>{% block title %}{{ title }}{% endblock %}</title>
+
+        <!-- for Google -->
+        <meta name="description" content="{{ description }}" />
+        <meta name="keywords" content="{{ keywords }}" />
+
+        <meta name="author" content="{{ title }}" />
+        <meta name="copyright" content="" />
+        <meta name="application-name" content="" />
+
+        <!-- for Facebook -->
+        <meta property="og:title" content="{{ title }}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="{{ image }}" />
+        <meta property="og:url" content="{{ currentPath }}" />
+        <meta property="og:description" content="{{ description }}" />
+
+        <!-- for Twitter -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="{{ title }}" />
+        <meta name="twitter:description" content="{{ description }}" />
+        <meta name="twitter:image" content="{{ image }}" />
+    {% endblock %}
 
     {% block stylesheets %}
         <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.1/semantic.min.css" rel="stylesheet" type="text/css" />
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link href="{{ asset('bundles/worlddashboard/chosen/chosen.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bundles/worlddashboard/css/style.css') }}" rel="stylesheet" type="text/css" />
     {% endblock %}
 
     {% block javascripts_header %}
@@ -18,7 +49,7 @@
         <script src="{{ asset('bundles/worlddashboard/chosen/chosen.jquery.js') }}" type="text/javascript"></script>
     {% endblock %}
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}" />
 </head>
     <body>
 
@@ -27,6 +58,11 @@
         {% block slider %}{% endblock %}
 
         {% block body %}{% endblock %}
+
+        <br>
+        <br>
+
+        {% block footer %}{% endblock %}
 
         {% block javascripts %}{% endblock %}
 

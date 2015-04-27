@@ -6,6 +6,10 @@ association_show:
     path:     /{id}/show
     defaults: { _controller: "WorldVolunteerBundle:Association:show" }
 
+association_show_seo:
+    path:     /{id}/{slug}
+    defaults: { _controller: "WorldVolunteerBundle:Association:show" }
+
 association_new:
     path:     /new
     defaults: { _controller: "WorldVolunteerBundle:Association:new" }

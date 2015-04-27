@@ -1,3 +1,15 @@
 world_dashboard_homepage:
     path:     /
     defaults: { _controller: WorldDashboardBundle:Dashboard:index }
+
+world_dashboard_associations:
+    path:     /associations
+    defaults: { _controller: WorldDashboardBundle:Dashboard:associations }
+
+world_dashboard_about:
+    path:     /about
+    defaults: { _controller: WorldDashboardBundle:Dashboard:about }
+
+world_dashboard_contact:
+    path:     /contact
+    defaults: { _controller: WorldDashboardBundle:Dashboard:contact }

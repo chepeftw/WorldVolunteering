@@ -10,10 +10,24 @@
 
 {% block body -%}
 
-    {% embed "WorldDashboardBundle:Dashboard:news.html.twig" with { 'entities': news } %} {% endembed %}
+    <br>
 
-    {% embed "WorldDashboardBundle:Dashboard:activities.html.twig" with { 'entities': activities } %} {% endembed %}
+    <div class="ui stackable center aligned one column grid">
+        <div class="one column row column">
+            {% embed "WorldToolBundle:Base:share.html.twig" %} {% endembed %}
+        </div>
+    </div>
 
-    {% embed "WorldDashboardBundle:Dashboard:associations.html.twig" with { 'entities': associations } %} {% endembed %}
+    {% embed "WorldDashboardBundle:Dashboard:news.list.html.twig" with { 'entities': news } %} {% endembed %}
+
+    <br>
+    <br>
+
+    {% embed "WorldDashboardBundle:Dashboard:activities.list.html.twig" with { 'entities': activities } %} {% endembed %}
+
+    <br>
+    <div class="ui divider"></div>
+
+    {% embed "WorldDashboardBundle:Dashboard:associations.list.html.twig" with { 'entities': associations } %} {% endembed %}
 
 {%- endblock %}
