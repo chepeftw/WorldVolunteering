@@ -1,0 +1,11 @@
+{% trans_default_domain 'WorldDashboardBundle' %}
+
+{% if url is not empty and name is not empty %}
+    <div class="column">
+        <b>{{ title|trans }}:</b> <a href="{{ url }}">{{ name }}</a>
+    </div>
+{% elseif name is not empty %}
+    <div class="column">
+        <b>{{ title|trans }}:</b> {{ name }}
+    </div>
+{% endif %}

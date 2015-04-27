@@ -293,6 +293,14 @@ class Association extends BaseEntity
     /**
      * @var string
      *
+     * @ORM\Column(name="facebookUrl", type="string", length=255, nullable=true)
+     * @Gedmo\Versioned
+     */
+    private $facebookUrl;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="twitter", type="string", length=255, nullable=true)
      * @Gedmo\Versioned
      */
@@ -301,10 +309,26 @@ class Association extends BaseEntity
     /**
      * @var string
      *
+     * @ORM\Column(name="twitterUrl", type="string", length=255, nullable=true)
+     * @Gedmo\Versioned
+     */
+    private $twitterUrl;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="instagram", type="string", length=255, nullable=true)
      * @Gedmo\Versioned
      */
     private $instagram;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="instagramUrl", type="string", length=255, nullable=true)
+     * @Gedmo\Versioned
+     */
+    private $instagramUrl;
 
 
 
@@ -490,7 +514,7 @@ class Association extends BaseEntity
      *
      * @ORM\OneToMany(targetEntity="Activity", mappedBy="association")
      */
-    protected $activites;
+    protected $activities;
 
     /**
      * @var Testimonial
@@ -611,6 +635,17 @@ class Association extends BaseEntity
 
     public function getPath() {
         return realpath('.') . '/' . self::$IMG_PATH;
+    }
+
+    public function getSlug() {
+        return $this->cleanName( $this->getName() );
+    }
+
+    private function cleanName($string) {
+        $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+        $string = strtolower($string);
+
+        return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
     }
 
 
@@ -1938,39 +1973,7 @@ class Association extends BaseEntity
     {
         return $this->updated;
     }
-
-    /**
-     * Add activites
-     *
-     * @param \World\VolunteerBundle\Entity\Activity $activites
-     * @return Association
-     */
-    public function addActivite(\World\VolunteerBundle\Entity\Activity $activites)
-    {
-        $this->activites[] = $activites;
-
-        return $this;
-    }
-
-    /**
-     * Remove activites
-     *
-     * @param \World\VolunteerBundle\Entity\Activity $activites
-     */
-    public function removeActivite(\World\VolunteerBundle\Entity\Activity $activites)
-    {
-        $this->activites->removeElement($activites);
-    }
-
-    /**
-     * Get activites
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getActivites()
-    {
-        return $this->activites;
-    }
+    
 
     /**
      * Add testimonials
@@ -2139,5 +2142,111 @@ class Association extends BaseEntity
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Add activity
+     *
+     * @param \World\VolunteerBundle\Entity\Activity $activity
+     *
+     * @return Association
+     */
+    public function addActivity(\World\VolunteerBundle\Entity\Activity $activity)
+    {
+        $this->activities[] = $activity;
+
+        return $this;
+    }
+
+    /**
+     * Remove activity
+     *
+     * @param \World\VolunteerBundle\Entity\Activity $activity
+     */
+    public function removeActivity(\World\VolunteerBundle\Entity\Activity $activity)
+    {
+        $this->activities->removeElement($activity);
+    }
+
+    /**
+     * Get activities
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getActivities()
+    {
+        return $this->activities;
+    }
+
+    /**
+     * Set facebookUrl
+     *
+     * @param string $facebookUrl
+     *
+     * @return Association
+     */
+    public function setFacebookUrl($facebookUrl)
+    {
+        $this->facebookUrl = $facebookUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get facebookUrl
+     *
+     * @return string
+     */
+    public function getFacebookUrl()
+    {
+        return $this->facebookUrl;
+    }
+
+    /**
+     * Set twitterUrl
+     *
+     * @param string $twitterUrl
+     *
+     * @return Association
+     */
+    public function setTwitterUrl($twitterUrl)
+    {
+        $this->twitterUrl = $twitterUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get twitterUrl
+     *
+     * @return string
+     */
+    public function getTwitterUrl()
+    {
+        return $this->twitterUrl;
+    }
+
+    /**
+     * Set instagramUrl
+     *
+     * @param string $instagramUrl
+     *
+     * @return Association
+     */
+    public function setInstagramUrl($instagramUrl)
+    {
+        $this->instagramUrl = $instagramUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get instagramUrl
+     *
+     * @return string
+     */
+    public function getInstagramUrl()
+    {
+        return $this->instagramUrl;
     }
 }

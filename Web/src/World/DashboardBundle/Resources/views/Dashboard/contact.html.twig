@@ -1,0 +1,29 @@
+{% extends 'WorldDashboardBundle::layout.html.twig' %}
+
+{% trans_default_domain 'WorldDashboardBundle' %}
+
+{% block breadcrumb %}{% endblock %}
+
+{% block slider %}
+    {% embed "WorldDashboardBundle:Dashboard:slider.html.twig" with { 'entities': slides } %} {% endembed %}
+{% endblock %}
+
+{% block body -%}
+
+    <br>
+
+    <div class="ui stackable center aligned one column grid">
+        <div class="one column row column">
+            {% embed "WorldToolBundle:Base:share.html.twig" %} {% endembed %}
+        </div>
+    </div>
+
+    <h1 class="ui centered header">
+        Contactanos
+    </h1>
+
+    <h2 class="ui centered header">
+        Correo Electronico: coordinador@guatevoluntaria.org
+    </h2>
+
+{%- endblock %}

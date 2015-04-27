@@ -1,0 +1,47 @@
+general:
+    country: Country
+    state: State
+    city: City
+    phone: Phone
+    email: E-Mail
+    founded: Founded
+    operationtime: Operation Time
+    website: Website
+    facebook: Facebook
+    twitter: Twitter
+    instragram: Instagram
+    generalinformation: General Information
+    mission: Mission
+    vision: Vision
+    philosophy: Philosophy
+    volunteer: Volunteer
+    requirements: Requirements
+    age: Age
+    commitment: Commitment
+    donations: Donations
+    method: Method
+    purpose: Purpose
+    activities: Activities
+    aboutus: About Us
+    whatwedo: What We Do
+    date: Date
+    location: Location
+    news: News
+    volunteers: Volunteers
+
+
+menu:
+    home: Home
+    admin: Admin
+    user: User
+    search: Search
+    followus: Follow us:
+    associations: Associations
+    about: About Us
+    contact: Contact Us
+
+form:
+    new: Create
+    update: Update
+    delete: Delete
+    filter: Filter

@@ -1,0 +1,19 @@
+{% trans_default_domain 'WorldDashboardBundle' %}
+
+{% if entities is not empty %}
+
+    <h1 class="ui centered header">{{ 'general.volunteers'|trans }}</h1>
+
+    <div class="ui stackable center aligned four column grid">
+        {% for entity in entities %}
+            <div class="column">
+                <div class="ui segment">
+                    <a href="{{ path('association_show_seo', { 'id': entity.id, 'slug': entity.slug }) }}">
+                        <img src="{{ entity.imageWebPath | imagine_filter('thumb') }}" class="ui fluid image">
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endif %}

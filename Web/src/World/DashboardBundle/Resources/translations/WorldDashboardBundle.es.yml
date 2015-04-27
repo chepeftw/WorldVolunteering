@@ -1,0 +1,47 @@
+general:
+    country: Pais
+    state: Departamento
+    city: Municipio
+    phone: Telefono
+    email: E-Mail
+    founded: Fecha de fundacion
+    operationtime: Tiempo de Operar
+    website: Pagina Web
+    facebook: Facebook
+    twitter: Twitter
+    instragram: Instagram
+    generalinformation: Informacion General
+    mission: Mision
+    vision: Vision
+    philosophy: Filosofia
+    volunteer: Voluntario
+    requirements: Requisitos
+    age: Edad
+    commitment: Compromiso
+    donations: Donaciones
+    method: Metodo
+    purpose: Proposito
+    activities: Actividades
+    aboutus: Quienes somos?
+    whatwedo: Que hacemos?
+    date: Fecha
+    location: Lugar
+    news: Noticias
+    volunteers: Voluntariados
+
+
+menu:
+    home: Inicio
+    admin: Admin
+    user: Usuario
+    search: Buscar
+    followus: Siguenos en:
+    associations: Voluntariados
+    about: Quienes Somos
+    contact: Contactanos
+
+form:
+    new: Create
+    update: Update
+    delete: Delete
+    filter: Filter

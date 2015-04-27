@@ -91,13 +91,13 @@ class AssociationController extends Controller
      * Finds and displays a Association entity.
      *
      */
-    public function showAction($id)
+    public function showAction($id, $slug)
     {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('WorldVolunteerBundle:Association')->find($id);
 
-        if (!$entity) {
+        if (!$entity || $entity->getSlug() != $slug) {
             throw $this->createNotFoundException('Unable to find Association entity.');
         }
 
