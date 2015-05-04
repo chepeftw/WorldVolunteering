@@ -2,6 +2,8 @@
 
 {% trans_default_domain 'WorldDashboardBundle' %}
 
+{% form_theme form 'WorldDashboardBundle::themes/theme.html.twig'  %}
+
 {% block breadcrumb %}{% endblock %}
 
 {% block slider %}
@@ -19,11 +21,15 @@
     </div>
 
     <h1 class="ui centered header">
-        Contactanos
+        {{ 'general.contact'|trans }}
     </h1>
 
     <h2 class="ui centered header">
-        Correo Electronico: coordinador@guatevoluntaria.org
+        {{ 'general.contactmail'|trans }}: {{ contact_mail }}
     </h2>
+
+    {{ form(form) }}
+
+    {{ form_javascript(form) }}
 
 {%- endblock %}

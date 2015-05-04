@@ -28,7 +28,8 @@ general:
     location: Location
     news: News
     volunteers: Volunteers
-
+    contact: Contact Us
+    contactmail: Email
 
 menu:
     home: Home
@@ -45,3 +46,16 @@ form:
     update: Update
     delete: Delete
     filter: Filter
+    send: Send
+
+contact:
+  firstname: First Name
+  lastname: Last Name
+  email: Email
+  phone: Phone
+  comment: Comment
+  created: Created
+
+send:
+  success: Your message was sent successfully
+  error: There was an error, please try again

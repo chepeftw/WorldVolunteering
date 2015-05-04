@@ -1,0 +1,16 @@
+{% trans_default_domain 'TahoeResourcesDashboardBundle' %}
+
+<script type="text/javascript">
+    $(document).ready( function () {
+    	noty( {
+	    	dismissQueue: true, 
+	    	force: true, 
+	    	layout: 'top', 
+	    	theme: 'defaultTheme', 
+	    	text: '{{ text|trans }}', 
+	    	type: '{{ type }}',
+	    	maxVisible  : 6,
+	    	timeout     : 8000
+		} );
+    } );
+</script>

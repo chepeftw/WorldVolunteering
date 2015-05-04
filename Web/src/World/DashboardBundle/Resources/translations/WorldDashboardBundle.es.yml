@@ -28,7 +28,8 @@ general:
     location: Lugar
     news: Noticias
     volunteers: Voluntariados
-
+    contact: Contactanos
+    contactmail: Correo electronico
 
 menu:
     home: Inicio
@@ -41,7 +42,20 @@ menu:
     contact: Contactanos
 
 form:
-    new: Create
-    update: Update
-    delete: Delete
-    filter: Filter
+    new: Crear
+    update: Editar
+    delete: Borrar
+    filter: Filtrar
+    send: Enviar
+
+contact:
+  firstname: Nombre
+  lastname: Apellido
+  email: Correo Electronico
+  phone: Telefono
+  comment: Comentario
+  created: Creado
+
+send:
+  success: Tu mensaje fue enviado exitosamente
+  error: Hubo un error, por favor intenta de nuevo

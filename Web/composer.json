@@ -25,7 +25,8 @@
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
         "liip/imagine-bundle": "dev-master",
         "sonata-project/admin-bundle": "~2.3",
-        "sonata-project/doctrine-orm-admin-bundle": "~2.3"
+        "sonata-project/doctrine-orm-admin-bundle": "~2.3",
+        "genemu/form-bundle": "2.2.*"
     },
     "scripts": {
         "post-install-cmd": [

@@ -35,7 +35,7 @@ class AppKernel extends Kernel
 
             // Then add SonataAdminBundle
             new Sonata\AdminBundle\SonataAdminBundle(),
-
+            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
 
             new World\VolunteerBundle\WorldVolunteerBundle(),
             new World\ToolBundle\WorldToolBundle(),
