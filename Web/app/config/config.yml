@@ -31,6 +31,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+      contact_mail: %contact_mail%
 
 # Assetic Configuration
 assetic:
@@ -148,3 +150,8 @@ sonata_block:
 
 sonata_admin:
     title:      World Volunteering
+
+genemu_form:
+    recaptcha:
+        public_key:  6LfX18QSAAAAAImPtFNBLUF13cccE6IdKSHCKmRd
+        private_key: 6LfX18QSAAAAANZRRRFnsjx7VRfYUN6qMk7t8rDP

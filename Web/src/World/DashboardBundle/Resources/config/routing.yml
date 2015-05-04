@@ -13,3 +13,8 @@ world_dashboard_about:
 world_dashboard_contact:
     path:     /contact
     defaults: { _controller: WorldDashboardBundle:Dashboard:contact }
+
+world_dashboard_contact_send:
+    path:     /send
+    defaults: { _controller: WorldDashboardBundle:Dashboard:send }
+    methods:  POST

@@ -61,6 +61,13 @@ class Contact extends BaseEntity
     private $comment;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="captcha", type="array")
+     */
+    private $captcha;
+
+    /**
      * @var datetime $created
      *
      * @Gedmo\Timestampable(on="create")
@@ -93,6 +100,10 @@ class Contact extends BaseEntity
      * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
      */
     private $updatedBy;
+
+    public function toSubject() {
+        return $this->getFirstName()." ".$this->getLastName()." (".$this->getEmail().")";
+    }
 
 
     /**
@@ -224,5 +235,124 @@ class Contact extends BaseEntity
     {
         return $this->comment;
     }
-}
 
+    /**
+     * Set captcha
+     *
+     * @param string $captcha
+     *
+     * @return Contact
+     */
+    public function setCaptcha($captcha)
+    {
+        $this->captcha = $captcha;
+
+        return $this;
+    }
+
+    /**
+     * Get captcha
+     *
+     * @return string
+     */
+    public function getCaptcha()
+    {
+        return $this->captcha;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     *
+     * @return Contact
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return Contact
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param \World\UserBundle\Entity\User $createdBy
+     *
+     * @return Contact
+     */
+    public function setCreatedBy(\World\UserBundle\Entity\User $createdBy = null)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return \World\UserBundle\Entity\User
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set updatedBy
+     *
+     * @param \World\UserBundle\Entity\User $updatedBy
+     *
+     * @return Contact
+     */
+    public function setUpdatedBy(\World\UserBundle\Entity\User $updatedBy = null)
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedBy
+     *
+     * @return \World\UserBundle\Entity\User
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updatedBy;
+    }
+}

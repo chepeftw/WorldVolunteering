@@ -15,20 +15,20 @@
         </a>
 
         <a class="item" href="{{ path('world_dashboard_associations') }}">
-            <i class="home icon"></i> {{ 'menu.associations'|trans }}
+            <i class="list icon"></i> {{ 'menu.associations'|trans }}
         </a>
 
         <a class="item" href="{{ path('world_dashboard_about') }}">
-            <i class="home icon"></i> {{ 'menu.about'|trans }}
+            <i class="idea icon"></i> {{ 'menu.about'|trans }}
         </a>
 
         <a class="item" href="{{ path('world_dashboard_contact') }}">
-            <i class="home icon"></i> {{ 'menu.contact'|trans }}
+            <i class="mail icon"></i> {{ 'menu.contact'|trans }}
         </a>
 
         {% if is_granted('ROLE_ADMIN') %}
             <a class="item" href="{{ path('sonata_admin_dashboard') }}">
-                <i class="mail icon"></i> {{ 'menu.admin'|trans }}
+                <i class="lab icon"></i> {{ 'menu.admin'|trans }}
             </a>
         {% endif %}
 

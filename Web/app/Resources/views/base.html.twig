@@ -46,7 +46,9 @@
     {% block javascripts_header %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.1/semantic.min.js" type="text/javascript"></script>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
         <script src="{{ asset('bundles/worlddashboard/chosen/chosen.jquery.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('bundles/worlddashboard/noty-2.3.5/js/noty/packaged/jquery.noty.packaged.min.js') }}" type="text/javascript"></script>
     {% endblock %}
 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}" />
@@ -65,6 +67,14 @@
         {% block footer %}{% endblock %}
 
         {% block javascripts %}{% endblock %}
+
+        {% for flashMessage in app.session.flashbag.get('success') %}
+            {% embed "WorldDashboardBundle::themenotification.html.twig" with {'text': flashMessage, 'type' : 'success'} %} {% endembed %}
+        {% endfor %}
+
+        {% for flashMessage in app.session.flashbag.get('error') %}
+            {% embed "WorldDashboardBundle::themenotification.html.twig" with {'text': flashMessage, 'type' : 'error'} %} {% endembed %}
+        {% endfor %}
 
         {% block javascripts_footer %}
             <script type="text/javascript">

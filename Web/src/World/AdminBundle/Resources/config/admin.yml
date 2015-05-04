@@ -20,3 +20,13 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [AcmeDemoBundle]]
+    sonata.admin.contact:
+        class: World\AdminBundle\Admin\ContactAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Admin", label: "Contact" }
+        arguments:
+            - ~
+            - World\AdminBundle\Entity\Contact
+            - ~
+        calls:
+            - [ setTranslationDomain, [AcmeDemoBundle]]
