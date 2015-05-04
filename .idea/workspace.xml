@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83c507a1-f40b-4666-bc7d-8d9a76abcd19" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/src/World/AdminBundle/Admin/ContactAdmin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/app/Resources/views/base.clean.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/email.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/themenotification.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/app/AppKernel.php" afterPath="$PROJECT_DIR$/Web/app/AppKernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/AdminBundle/Entity/Contact.php" afterPath="$PROJECT_DIR$/Web/src/World/AdminBundle/Entity/Contact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Controller/DashboardController.php" afterPath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Controller/DashboardController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/app/SymfonyRequirements.php" afterPath="$PROJECT_DIR$/Web/app/SymfonyRequirements.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/translations/WorldDashboardBundle.en.yml" afterPath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/translations/WorldDashboardBundle.en.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/translations/WorldDashboardBundle.es.yml" afterPath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/translations/WorldDashboardBundle.es.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/AdminBundle/Resources/config/admin.yml" afterPath="$PROJECT_DIR$/Web/src/World/AdminBundle/Resources/config/admin.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/Web/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/composer.json" afterPath="$PROJECT_DIR$/Web/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/composer.lock" afterPath="$PROJECT_DIR$/Web/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/app/config/config.yml" afterPath="$PROJECT_DIR$/Web/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/contact.html.twig" afterPath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/Dashboard/contact.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/layout.html.twig" afterPath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/layout.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/app/config/parameters.yml.dist" afterPath="$PROJECT_DIR$/Web/app/config/parameters.yml.dist" />
     </list>
     <ignored path="worldvolunteering.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,11 +27,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/layout.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4928806" vertical-offset="0" max-vertical-offset="1836">
+            <state vertical-scroll-proportion="-16.666666" vertical-offset="0" max-vertical-offset="1836">
               <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="parameters.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Web/app/config/parameters.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378">
+              <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="parameters.yml.dist" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Web/app/config/parameters.yml.dist">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.30220357" vertical-offset="0" max-vertical-offset="953">
+              <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -63,7 +65,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Admin/TestimonialAdmin.php" />
         <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Admin/PhotoAdmin.php" />
         <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Admin/VideoAdmin.php" />
         <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Resources/config/admin.yml" />
@@ -114,6 +115,7 @@
         <option value="$PROJECT_DIR$/Web/src/World/AdminBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/themenotification.html.twig" />
         <option value="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/layout.html.twig" />
+        <option value="$PROJECT_DIR$/Web/app/config/parameters.yml.dist" />
       </list>
     </option>
   </component>
@@ -941,14 +943,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Web/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18887722" vertical-offset="0" max-vertical-offset="953">
-          <caret line="10" column="15" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/translations/WorldDashboardBundle.es.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1332633" vertical-offset="0" max-vertical-offset="1188">
@@ -985,8 +979,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4928806" vertical-offset="0" max-vertical-offset="1836">
+        <state vertical-scroll-proportion="-16.666666" vertical-offset="0" max-vertical-offset="1836">
           <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/app/config/parameters.yml.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30220357" vertical-offset="0" max-vertical-offset="953">
+          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
           <folding />
         </state>
       </provider>
