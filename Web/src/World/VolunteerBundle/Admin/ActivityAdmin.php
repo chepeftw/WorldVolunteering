@@ -57,15 +57,41 @@ class ActivityAdmin extends Admin
 
     public function prePersist($object)
     {
-        // We get the uploadable manager!
-        $uploadableManager = $this->getConfigurationPool()->getContainer()->get('stof_doctrine_extensions.uploadable.manager');
-        $uploadableManager->markEntityToUpload($object, $object->getImage());
+        if( $object->getImage() ) {
+            $uploadableManager = $this->getConfigurationPool()->getContainer()->get('stof_doctrine_extensions.uploadable.manager');
+            $uploadableManager->markEntityToUpload($object, $object->getImage());
+        }
+    }
+
+    public function postPersist($object) {
+        if( $object->getImage() ) {
+            $object->setAuxImage( $object->getImage() );
+            $this->getModelManager()->update( $object );
+        }
     }
 
     public function preUpdate($object)
     {
-        // We get the uploadable manager!
-        $uploadableManager = $this->getConfigurationPool()->getContainer()->get('stof_doctrine_extensions.uploadable.manager');
-        $uploadableManager->markEntityToUpload($object, $object->getImage());
+        if( $object->getImage() ) {
+            $uploadableManager = $this->getConfigurationPool()->getContainer()->get('stof_doctrine_extensions.uploadable.manager');
+            $uploadableManager->markEntityToUpload($object, $object->getImage());
+        }
+    }
+
+    public function postUpdate($object) {
+//        $entity = $this->getModelManager()->find( self::$CLASS, $object->getId() );
+//        echo $entity->getName()." - ".$entity->getImageWebPath();die;
+
+        if( $object->getImage() == null && $object->getAuxImage() != null  ) {
+            $object->setImage( $object->getAuxImage() );
+            $this->getModelManager()->update( $object );
+        }
+
+        if( $object->getImage() ) {
+            if( $object->getImage() != $object->getAuxImage() ) {
+                $object->setAuxImage( $object->getImage() );
+                $this->getModelManager()->update( $object );
+            }
+        }
     }
 }

@@ -54,6 +54,13 @@ class Slide extends BaseEntity
     private $image;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="auxImage", type="string", length=255, nullable=true)
+     */
+    private $auxImage;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="enabled", type="boolean", nullable=true)
@@ -404,5 +411,29 @@ class Slide extends BaseEntity
     public function getUpdatedBy()
     {
         return $this->updatedBy;
+    }
+
+    /**
+     * Set auxImage
+     *
+     * @param string $auxImage
+     *
+     * @return Slide
+     */
+    public function setAuxImage($auxImage)
+    {
+        $this->auxImage = $auxImage;
+
+        return $this;
+    }
+
+    /**
+     * Get auxImage
+     *
+     * @return string
+     */
+    public function getAuxImage()
+    {
+        return $this->auxImage;
     }
 }

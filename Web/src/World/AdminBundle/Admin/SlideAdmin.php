@@ -10,6 +10,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class SlideAdmin extends Admin
 {
+    private static $CLASS = "WorldAdminBundle:Slide";
+
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
@@ -18,11 +20,13 @@ class SlideAdmin extends Admin
 //            ->add('author', 'entity', array('class' => 'Acme\DemoBundle\Entity\User'))
             ->add('name') //if no type is specified, SonataAdminBundle tries to guess it
             ->add('description')
-            ->add('image', 'file', array('required' => false, 'data_class' => null, 'mapped' => true))
+//            ->add('image', 'file', array('required' => false, 'data_class' => null, 'mapped' => true))
+            ->add('image', 'file', array('required' => false, 'data_class' => null))
             ->add('startDate')
             ->add('endDate')
             ->add('sortOrder')
             ->add('enabled')
+            ->add('auxImage', 'hidden')
         ;
     }
 
@@ -32,8 +36,8 @@ class SlideAdmin extends Admin
         $datagridMapper
             ->add('name')
             ->add('description')
-            ->add('startDate')
-            ->add('endDate')
+            ->add('startDate', 'doctrine_orm_date_range')
+            ->add('endDate', 'doctrine_orm_date_range')
             ->add('sortOrder')
             ->add('enabled')
         ;
@@ -57,15 +61,41 @@ class SlideAdmin extends Admin
 
     public function prePersist($object)
     {
-        // We get the uploadable manager!
-        $uploadableManager = $this->getConfigurationPool()->getContainer()->get('stof_doctrine_extensions.uploadable.manager');
-        $uploadableManager->markEntityToUpload($object, $object->getImage());
+        if( $object->getImage() ) {
+            $uploadableManager = $this->getConfigurationPool()->getContainer()->get('stof_doctrine_extensions.uploadable.manager');
+            $uploadableManager->markEntityToUpload($object, $object->getImage());
+        }
+    }
+
+    public function postPersist($object) {
+        if( $object->getImage() ) {
+            $object->setAuxImage( $object->getImage() );
+            $this->getModelManager()->update( $object );
+        }
     }
 
     public function preUpdate($object)
     {
-        // We get the uploadable manager!
-        $uploadableManager = $this->getConfigurationPool()->getContainer()->get('stof_doctrine_extensions.uploadable.manager');
-        $uploadableManager->markEntityToUpload($object, $object->getImage());
+        if( $object->getImage() ) {
+            $uploadableManager = $this->getConfigurationPool()->getContainer()->get('stof_doctrine_extensions.uploadable.manager');
+            $uploadableManager->markEntityToUpload($object, $object->getImage());
+        }
+    }
+
+    public function postUpdate($object) {
+//        $entity = $this->getModelManager()->find( self::$CLASS, $object->getId() );
+//        echo $entity->getName()." - ".$entity->getImageWebPath();die;
+
+        if( $object->getImage() == null && $object->getAuxImage() != null  ) {
+            $object->setImage( $object->getAuxImage() );
+            $this->getModelManager()->update( $object );
+        }
+
+        if( $object->getImage() ) {
+            if( $object->getImage() != $object->getAuxImage() ) {
+                $object->setAuxImage( $object->getImage() );
+                $this->getModelManager()->update( $object );
+            }
+        }
     }
 }

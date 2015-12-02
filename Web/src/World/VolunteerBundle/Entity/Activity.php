@@ -69,6 +69,12 @@ class Activity extends BaseEntity
      */
     private $image;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="auxImage", type="string", length=255, nullable=true)
+     */
+    private $auxImage;
 
     /**
      * @var Association
@@ -404,5 +410,29 @@ class Activity extends BaseEntity
     public function getUpdatedBy()
     {
         return $this->updatedBy;
+    }
+
+    /**
+     * Set auxImage
+     *
+     * @param string $auxImage
+     *
+     * @return Activity
+     */
+    public function setAuxImage($auxImage)
+    {
+        $this->auxImage = $auxImage;
+
+        return $this;
+    }
+
+    /**
+     * Get auxImage
+     *
+     * @return string
+     */
+    public function getAuxImage()
+    {
+        return $this->auxImage;
     }
 }

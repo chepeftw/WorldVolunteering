@@ -99,15 +99,41 @@ class AssociationAdmin extends Admin
 
     public function prePersist($object)
     {
-        // We get the uploadable manager!
-        $uploadableManager = $this->getConfigurationPool()->getContainer()->get('stof_doctrine_extensions.uploadable.manager');
-        $uploadableManager->markEntityToUpload($object, $object->getLogo());
+        if( $object->getLogo() ) {
+            $uploadableManager = $this->getConfigurationPool()->getContainer()->get('stof_doctrine_extensions.uploadable.manager');
+            $uploadableManager->markEntityToUpload($object, $object->getLogo());
+        }
+    }
+
+    public function postPersist($object) {
+        if( $object->getLogo() ) {
+            $object->setAuxLogo( $object->getLogo() );
+            $this->getModelManager()->update( $object );
+        }
     }
 
     public function preUpdate($object)
     {
-        // We get the uploadable manager!
-        $uploadableManager = $this->getConfigurationPool()->getContainer()->get('stof_doctrine_extensions.uploadable.manager');
-        $uploadableManager->markEntityToUpload($object, $object->getLogo());
+        if( $object->getLogo() ) {
+            $uploadableManager = $this->getConfigurationPool()->getContainer()->get('stof_doctrine_extensions.uploadable.manager');
+            $uploadableManager->markEntityToUpload($object, $object->getLogo());
+        }
+    }
+
+    public function postUpdate($object) {
+//        $entity = $this->getModelManager()->find( self::$CLASS, $object->getId() );
+//        echo $entity->getName()." - ".$entity->getImageWebPath();die;
+
+        if( $object->getLogo() == null && $object->getAuxLogo() != null  ) {
+            $object->setLogo( $object->getAuxLogo() );
+            $this->getModelManager()->update( $object );
+        }
+
+        if( $object->getLogo() ) {
+            if( $object->getLogo() != $object->getAuxLogo() ) {
+                $object->setAuxLogo( $object->getLogo() );
+                $this->getModelManager()->update( $object );
+            }
+        }
     }
 }

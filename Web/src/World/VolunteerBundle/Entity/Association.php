@@ -507,6 +507,13 @@ class Association extends BaseEntity
      */
     private $logo;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="auxLogo", type="string", length=255, nullable=true)
+     */
+    private $auxLogo;
+
 
 
     /**
@@ -2248,5 +2255,29 @@ class Association extends BaseEntity
     public function getInstagramUrl()
     {
         return $this->instagramUrl;
+    }
+
+    /**
+     * Set auxLogo
+     *
+     * @param string $auxLogo
+     *
+     * @return Association
+     */
+    public function setAuxLogo($auxLogo)
+    {
+        $this->auxLogo = $auxLogo;
+
+        return $this;
+    }
+
+    /**
+     * Get auxLogo
+     *
+     * @return string
+     */
+    public function getAuxLogo()
+    {
+        return $this->auxLogo;
     }
 }
