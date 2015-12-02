@@ -17,8 +17,8 @@
         <!-- Slides Container -->
         <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1300px; height: 500px; overflow: hidden;">
             {% for entity in entities %}
-                <div>
-                    <img u="image" src2="{{ asset( entity.imageWebPath ) }}" />
+                <div data-img-src="{{ asset( entity.imageWebPath ) }}">
+                    <img u="image" src="{{ asset( entity.imageWebPath ) }}" />
                 </div>
             {% endfor %}
         </div>
