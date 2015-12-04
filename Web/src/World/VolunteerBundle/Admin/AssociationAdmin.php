@@ -23,7 +23,9 @@ class AssociationAdmin extends Admin
             ->add('city')
             ->add('phone')
             ->add('email')
-            ->add('founded')
+            ->add('founded', null, array(
+                'years' => range(date('Y') - 100, date('Y')),
+            ) )
             ->add('operationTime')
             ->add('mission')
             ->add('vision')
@@ -52,7 +54,9 @@ class AssociationAdmin extends Admin
             ->add('director')
             ->add('directorPhone')
             ->add('directorEmail')
-            ->add('directorBirthdate')
+            ->add('directorBirthdate', null, array(
+                'years' => range(date('Y') - 100, date('Y')),
+            ) )
             ->add('directorTime')
             ->add('history')
             ->add('volunteerRequirements')
