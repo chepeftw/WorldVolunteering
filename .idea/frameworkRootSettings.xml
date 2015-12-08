@@ -8,5 +8,12 @@
         <element elementPath="$PROJECT_DIR$/Web/web" typeId="web_directory" />
       </list>
     </option>
+    <option name="myTypedPaths">
+      <list>
+        <element elementPath="$PROJECT_DIR$/Web/app" typeId="app_directory" />
+        <element elementPath="$PROJECT_DIR$/Web/vendor" typeId="vendor_directory" />
+        <element elementPath="$PROJECT_DIR$/Web/web" typeId="web_directory" />
+      </list>
+    </option>
   </component>
 </project>

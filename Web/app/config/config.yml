@@ -1,9 +1,6 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: @WorldAdminBundle/Resources/config/admin.yml }
-    - { resource: @WorldVolunteerBundle/Resources/config/admin.yml }
-    - { resource: @WorldUserBundle/Resources/config/admin.yml }
 
 framework:
     #esi:             ~

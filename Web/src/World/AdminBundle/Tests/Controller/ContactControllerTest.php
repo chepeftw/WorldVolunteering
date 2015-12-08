@@ -6,50 +6,33 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ContactControllerTest extends WebTestCase
 {
-    /*
+
     public function testCompleteScenario()
     {
         // Create a new client to browse the application
         $client = static::createClient();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/contact/');
+        $crawler = $client->request('GET', '/contact');
         $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /contact/");
-        $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
+
+//        $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
 
         // Fill in the form and submit it
-        $form = $crawler->selectButton('Create')->form(array(
-            'world_adminbundle_contact[field_name]'  => 'Test',
+        $form = $crawler->selectButton('Send')->form(array(
+            'world_adminbundle_contact[firstName]'  => 'Test First Name',
+            'world_adminbundle_contact[lastName]'  => 'Test Last Name',
+            'world_adminbundle_contact[email]'  => 'test@test.com',
+            'world_adminbundle_contact[phone]'  => '87654321',
+            'world_adminbundle_contact[comment]'  => 'Hola bla bla',
+            'recaptcha_response_field'  => '1234',
             // ... other fields to fill
         ));
 
         $client->submit($form);
         $crawler = $client->followRedirect();
 
-        // Check data in the show view
-        $this->assertGreaterThan(0, $crawler->filter('td:contains("Test")')->count(), 'Missing element td:contains("Test")');
-
-        // Edit the entity
-        $crawler = $client->click($crawler->selectLink('Edit')->link());
-
-        $form = $crawler->selectButton('Update')->form(array(
-            'world_adminbundle_contact[field_name]'  => 'Foo',
-            // ... other fields to fill
-        ));
-
-        $client->submit($form);
-        $crawler = $client->followRedirect();
-
-        // Check the element contains an attribute with value equals "Foo"
-        $this->assertGreaterThan(0, $crawler->filter('[value="Foo"]')->count(), 'Missing element [value="Foo"]');
-
-        // Delete the entity
-        $client->submit($crawler->selectButton('Delete')->form());
-        $crawler = $client->followRedirect();
-
-        // Check the entity has been delete on the list
-        $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /contact/");
     }
 
-    */
 }

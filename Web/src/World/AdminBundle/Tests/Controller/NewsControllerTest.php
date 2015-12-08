@@ -3,6 +3,8 @@
 namespace World\AdminBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\BrowserKit\Cookie;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class NewsControllerTest extends WebTestCase
 {
@@ -49,6 +51,55 @@ class NewsControllerTest extends WebTestCase
 
         // Check the entity has been delete on the list
         $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
+    }
+
+
+    public function testSecuredNews()
+    {
+        $client = static::createClient();
+
+        $username = 'admin';
+        $password = 'admin';
+
+        $crawler = $client->request('GET', '/login');
+        $form = $crawler->selectButton('_submit')->form(array(
+            '_username'  => $username,
+            '_password'  => $password,
+        ));
+        $client->submit($form);
+
+        $this->assertTrue($client->getResponse()->isRedirect());
+
+        $crawler = $client->followRedirect();
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /news/");
+
+        $crawler = $client->request('GET', '/admin/world/admin/news/list');
+
+        $this->assertTrue($client->getResponse()->isSuccessful());
+        $this->assertGreaterThan(0, $crawler->filter('html:contains("News List")')->count());
+        $this->assertGreaterThan(0, $crawler->filter('html:contains("World Volunteering")')->count());
+
+//        echo $crawler->selectLink('Add new')->link()->getUri();
+
+        $crawler = $client->request('GET', '/admin/world/admin/news/create');
+
+
+        $randomNumber = rand();
+
+        // Fill in the form and submit it
+        $form = $crawler->selectButton('Create and return to list')->form(array(
+            'world_adminbundle_news[name]'  => 'Test'.$randomNumber,
+            'world_adminbundle_news[description]'  => 'Test'.$randomNumber,
+            'world_adminbundle_news[sortOrder]'  => 0,
+            'world_adminbundle_news[enabled]'  => true,
+        ));
+
+        $client->submit($form);
+        $crawler = $client->followRedirect();
+
+        // Check data in the show view
+        $this->assertGreaterThan(0, $crawler->filter('td:contains("Test'. $randomNumber .'")')->count(), 'Missing element td:contains("Test'.$randomNumber.'")');
     }
 
     */

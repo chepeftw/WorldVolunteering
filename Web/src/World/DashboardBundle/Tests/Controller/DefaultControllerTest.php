@@ -10,8 +10,20 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/hello/Fabien');
+        $urls = array(
+            '/',
+            '/associations',
+            '/about',
+            '/contact',
+            '/association/1/yoa',
+        );
 
-        $this->assertTrue($crawler->filter('html:contains("Hello Fabien")')->count() > 0);
+        foreach( $urls as $url ) {
+            $crawler = $client->request( 'GET', $url );
+
+            $this->assertTrue( $client->getResponse()->isSuccessful() );
+            $this->assertTrue( $crawler->filter('html:contains("Mint3 Inc")')->count() > 0 );
+        }
+
     }
 }
