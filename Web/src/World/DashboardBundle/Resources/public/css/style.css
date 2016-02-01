@@ -52,6 +52,6 @@ h1, h2, h3, h4 {
     display: inline;
 }
 
-.about-us {
+.about-us, .space-content {
     margin: 50px;
 }

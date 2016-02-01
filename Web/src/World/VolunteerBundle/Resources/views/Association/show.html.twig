@@ -115,119 +115,136 @@
     </div>
 
 
-
-    {% if entity.aboutUs is not empty %}
-        <h2 class="ui center aligned header">{{ 'general.aboutus'|trans }}</h2>
-
-        <div class="ui center aligned one column grid">
-            <div class="column">{{ entity.aboutUs }}</div>
-        </div>
-    {% endif %}
+    <div class="space-content">
 
 
-    {% if entity.whatWeDo is not empty %}
-        <h2 class="ui center aligned header">{{ 'general.whatwedo'|trans }}</h2>
+        {% if entity.aboutUs is not empty %}
+            <h2 class="ui center aligned header">{{ 'general.aboutus'|trans }}</h2>
 
-        <div class="ui center aligned one column grid">
-            <div class="column">{{ entity.whatWeDo }}</div>
-        </div>
-    {% endif %}
-
-
-    <br>
-    <div class="ui divider"></div>
-
-
-    <h2 class="ui center aligned header">{{ 'general.generalinformation'|trans }}</h2>
-
-    <div class="ui center aligned one column grid">
-
-        {% if entity.mission is not empty %}
-            <div class="row">
-                <h3 class="ui center aligned header">{{ 'general.mission'|trans }}</h3>
-                <div class="column">{{ entity.mission }}</div>
+            <div class="ui center aligned one column grid">
+                <div class="column">{{ entity.aboutUs }}</div>
             </div>
         {% endif %}
 
-        {% if entity.vision is not empty %}
-            <div class="row">
-                <h3 class="ui center aligned header">{{ 'general.vision'|trans }}</h3>
-                <div class="column">{{ entity.vision }}</div>
+
+        {% if entity.whatWeDo is not empty %}
+            <h2 class="ui center aligned header">{{ 'general.whatwedo'|trans }}</h2>
+
+            <div class="ui center aligned one column grid">
+                <div class="column">{{ entity.whatWeDo }}</div>
             </div>
         {% endif %}
 
-        {% if entity.philosophy is not empty %}
-            <div class="row">
-                <h3 class="ui center aligned header">{{ 'general.philosophy'|trans }}</h3>
-                <div class="column">{{ entity.philosophy }}</div>
-            </div>
-        {% endif %}
 
-    </div>
+        <br>
+        <div class="ui divider"></div>
 
 
-    <br>
-    <div class="ui divider"></div>
-
-
-    <h2 class="ui center aligned header">{{ 'general.volunteer'|trans }}</h2>
-
-    <div class="ui center aligned one column grid">
-
-        {% if entity.volunteerRequirements is not empty %}
-            <div class="row">
-                <h3 class="ui center aligned header">{{ 'general.requirements'|trans }}</h3>
-                <div class="column">{{ entity.volunteerRequirements }}</div>
-            </div>
-        {% endif %}
-
-        {% if entity.volunteerAge is not empty %}
-            <div class="row">
-                <h3 class="ui center aligned header">{{ 'general.age'|trans }}</h3>
-                <div class="column">{{ entity.volunteerAge }}</div>
-            </div>
-        {% endif %}
-
-        {% if entity.commitment is not empty %}
-            <div class="row">
-                <h3 class="ui center aligned header">{{ 'general.commitment'|trans }}</h3>
-                <div class="column">{{ entity.commitment }}</div>
-            </div>
-        {% endif %}
-
-    </div>
-
-
-    <br>
-    <div class="ui divider"></div>
-
-    {% if entity.donations == 1 %}
-
-        <h2 class="ui center aligned header">{{ 'general.donations'|trans }}</h2>
+        <h2 class="ui center aligned header">{{ 'general.generalinformation'|trans }}</h2>
 
         <div class="ui center aligned one column grid">
 
-            {% if entity.donationMethod is not empty %}
+            {% if entity.mission is not empty %}
                 <div class="row">
-                    <h3 class="ui center aligned header">{{ 'general.method'|trans }}</h3>
-                    <div class="column">{{ entity.donationMethod }}</div>
+                    <h3 class="ui center aligned header">{{ 'general.mission'|trans }}</h3>
+                    <div class="column">{{ entity.mission }}</div>
                 </div>
             {% endif %}
 
-            {% if entity.donationPurpose is not empty %}
+            {% if entity.vision is not empty %}
                 <div class="row">
-                    <h3 class="ui center aligned header">{{ 'general.purpose'|trans }}</h3>
-                    <div class="column">{{ entity.donationPurpose }}</div>
+                    <h3 class="ui center aligned header">{{ 'general.vision'|trans }}</h3>
+                    <div class="column">{{ entity.vision }}</div>
+                </div>
+            {% endif %}
+
+            {% if entity.philosophy is not empty %}
+                <div class="row">
+                    <h3 class="ui center aligned header">{{ 'general.philosophy'|trans }}</h3>
+                    <div class="column">{{ entity.philosophy }}</div>
                 </div>
             {% endif %}
 
         </div>
 
-    {% endif %}
 
-    <br>
-    <div class="ui divider"></div>
 
-    {% embed "WorldDashboardBundle:Dashboard:activities.list.html.twig" with { 'entities': entity.activities } %} {% endembed %}
+
+        {% if entity.volunteerRequirements is not empty or entity.volunteerAge is not empty or entity.commitment is not empty   %}
+
+        <br>
+        <div class="ui divider"></div>
+
+
+        <h2 class="ui center aligned header">{{ 'general.volunteer'|trans }}</h2>
+
+        <div class="ui center aligned one column grid">
+
+            {% if entity.volunteerRequirements is not empty %}
+                <div class="row">
+                    <h3 class="ui center aligned header">{{ 'general.requirements'|trans }}</h3>
+                    <div class="column">{{ entity.volunteerRequirements }}</div>
+                </div>
+            {% endif %}
+
+            {% if entity.volunteerAge is not empty %}
+                <div class="row">
+                    <h3 class="ui center aligned header">{{ 'general.age'|trans }}</h3>
+                    <div class="column">{{ entity.volunteerAge }}</div>
+                </div>
+            {% endif %}
+
+            {% if entity.commitment is not empty %}
+                <div class="row">
+                    <h3 class="ui center aligned header">{{ 'general.commitment'|trans }}</h3>
+                    <div class="column">{{ entity.commitment }}</div>
+                </div>
+            {% endif %}
+
+        </div>
+
+        {% endif %}
+
+
+
+
+        {% if entity.donations == 1 %}
+
+            <br>
+            <div class="ui divider"></div>
+
+            <h2 class="ui center aligned header">{{ 'general.donations'|trans }}</h2>
+
+            <div class="ui center aligned one column grid">
+
+                {% if entity.donationMethod is not empty %}
+                    <div class="row">
+                        <h3 class="ui center aligned header">{{ 'general.method'|trans }}</h3>
+                        <div class="column">{{ entity.donationMethod }}</div>
+                    </div>
+                {% endif %}
+
+                {% if entity.donationPurpose is not empty %}
+                    <div class="row">
+                        <h3 class="ui center aligned header">{{ 'general.purpose'|trans }}</h3>
+                        <div class="column">{{ entity.donationPurpose }}</div>
+                    </div>
+                {% endif %}
+
+            </div>
+
+        {% endif %}
+
+
+        {% if entity.activities|length > 0 %}
+
+            <br>
+            <div class="ui divider"></div>
+
+            {% embed "WorldDashboardBundle:Dashboard:activities.list.html.twig" with { 'entities': entity.activities } %} {% endembed %}
+
+        {% endif %}
+
+    </div>
 
 {% endblock %}
