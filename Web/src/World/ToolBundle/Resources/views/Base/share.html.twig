@@ -1,29 +1,28 @@
 <div class="functions-show">
 
+    <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
+            if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
 
     {% set currentPath = path( app.request.attributes.get('_route'), app.request.attributes.get('_route_params') ) %}
 
-    <fb:like href="{{ currentPath }}" send="false" layout="box_count" width="50" show_faces="true"></fb:like>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <g:plusone size="tall"></g:plusone>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="https://twitter.com/share" class="twitter-share-button" data-count="vertical">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+    <!-- Your share button code -->
+    <div class="fb-share-button"
+         data-href="{{ currentPath }}"
+         data-layout="button_count">
+    </div>
 
-    <!-- Place this render call where appropriate -->
-    <script type="text/javascript">
-        (function() {
-            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-            po.src = 'https://apis.google.com/js/plusone.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-        })();
-    </script>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Hello%20world">
+        Tweet
+    </a>
+
 
 </div>
