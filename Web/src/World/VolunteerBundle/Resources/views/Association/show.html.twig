@@ -34,13 +34,14 @@
 {% endblock %}
 
 {% block body -%}
+
+    <div class="ui segment">
+        <img class="ui centered large image" src="{{ entity.imageWebPath | imagine_filter('show') }}">
+    </div>
+
     <h1 class="ui center aligned header">{{ entity.name }}</h1>
 
-    <div class="ui center aligned two column grid">
-
-        <div class="four wide column">
-            <img class="ui centered image" src="{{ entity.imageWebPath | imagine_filter('show') }}">
-        </div>
+    <div class="ui center aligned one column grid">
 
         <div class="column">
             <div class="ui stackable center aligned one column grid">
