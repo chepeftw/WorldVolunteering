@@ -10,25 +10,25 @@ association_show_seo:
     path:     /{id}/{slug}
     defaults: { _controller: "WorldVolunteerBundle:Association:show" }
 
-association_new:
-    path:     /new
-    defaults: { _controller: "WorldVolunteerBundle:Association:new" }
-
-association_create:
-    path:     /create
-    defaults: { _controller: "WorldVolunteerBundle:Association:create" }
-    methods:  POST
-
-association_edit:
-    path:     /{id}/edit
-    defaults: { _controller: "WorldVolunteerBundle:Association:edit" }
-
-association_update:
-    path:     /{id}/update
-    defaults: { _controller: "WorldVolunteerBundle:Association:update" }
-    methods:  [POST, PUT]
-
-association_delete:
-    path:     /{id}/delete
-    defaults: { _controller: "WorldVolunteerBundle:Association:delete" }
-    methods:  [POST, DELETE]
+#association_new:
+#    path:     /new
+#    defaults: { _controller: "WorldVolunteerBundle:Association:new" }
+#
+#association_create:
+#    path:     /create
+#    defaults: { _controller: "WorldVolunteerBundle:Association:create" }
+#    methods:  POST
+#
+#association_edit:
+#    path:     /{id}/edit
+#    defaults: { _controller: "WorldVolunteerBundle:Association:edit" }
+#
+#association_update:
+#    path:     /{id}/update
+#    defaults: { _controller: "WorldVolunteerBundle:Association:update" }
+#    methods:  [POST, PUT]
+#
+#association_delete:
+#    path:     /{id}/delete
+#    defaults: { _controller: "WorldVolunteerBundle:Association:delete" }
+#    methods:  [POST, DELETE]
