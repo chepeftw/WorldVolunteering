@@ -5,7 +5,7 @@
 {% block metas %}
     {% set title = entity.name ~ ' | GuateVoluntaria.org' %}
     {% set keywords = entity.name ~ ', actividades voluntariado, voluntarios, voluntariado, trabajo voluntario, voluntarios en guatemala, voluntariado en guatemala, guatemala' %}
-    {% set description = entity.aboutUs %}
+    {% set description = entity.aboutUs|replace({"\n":'', "\r":''}) %}
     {#{% set image = 'http://guatevoluntaria.org/images/logo.png' %}#}
     {% set image = entity.imageWebPath | imagine_filter('show') %}
     {% set currentPath = app.request.getSchemeAndHttpHost() ~ path( app.request.attributes.get('_route'), app.request.attributes.get('_route_params') ) %}

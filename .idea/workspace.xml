@@ -10,7 +10,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/web/media/cache/thumb_news/uploads/news/2838197137c1e49e2b074274bc0cfd335896ff91.jpg" afterPath="$PROJECT_DIR$/Web/web/media/cache/thumb_news/uploads/news/2838197137c1e49e2b074274bc0cfd335896ff91.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/web/media/cache/thumb_news/uploads/news/46b26ab7539ac9b96746e1347c082640a678e860.jpg" afterPath="$PROJECT_DIR$/Web/web/media/cache/thumb_news/uploads/news/46b26ab7539ac9b96746e1347c082640a678e860.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/Web/app/Resources/views/base.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Resources/views/Association/show.html.twig" afterPath="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Resources/views/Association/show.html.twig" />
     </list>
     <ignored path="worldvolunteering.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,11 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Web/src/World/VolunteerBundle/Resources/views/Association/show.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="122" column="46" selection-start-line="122" selection-start-column="44" selection-end-line="122" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.1420839">
+              <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -102,11 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Web/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7713126">
-              <caret line="38" column="60" selection-start-line="38" selection-start-column="60" selection-end-line="38" selection-end-column="60" />
+            <state vertical-scroll-proportion="-10.0">
+              <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -177,7 +177,6 @@
         <option value="$PROJECT_DIR$/Web/src/World/AdminBundle/Tests/Controller/ContactControllerTest.php" />
         <option value="$PROJECT_DIR$/Web/src/World/AdminBundle/Tests/Controller/NewsControllerTest.php" />
         <option value="$PROJECT_DIR$/Web/app/config/config.yml" />
-        <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Resources/views/Association/show.html.twig" />
         <option value="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/translations/WorldDashboardBundle.es.yml" />
         <option value="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/translations/WorldDashboardBundle.en.yml" />
         <option value="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/public/css/style.css" />
@@ -191,6 +190,7 @@
         <option value="$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/Web/src/World/ToolBundle/Resources/views/Base/share.html.twig" />
         <option value="$PROJECT_DIR$/Web/app/Resources/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/Web/src/World/VolunteerBundle/Resources/views/Association/show.html.twig" />
       </list>
     </option>
   </component>
@@ -1664,14 +1664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/World/VolunteerBundle/Resources/views/Association/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="122" column="46" selection-start-line="122" selection-start-column="44" selection-end-line="122" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Web/src/World/DashboardBundle/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1690,8 +1682,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Web/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7713126">
-          <caret line="38" column="60" selection-start-line="38" selection-start-column="60" selection-end-line="38" selection-end-column="60" />
+        <state vertical-scroll-proportion="-10.0">
+          <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/World/VolunteerBundle/Resources/views/Association/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1420839">
+          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="67" />
           <folding />
         </state>
       </provider>
