@@ -12,7 +12,7 @@
         {% set keywords = 'actividades voluntariado, voluntarios, voluntariado, trabajo voluntario, voluntarios en guatemala, voluntariado en guatemala, guatemala' %}
         {% set description = 'Directorio de voluntariado en Guatemala, contamos con listado de asociaciones y sus actividades futuras, necesitamos tu ayuda para construir una mejor Guatemala.' %}
         {% set image = 'http://guatevoluntaria.org/images/logo.png' %}
-        {% set currentPath = path( app.request.attributes.get('_route'), app.request.attributes.get('_route_params') ) %}
+        {% set currentPath = app.request.getSchemeAndHttpHost() ~ path( app.request.attributes.get('_route'), app.request.attributes.get('_route_params') ) %}
 
         <title>{% block title %}{{ title }}{% endblock %}</title>
 
