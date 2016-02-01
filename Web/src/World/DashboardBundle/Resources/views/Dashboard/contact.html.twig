@@ -13,10 +13,13 @@
 {% block body -%}
 
     <br>
+    <div style="clear: both"></div>
 
     <div class="ui stackable center aligned one column grid">
-        <div class="one column row column">
-            {% embed "WorldToolBundle:Base:share.html.twig" %} {% endembed %}
+        <div class="one column row">
+            <div class="column">
+                {% embed "WorldToolBundle:Base:share.html.twig" %} {% endembed %}
+            </div>
         </div>
     </div>
 
