@@ -52,12 +52,12 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
 
-            <div class="item">
-                <div class="ui icon input">
-                    <input placeholder="{{ 'menu.search'|trans }}..." type="text">
-                    <i class="search link icon"></i>
-                </div>
-            </div>
+            {#<div class="item">#}
+                {#<div class="ui icon input">#}
+                    {#<input placeholder="{{ 'menu.search'|trans }}..." type="text">#}
+                    {#<i class="search link icon"></i>#}
+                {#</div>#}
+            {#</div>#}
 
             {% if is_granted('ROLE_ADMIN') %}
                 <a class="item" href="{{ path('fos_user_security_logout') }}">
