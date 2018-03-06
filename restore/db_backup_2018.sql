@@ -19,9 +19,9 @@
 -- Current Database: `worldVolunteering`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `worldVolunteering` /*!40100 DEFAULT CHARACTER SET latin1 */;
+# CREATE DATABASE /*!32312 IF NOT EXISTS*/ `worldVolunteering` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-USE `worldVolunteering`;
+# USE `worldVolunteering`;
 
 --
 -- Table structure for table `Activity`
