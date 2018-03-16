@@ -125,8 +125,17 @@ function dock_build {
 
 MD5CMD="md5"
 
+mymd5() {
+    if hash md5sum 2>/dev/null; then
+        MD5CMD="md5sum"
+    else
+        MD5CMD="md5"
+    fi
+}
+
 function dock_startfirsttime {
     if [ ! -f ./mysql.env ]; then
+      mymd5
       echo "mysql.env not found! Creating one!"
       DBNAME="worldvolunteering"$(date | ${MD5CMD} | head -c8)
       USERNAME="guatevoluntaria"$(date | ${MD5CMD} | head -c8)

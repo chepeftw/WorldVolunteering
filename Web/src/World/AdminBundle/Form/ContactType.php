@@ -20,7 +20,6 @@ class ContactType extends AbstractType
             ->add('email', null, array('label' => 'contact.email'))
             ->add('phone', null, array('label' => 'contact.phone'))
             ->add('comment', null, array('label' => 'contact.comment'))
-            ->add('captcha', 'genemu_recaptcha')
         ;
     }
     
