@@ -133,7 +133,7 @@ mymd5() {
     fi
 }
 
-function dock_startfirsttime {
+preparefiles() {
     if [ ! -f ./mysql.env ]; then
       mymd5
       echo "mysql.env not found! Creating one!"
@@ -142,19 +142,25 @@ function dock_startfirsttime {
       PWD1=$(date | ${MD5CMD} | head -c32)
       PWD2=$(openssl rand -base64 64 | ${MD5CMD} | head -c32)
       cp mysql.template mysql.env
-      sed -i '.original' "s/%%database%%/${DBNAME}/g" mysql.env
-      sed -i '.original' "s/%%username%%/${USERNAME}/g" mysql.env
-      sed -i '.original' "s/%%password%%/${PWD1}/g" mysql.env
-      sed -i '.original' "s/%%root_password%%/${PWD2}/g" mysql.env
+      # I used to have the .original to create a backup but I think is no longer necessary,
+      # sed -i '.original' "s/%%database%%/${DBNAME}/g" mysql.env
+      sed -i.bu "s/%%database%%/${DBNAME}/g" mysql.env
+      sed -i.bu "s/%%username%%/${USERNAME}/g" mysql.env
+      sed -i.bu "s/%%password%%/${PWD1}/g" mysql.env
+      sed -i.bu "s/%%root_password%%/${PWD2}/g" mysql.env
 
       if [ ! -f ./Web/app/config/parameters.yml ]; then
           echo "parameters.yml not found! Creating one!"
           cp ./Web/app/config/parameters.yml.dist ./Web/app/config/parameters.yml
-          sed -i '.original' "s/%%database%%/${DBNAME}/g" ./Web/app/config/parameters.yml
-          sed -i '.original' "s/%%username%%/${USERNAME}/g" ./Web/app/config/parameters.yml
-          sed -i '.original' "s/%%password%%/${PWD1}/g" ./Web/app/config/parameters.yml
+          sed -i.bu "s/%%database%%/${DBNAME}/g" ./Web/app/config/parameters.yml
+          sed -i.bu "s/%%username%%/${USERNAME}/g" ./Web/app/config/parameters.yml
+          sed -i.bu "s/%%password%%/${PWD1}/g" ./Web/app/config/parameters.yml
       fi
     fi
+}
+
+function dock_startfirsttime {
+    preparefiles
 
     docker-compose -f $S build
 
@@ -296,6 +302,9 @@ case "$ACTION" in
 
     firsttime)
         dock_startfirsttime
+        ;;
+    prep)
+        preparefiles
         ;;
 
     *)
