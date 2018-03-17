@@ -17,11 +17,16 @@ class DashboardController extends Controller
         $activities = $em->getRepository('WorldVolunteerBundle:Activity')->findAllCustom( true );
         $associations = $em->getRepository('WorldVolunteerBundle:Association')->findAllCustom( true );
 
+        $entity = new Contact();
+        $form   = $this->createContactForm($entity);
+
         return $this->render('WorldDashboardBundle:Dashboard:index.html.twig', array(
             'slides' => $slides,
             'news' => $news,
             'activities' => $activities,
             'associations' => $associations,
+            'entity' => $entity,
+            'form'   => $form->createView(),
         ));
     }
 
