@@ -26,7 +26,7 @@
             <i class="mail icon"></i> {{ 'menu.contact'|trans }}
         </a>
 
-        {% if is_granted('ROLE_ADMIN') %}
+        {% if is_granted('ROLE_USER') %}
             <a class="item" href="{{ path('sonata_admin_dashboard') }}">
                 <i class="lab icon"></i> {{ 'menu.admin'|trans }}
             </a>
@@ -59,7 +59,7 @@
                 {#</div>#}
             {#</div>#}
 
-            {% if is_granted('ROLE_ADMIN') %}
+            {% if is_granted('ROLE_USER') %}
                 <a class="item" href="{{ path('fos_user_security_logout') }}">
                     {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                 </a>

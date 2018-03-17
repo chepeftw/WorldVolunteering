@@ -172,8 +172,6 @@ function dock_startfirsttime {
 
     sf_composer install
 
-    docker-compose exec php app/console doctrine:schema:update --dump-sql --force
-
     db_restore
     sf_cacheclear
 }
