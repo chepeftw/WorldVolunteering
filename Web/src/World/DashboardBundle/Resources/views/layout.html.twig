@@ -17,14 +17,20 @@
         {#<a class="item" href="{{ path('world_dashboard_associations') }}">#}
             {#<i class="list icon"></i> {{ 'menu.associations'|trans }}#}
         {#</a>#}
-
-        <a class="item" href="{{ path('world_dashboard_about') }}">
-            <i class="idea icon"></i> {{ 'menu.about'|trans }}
+        <a class="item" href="#associations">
+            <i class="list icon"></i> {{ 'menu.associations'|trans }}
         </a>
+
+        {#<a class="item" href="{{ path('world_dashboard_about') }}">#}
+            {#<i class="idea icon"></i> {{ 'menu.about'|trans }}#}
+        {#</a>#}
 
         {#<a class="item" href="{{ path('world_dashboard_contact') }}">#}
             {#<i class="mail icon"></i> {{ 'menu.contact'|trans }}#}
         {#</a>#}
+        <a class="item" href="#contact">
+            <i class="mail icon"></i> {{ 'menu.contact'|trans }}
+        </a>
 
         {% if is_granted('ROLE_USER') %}
             <a class="item" href="{{ path('sonata_admin_dashboard') }}">
