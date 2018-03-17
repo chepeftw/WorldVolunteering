@@ -2,6 +2,8 @@
 
 {% trans_default_domain 'WorldDashboardBundle' %}
 
+{% form_theme form 'WorldDashboardBundle::themes/theme.html.twig'  %}
+
 {% block breadcrumb %}{% endblock %}
 
 {% block slider %}
@@ -22,18 +24,6 @@
     </div>
 
     <br>
-
-
-    <br>
-    <div style="clear: both"></div>
-
-    <div class="ui stackable center aligned one column grid">
-        <div class="one column row">
-            <div class="column">
-                {% embed "WorldToolBundle:Base:share.html.twig" %} {% endembed %}
-            </div>
-        </div>
-    </div>
 
     <h1 class="ui centered header">
         Centro de Voluntariado Guatemalteco -CVG-
