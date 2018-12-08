@@ -16,6 +16,8 @@ services:
         build: ./docker/php-fpm
         expose:
           - "9001"
+        ports:
+          - "127.0.0.1:9014:9001"
         networks:
           - backend
         volumes:
@@ -33,7 +35,7 @@ services:
     nginx:
         build: ./docker/nginx
         ports:
-            - "8484:80"
+            - "127.0.0.1:8484:80"
         networks:
           - backend
           - frontend
