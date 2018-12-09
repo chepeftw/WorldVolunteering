@@ -1,23 +1,14 @@
 version: '3.3'
 
 services:
-        #    db:
-        #        image: mysql
-        #        networks:
-        #          - backend
-        #        expose:
-        #          - "3306"
-        #        volumes:
-        #          - db-data:/var/lib/mysql
-        #          - ./restore:/restore
-        #        restart: always
-        #        env_file: ./mysql.env
     php:
         build: ./docker/php-fpm
         expose:
+          - "9000"
           - "9001"
         ports:
-          - "127.0.0.1:9014:9001"
+          - "127.0.0.1:9016:9000"
+          - "127.0.0.1:9017:9001"
         networks:
           - backend
         volumes:
@@ -41,17 +32,11 @@ services:
           - frontend
         depends_on:
           - php
-            #          - db
         volumes:
           - ./Web/web:/var/www/symfony/web
           - ./docker/nginx/conf-main:/etc/nginx/conf.d
           - ./logs/nginx/:/var/log/nginx
         restart: always
-#    sass:
-#        build: ./docker/sass
-#        command: "sass /var/www/symfony/web/scss/custom.scss /var/www/symfony/web/output/custom.css --style compressed && sass /var/www/symfony/web/scss/login.scss /var/www/symfony/web/output/login.css --style compressed"
-#        volumes:
-#            - ./Web/web:/var/www/symfony/web
 
 
 networks:

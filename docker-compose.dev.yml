@@ -1,17 +1,17 @@
 version: '3.3'
 
 services:
-        #    db:
-        #        image: mysql
-        #        networks:
-        #          - backend
-        #        expose:
-        #          - "3306"
-        #        volumes:
-        #          - db-data:/var/lib/mysql
-        #          - ./restore:/restore
-        #        restart: always
-        #        env_file: ./mysql.env
+    db:
+        image: mysql
+        networks:
+          - backend
+        expose:
+          - "3306"
+        volumes:
+          - db-data:/var/lib/mysql
+          - ./restore:/restore
+        restart: always
+        env_file: ./mysql.env
     php:
         build: ./docker/php-fpm
         expose:
