@@ -23,25 +23,7 @@ services:
         networks:
           - backend
         env_file: ./mysql.env
-    nginx:
-        build: ./docker/nginx
-        ports:
-            - "127.0.0.1:8484:80"
-        networks:
-          - backend
-          - frontend
-        depends_on:
-          - php
-        volumes:
-          - ./Web/web:/var/www/symfony/web
-          - ./docker/nginx/conf-main:/etc/nginx/conf.d
-          - ./logs/nginx/:/var/log/nginx
-        restart: always
 
 
 networks:
-  frontend:
   backend:
-
-          #volumes:
-        #  db-data:

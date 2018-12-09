@@ -179,11 +179,12 @@ function dock_startfirsttime {
 function dock_start {
     docker-compose -f $S up -d
 
-    docker-compose exec nginx mkdir -p /var/lib/nginx/tmp/client_body
-    docker-compose exec nginx chown -R www-data:www-data /var/lib/nginx /var/lib/nginx/tmp /var/lib/nginx/tmp/client_body
-    docker-compose exec nginx chmod -R 777 /var/lib/nginx/tmp/client_body /var/lib/nginx/tmp /var/lib/nginx
+#    docker-compose exec nginx mkdir -p /var/lib/nginx/tmp/client_body
+#    docker-compose exec nginx chown -R www-data:www-data /var/lib/nginx /var/lib/nginx/tmp /var/lib/nginx/tmp/client_body
+#    docker-compose exec nginx chmod -R 777 /var/lib/nginx/tmp/client_body /var/lib/nginx/tmp /var/lib/nginx
 
     docker-compose exec php app/console doctrine:schema:update --dump-sql --force
+    docker-compose stop tools
 }
 
 function dock_stop {
